@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taotao.whats.mapper.location.LocationMapper">
+  <resultMap id="locationResultMap" type="com.taotao.whats.entity.Location">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="lat" jdbcType="VARCHAR" property="lat" />
+    <result column="lng" jdbcType="VARCHAR" property="lng" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="systime" jdbcType="TIMESTAMP" property="systime" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+  </resultMap>
+</mapper>
