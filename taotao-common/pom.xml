@@ -14,6 +14,15 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.spy</groupId>
+            <artifactId>spymemcached</artifactId>
+        </dependency>
+
         <!--   基础依赖  start-->
         <dependency>
             <groupId>dom4j</groupId>

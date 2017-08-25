@@ -39,6 +39,9 @@
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <commons-net.version>3.3</commons-net.version>
 
+        <commons-spymemcached.version>2.11.7</commons-spymemcached.version>
+        <commons-ehcache.version>2.6.9</commons-ehcache.version>
+
         <!-- Log libs -->
         <slf4j.version>1.6.4</slf4j.version><!-- 1.7.9 -->
         <log4j.version>1.2.16</log4j.version><!-- 1.2.17 -->
@@ -63,6 +66,20 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--  缓存  start-->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache-core</artifactId>
+                <version>${commons-ehcache.version}</version>
+                <scope>${dependency.common}</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.spy</groupId>
+                <artifactId>spymemcached</artifactId>
+                <version>${commons-spymemcached.version}</version>
+                <scope>${dependency.common}</scope>
+            </dependency>
+            <!--  缓存  end-->
             <!--  hessian 远程调用  -->
             <dependency>
                 <groupId>com.caucho</groupId>
@@ -452,6 +469,13 @@
             <!--      commons依赖  end -->
 
 
+            <!--   模块依赖   start-->
+            <dependency>
+                <groupId>com.taotao</groupId>
+                <artifactId>taotao-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--   模块依赖   end-->
         </dependencies>
     </dependencyManagement>
 
@@ -470,6 +494,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
         </dependency>
     </dependencies>
     <build>

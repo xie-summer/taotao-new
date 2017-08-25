@@ -1,7 +1,7 @@
 package com.taotao.configurer;
 
 import com.github.pagehelper.PageHelper;
-import com.taotao.whats.core.ProjectConstant;
+import com.taotao.core.ProjectConstant;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

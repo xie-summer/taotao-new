@@ -1,0 +1,15 @@
+cas:
+ server:
+   host:
+    url: http://192.168.1.101/cas #cas服务地址
+    login_url: /login #登录地址
+    logout_url: /logout #注销地址
+
+app:
+ server:
+  host:
+    url: http://localhost:8080/web-cas #本应用访问地址
+ login:
+    url: /login/cas #本应用登录地址
+ logout:
+    url: /logout #本应用退出地址
