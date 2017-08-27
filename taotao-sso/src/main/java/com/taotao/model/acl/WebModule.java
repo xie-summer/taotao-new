@@ -2,14 +2,19 @@ package com.taotao.model.acl;
 
 import com.taotao.model.BaseObject;
 import com.taotao.web.support.SecurityModule;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
 
 /**
- * @author <a href="mailto:acerge@163.com">gebiao(acerge)</a>
- * @since 2007-9-28下午02:05:17
+ * 菜单
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class WebModule extends BaseObject implements SecurityModule {
 	public static final String TAG_GEWA = "G";
 	public static final String TAG_PARTNER = "GP";
@@ -33,8 +38,7 @@ public class WebModule extends BaseObject implements SecurityModule {
 	public void setMatchorder(Integer matchorder) {
 		this.matchorder = matchorder;
 	}
-	public WebModule() {
-	}
+
 	@Override
 	public Serializable realId() {
 		return id;
@@ -116,6 +120,6 @@ public class WebModule extends BaseObject implements SecurityModule {
 	public void setTop(boolean top) {
 		this.top = top;
 	}
-	
-	
+
+
 }

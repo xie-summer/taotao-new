@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taotao.mapper.SysMenuMapper">
+  <resultMap id="menuResultMap" type="com.taotao.model.acl.SysMenu">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="module_url" jdbcType="VARCHAR" property="moduleurl" />
+    <result column="match_order" jdbcType="INTEGER" property="matchorder" />
+    <result column="menu_code" jdbcType="VARCHAR" property="menucode" />
+    <result column="menu_title" jdbcType="VARCHAR" property="menutitle" />
+    <result column="target" jdbcType="VARCHAR" property="target" />
+    <result column="display" jdbcType="VARCHAR" property="display" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="role_names" jdbcType="VARCHAR" property="rolenames" />
+    <result column="top" jdbcType="BOOLEAN" property="top" />
+  </resultMap>
+</mapper>

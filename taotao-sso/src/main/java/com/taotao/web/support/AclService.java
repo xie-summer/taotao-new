@@ -1,6 +1,7 @@
 package com.taotao.web.support;
 
 import com.taotao.model.acl.GewaraUser;
+import com.taotao.model.acl.SysMenu;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -16,8 +17,8 @@ public interface AclService<T extends SecurityModule> extends UserDetailsService
 	List<T> getMenuList(String tag);
 	List<String> getRolenameList();
 	void setLogonType(String ptn);
-	
-	
+
+	public SysMenu findMenuRoles(String url) ;
 	/**
 	 * 根据用户名获取用户对象
 	 * @param name

@@ -5,7 +5,7 @@ import org.springframework.security.core.Authentication;
 public interface SessidGenerator {
 
 	/**
-	 * Éú³Ésessid
+	 * ç”Ÿæˆsessid
 	 * @param auth
 	 * @return
 	 */

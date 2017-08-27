@@ -10,7 +10,7 @@ import java.util.*;
  * Create the javascript required for the Xtree menu functionality
  * 
  * @author <a href="mailto:acerge@163.com">gebiao(acerge)</a>
- * @since 2007-9-28ÏÂÎç02:05:17
+ * @since 2007-9-28ä¸‹åˆ02:05:17
  */
 public class GBMenuDataBuilder<T extends SecurityModule> {
 	public static final String MENU_DATA_KEY = "com.gewara.web.menu.MENU_DATA_KEY";
@@ -52,7 +52,7 @@ public class GBMenuDataBuilder<T extends SecurityModule> {
 	private void buildMenuRepository(StringBuilder sb) {
 		sb.append("{");
 		sb.append("'id':'0',");
-		sb.append("'text':'Ö÷²Ëµ¥',");
+		sb.append("'text':'ä¸»èœå•',");
 		sb.append("'iconCls':'icon-pkg',");
 		sb.append("'cls':'package',");
 		sb.append("'singleClickExpand':true,");
@@ -139,7 +139,7 @@ public class GBMenuDataBuilder<T extends SecurityModule> {
 	 */
 	private boolean isAllowed(T menu) {
 		String menuRoles = menu.getRolenames();
-		// ÎŞ½ÇÉ«£¬Ä¬ÈÏÔÊĞí
+		// æ— è§’è‰²ï¼Œé»˜è®¤å…è®¸
 		if (StringUtils.isBlank(menuRoles))
 			return false;
 		String[] mroles = StringUtils.split(menuRoles, ",");

@@ -1,5 +1,6 @@
 package com.taotao.web.configurer;
 
+import com.taotao.mapper.GewaraUserMapper;
 import com.taotao.model.acl.GewaraUser;
 import com.taotao.util.LoggerUtils;
 import com.taotao.util.TLogger;
@@ -17,13 +18,13 @@ public class AcmCasUserDetailService implements AuthenticationUserDetailsService
     private static final TLogger USER_SERVICE_LOGGER = LoggerUtils.getLogger(AcmCasUserDetailService.class);
 
     @Resource
-    private TSysUserDao tsysUserDAO;
+    private GewaraUserMapper gewaraUserMapper;
 
     @Override
     public UserDetails loadUserDetails(CasAssertionAuthenticationToken token) throws UsernameNotFoundException {
         USER_SERVICE_LOGGER.warn("校验成功的登录名为: " + token.getName());
         //此处涉及到数据库操作然后读取权限集合，读者可自行实现
-        GewaraUser sysUser = tsysUserDAO.findByUserName(token.getName());
+        GewaraUser sysUser = gewaraUserMapper.findByUserName(token.getName());
         if (null == sysUser) {
             throw new UsernameNotFoundException("username isn't exsited in log-cms");
         }
