@@ -1,11 +1,11 @@
 package com.taotao.service.user.impl;
 
-import com.taotao.whats.core.AbstractService;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultGenerator;
-import com.taotao.whats.entity.User;
-import com.taotao.whats.mapper.user.UserMapper;
-import com.taotao.whats.service.user.UserService;
+import com.taotao.core.AbstractService;
+import com.taotao.core.Result;
+import com.taotao.core.ResultGenerator;
+import com.taotao.entity.User;
+import com.taotao.mapper.user.UserMapper;
+import com.taotao.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

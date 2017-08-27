@@ -2,10 +2,10 @@ package com.taotao.web.controller.cart;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultGenerator;
-import com.taotao.whats.entity.Cart;
-import com.taotao.whats.service.cart.CartService;
+import com.taotao.core.Result;
+import com.taotao.core.ResultGenerator;
+import com.taotao.entity.Cart;
+import com.taotao.service.cart.CartService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

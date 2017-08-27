@@ -1,7 +1,7 @@
 package com.taotao.mapper.role;
 
-import com.taotao.whats.core.Mapper;
-import com.taotao.whats.entity.Role;
+import com.taotao.core.Mapper;
+import com.taotao.entity.Role;
 
 public interface RoleMapper extends Mapper<Role> {
 }

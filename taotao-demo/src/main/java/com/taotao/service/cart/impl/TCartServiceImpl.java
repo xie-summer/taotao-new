@@ -1,9 +1,9 @@
 package com.taotao.service.cart.impl;
 
-import com.taotao.whats.core.AbstractService;
-import com.taotao.whats.entity.Cart;
-import com.taotao.whats.mapper.cart.CartMapper;
-import com.taotao.whats.service.cart.CartService;
+import com.taotao.core.AbstractService;
+import com.taotao.entity.Cart;
+import com.taotao.mapper.cart.CartMapper;
+import com.taotao.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

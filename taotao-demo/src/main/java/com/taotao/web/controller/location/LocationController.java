@@ -2,10 +2,10 @@ package com.taotao.web.controller.location;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultGenerator;
-import com.taotao.whats.entity.Location;
-import com.taotao.whats.service.location.LocationService;
+import com.taotao.core.Result;
+import com.taotao.core.ResultGenerator;
+import com.taotao.entity.Location;
+import com.taotao.service.location.LocationService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

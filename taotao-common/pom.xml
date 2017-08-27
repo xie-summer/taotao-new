@@ -9,6 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.taotao</groupId>
+    <version>1.0-SNAPSHOT</version>
     <artifactId>taotao-common</artifactId>
     <packaging>jar</packaging>
 

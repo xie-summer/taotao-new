@@ -4,8 +4,8 @@ package com.taotao.web.controller.base;
  * Created by xieshengrong on 2017/7/7.
  */
 
-import com.taotao.whats.web.constant.PageEnum;
-import com.taotao.whats.web.utils.PropertiesFileUtil;
+import com.taotao.web.constant.PageEnum;
+import com.taotao.web.utils.PropertiesFileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

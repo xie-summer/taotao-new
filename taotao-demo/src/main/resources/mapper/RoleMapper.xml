@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.taotao.whats.mapper.role.RoleMapper">
-  <resultMap id="roleResultMap" type="com.taotao.whats.entity.Role">
+<mapper namespace="com.taotao.mapper.role.RoleMapper">
+  <resultMap id="roleResultMap" type="com.taotao.entity.Role">
     <!--
       WARNING - @mbg.generated
     -->

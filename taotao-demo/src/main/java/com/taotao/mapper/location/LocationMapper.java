@@ -1,7 +1,7 @@
 package com.taotao.mapper.location;
 
-import com.taotao.whats.core.Mapper;
-import com.taotao.whats.entity.Location;
+import com.taotao.core.Mapper;
+import com.taotao.entity.Location;
 import org.springframework.stereotype.Repository;
 
 @Repository

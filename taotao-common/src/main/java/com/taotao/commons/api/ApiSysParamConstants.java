@@ -1,43 +1,43 @@
 package com.taotao.commons.api;
 
 /**
- * apiÆ½Ì¨ÏµÍ³²ÎÊı³£Á¿
+ * apiå¹³å°ç³»ç»Ÿå‚æ•°å¸¸é‡
  * @author quzhuping
  *
  */
 public interface ApiSysParamConstants {
 
 	/**
-	 * Ç©ÃûÖµ
+	 * ç­¾åå€¼
 	 */
 	String SIGN = "sign";
 	/**
-	 * Ç©Ãû·½·¨
+	 * ç­¾åæ–¹æ³•
 	 */
 	String SIGNMETHOD = "signmethod";
 
 	/**
-	 * APIÆ½Ì¨·ÖÅä¸øconsumerµÄappkeyµÄ²ÎÊıÃû³Æ
+	 * APIå¹³å°åˆ†é…ç»™consumerçš„appkeyçš„å‚æ•°åç§°
 	 */
 	String APPKEY = "appkey";
 
 	/**
-	 * Ê±¼ä´Á
+	 * æ—¶é—´æˆ³
 	 */
 	String TIMESTAMP = "timestamp";
 
 	/**
-	 * api°æ±¾ºÅ
+	 * apiç‰ˆæœ¬å·
 	 */
 	String V = "v";
 
 	/**
-	 * apiÏìÓ¦½á¹û¸ñÊ½
+	 * apiå“åº”ç»“æœæ ¼å¼
 	 */
 	String FORMAT = "format";
 
 	/**
-	 * consumerÇëÇóµÄµ÷ÓÃ·½·¨
+	 * consumerè¯·æ±‚çš„è°ƒç”¨æ–¹æ³•
 	 */
 	String METHOD = "method";
 }

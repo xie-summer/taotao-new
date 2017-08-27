@@ -1,8 +1,8 @@
 package com.taotao.service.user;
 
-import com.taotao.whats.core.IService;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.entity.User;
+import com.taotao.core.IService;
+import com.taotao.core.Result;
+import com.taotao.entity.User;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.taotao.service.location;
 
-import com.taotao.whats.core.IService;
-import com.taotao.whats.entity.Location;
+import com.taotao.core.IService;
+import com.taotao.entity.Location;
 
 
 /**

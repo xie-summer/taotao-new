@@ -2,11 +2,11 @@ package com.taotao.web.controller.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultGenerator;
-import com.taotao.whats.entity.User;
-import com.taotao.whats.service.user.UserService;
-import com.taotao.whats.web.controller.base.BaseController;
+import com.taotao.core.Result;
+import com.taotao.core.ResultGenerator;
+import com.taotao.entity.User;
+import com.taotao.service.user.UserService;
+import com.taotao.web.controller.base.BaseController;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

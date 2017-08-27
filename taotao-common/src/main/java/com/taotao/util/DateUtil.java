@@ -200,7 +200,7 @@ public class DateUtil implements Util4Script {
 	}
 
 	/**
-	 * @param aDate
+	 * @param
 	 * @return formated time by HH:mm:ss
 	 */
 	public static final <T extends Date> String formatTime(T date) {
@@ -211,7 +211,7 @@ public class DateUtil implements Util4Script {
 	}
 
 	/**
-	 * @param aDate
+	 * @param
 	 * @return formated time by yyyy-MM-dd HH:mm:ss
 	 */
 	public static final <T extends Date> String formatTimestamp(T date) {
@@ -249,7 +249,7 @@ public class DateUtil implements Util4Script {
 	 * @param hours
 	 * @param minutes
 	 * @param seconds
-	 * @param mill
+	 * @param
 	 * @return original+day+hour+minutes+seconds+millseconds
 	 */
 	public static final <T extends Date> T addTime(T original, int days, int hours, int minutes, int seconds) {
@@ -337,7 +337,8 @@ public class DateUtil implements Util4Script {
 		time = StringUtils.trim(time);
 		if (StringUtils.isBlank(time))
 			throw new IllegalArgumentException("时间格式有错误！");
-		time = time.replace('：', ':');
+//		time = time.replace('：',':');
+		time = time.replace("：",":"); //TODO  原代码上面注释
 		String[] times = time.split(":");
 		String result = "";
 		if (times[0].length() < 2)

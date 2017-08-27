@@ -1,7 +1,7 @@
 package com.taotao.mapper.cart;
 
-import com.taotao.whats.core.Mapper;
-import com.taotao.whats.entity.Cart;
+import com.taotao.core.Mapper;
+import com.taotao.entity.Cart;
 import org.springframework.stereotype.Repository;
 
 @Repository

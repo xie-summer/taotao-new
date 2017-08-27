@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.taotao</groupId>
     <artifactId>taotao-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
 
@@ -58,7 +59,6 @@
             <scope>test</scope>
         </dependency>
         <!--常用库依赖-->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>

@@ -121,7 +121,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                     if (StringUtils.isNotEmpty(sign) && validateSign(request, sign)) {
                         return true;
                     } else {
-                        logger.warn("签名认证失败，请求接口：{}，请求IP：{}，请求参数：{}",
+                        logger.warn("签名认证失败，请求接口：{}，请求IP：{}，请求参数：{}"+
                                 request.getRequestURI(), getIpAddress(request), JSON.toJSONString(request.getParameterMap()));
 
                         Result result = new Result();

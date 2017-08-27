@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.taotao</groupId>
     <artifactId>taotao-manage-web</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
 

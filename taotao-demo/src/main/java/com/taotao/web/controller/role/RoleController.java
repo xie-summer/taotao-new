@@ -2,10 +2,10 @@ package com.taotao.web.controller.role;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultGenerator;
-import com.taotao.whats.entity.Role;
-import com.taotao.whats.service.role.RoleService;
+import com.taotao.core.Result;
+import com.taotao.core.ResultGenerator;
+import com.taotao.entity.Role;
+import com.taotao.service.role.RoleService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

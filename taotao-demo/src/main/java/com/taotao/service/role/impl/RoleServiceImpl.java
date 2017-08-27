@@ -1,9 +1,9 @@
 package com.taotao.service.role.impl;
 
-import com.taotao.whats.core.AbstractService;
-import com.taotao.whats.entity.Role;
-import com.taotao.whats.mapper.role.RoleMapper;
-import com.taotao.whats.service.role.RoleService;
+import com.taotao.core.AbstractService;
+import com.taotao.entity.Role;
+import com.taotao.mapper.role.RoleMapper;
+import com.taotao.service.role.RoleService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

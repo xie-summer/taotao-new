@@ -1,6 +1,6 @@
 package com.taotao.web.controller.common;
 
-import com.taotao.whats.web.controller.base.BaseController;
+import com.taotao.web.controller.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

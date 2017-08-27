@@ -1,11 +1,11 @@
 package com.taotao.web.controller.login;
 
-import com.taotao.whats.core.Result;
-import com.taotao.whats.core.ResultCode;
-import com.taotao.whats.entity.User;
-import com.taotao.whats.service.user.UserService;
-import com.taotao.whats.web.constant.PageEnum;
-import com.taotao.whats.web.controller.base.BaseController;
+import com.taotao.core.Result;
+import com.taotao.core.ResultCode;
+import com.taotao.entity.User;
+import com.taotao.service.user.UserService;
+import com.taotao.web.constant.PageEnum;
+import com.taotao.web.controller.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

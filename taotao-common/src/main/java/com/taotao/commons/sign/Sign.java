@@ -10,17 +10,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Ç©ÃûÀà
+ * ç­¾åç±»
  * @author quzhuping
  *
  */
 public class Sign {
 
 	/**
-     * ¶Ô×Ö·û´®½øĞĞMD5Ç©Ãû
-     * @param text Ã÷ÎÄ
-     * @param inputCharset ±àÂë¸ñÊ½ UTF-8»òGBK
-     * @return ÃÜÎÄ,32Î»16½øÖÆĞ¡Ğ´×Ö·û´®
+     * å¯¹å­—ç¬¦ä¸²è¿›è¡ŒMD5ç­¾å
+     * @param text æ˜æ–‡
+     * @param inputCharset ç¼–ç æ ¼å¼ UTF-8æˆ–GBK
+     * @return å¯†æ–‡,32ä½16è¿›åˆ¶å°å†™å­—ç¬¦ä¸²
      */
     public static String md5Hex(String text, String inputCharset) {
 
@@ -42,14 +42,14 @@ public class Sign {
         try {
             return content.getBytes(charset);
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("MD5Ç©Ãû¹ı³ÌÖĞ³öÏÖ´íÎó,Ö¸¶¨µÄ±àÂë¼¯²»¶Ô,ÄúÄ¿Ç°Ö¸¶¨µÄ±àÂë¼¯ÊÇ:" + charset);
+            throw new RuntimeException("MD5ç­¾åè¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯,æŒ‡å®šçš„ç¼–ç é›†ä¸å¯¹,æ‚¨ç›®å‰æŒ‡å®šçš„ç¼–ç é›†æ˜¯:" + charset);
         }
     }
 
 	/**
-	 * md5Ç©Ãû·½·¨
+	 * md5ç­¾åæ–¹æ³•
 	 * @param srcStr
-	 * @return ·µ»Ø32Î»16½øÖÆ´óĞ´×Ö·û´®
+	 * @return è¿”å›32ä½16è¿›åˆ¶å¤§å†™å­—ç¬¦ä¸²
 	 */
 	public static String md5(String srcStr){
 		return DigestUtils.md5Hex(srcStr).toUpperCase();
@@ -57,10 +57,10 @@ public class Sign {
 
 
 	/**
-	 * ¶ÔÇëÇó²ÎÊı¼¯½øĞĞMD5Ç©Ãû
-	 * @param params ´ıÇ©ÃûµÄÇëÇó²ÎÊı¼¯
-	 * @param secretCode Ç©ÃûÃÜÂë
-	 * @return ·µ»Ønull »ò 32Î»16½øÖÆ´óĞ´×Ö·û´®
+	 * å¯¹è¯·æ±‚å‚æ•°é›†è¿›è¡ŒMD5ç­¾å
+	 * @param params å¾…ç­¾åçš„è¯·æ±‚å‚æ•°é›†
+	 * @param secretCode ç­¾åå¯†ç 
+	 * @return è¿”å›null æˆ– 32ä½16è¿›åˆ¶å¤§å†™å­—ç¬¦ä¸²
 	 */
 	public static String signMD5(Map<String, String> params, String secretCode){
 		if(params == null || params.isEmpty())
@@ -74,27 +74,27 @@ public class Sign {
 		}
 	}
 	/**
-	 * ¶ÔÇëÇó²ÎÊı¼¯½øĞĞMD5Ç©Ãû
-	 * @param param ´ıÇ©ÃûµÄÇëÇó²ÎÊı¼¯
-	 * @param secretCode Ç©ÃûÃÜÂë
-	 * @return ·µ»Ø32Î»16½øÖÆ´óĞ´×Ö·û´®
+	 * å¯¹è¯·æ±‚å‚æ•°é›†è¿›è¡ŒMD5ç­¾å
+	 * @param param å¾…ç­¾åçš„è¯·æ±‚å‚æ•°é›†
+	 * @param secretCode ç­¾åå¯†ç 
+	 * @return è¿”å›32ä½16è¿›åˆ¶å¤§å†™å­—ç¬¦ä¸²
 	 */
 	private static String signMD5Inner(TreeMap<String, String> param, String secretCode){
 		return DigestUtils.md5Hex(signStr(param, secretCode, false)).toUpperCase();
 	}
 
 	/**
-	 * ½«ÇëÇó²ÎÊı°´key=value&key=valuesecretCodeÆ´½Ó
-	 * <br/>ÅÅ³ıkeyÎªsignºÍsignmethodµÄkey-value
-	 * @param param ÇëÇó²ÎÊı
-	 * @param secretCode Ç©ÃûÃÜÂë
+	 * å°†è¯·æ±‚å‚æ•°æŒ‰key=value&key=valuesecretCodeæ‹¼æ¥
+	 * <br/>æ’é™¤keyä¸ºsignå’Œsignmethodçš„key-value
+	 * @param param è¯·æ±‚å‚æ•°
+	 * @param secretCode ç­¾åå¯†ç 
 	 * @return
 	 */
 	public static String signStr(TreeMap<String, String> param, String secretCode, boolean startAppend){
 		StringBuilder orgin = new StringBuilder();
 		String value = "";
 		for(String name : param.keySet()){
-			//²ÎÓëÇ©ÃûµÄÖµ²»°üÀ¨²ÎÊıÖĞµÄÇ©ÃûÖµºÍÇ©Ãû·½·¨
+			//å‚ä¸ç­¾åçš„å€¼ä¸åŒ…æ‹¬å‚æ•°ä¸­çš„ç­¾åå€¼å’Œç­¾åæ–¹æ³•
 			if(!StringUtils.equalsIgnoreCase(name, ApiSysParamConstants.SIGN)
 					&& !StringUtils.equalsIgnoreCase(name, ApiSysParamConstants.SIGNMETHOD)){
 				value = param.get(name);
