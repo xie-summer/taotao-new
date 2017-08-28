@@ -1,7 +1,7 @@
 cas:
  server:
    host:
-    url: http://127.0.0.1:8090/cas #cas服务地址
+    url: http://sso.taotao.com:8434/cas #cas服务地址
     login_url: /login #登录地址
     logout_url: /logout #注销地址
 

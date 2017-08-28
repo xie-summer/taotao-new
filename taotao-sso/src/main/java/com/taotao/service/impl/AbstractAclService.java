@@ -1,6 +1,8 @@
 package com.taotao.service.impl;
 
 import com.taotao.model.acl.GewaraUser;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -22,6 +24,12 @@ public abstract class AbstractAclService implements UserDetailsService {
 	@Override
 	public GewaraUser loadUserByUsername(String username) throws UsernameNotFoundException {
 		LOGON_TYPE.set(null);
+//		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		if (principal instanceof UserDetails) {
+//			String username = ((UserDetails)principal).getUsername();
+//		} else {
+//			String username = principal.toString();
+//		}
 //		GewaraUser user = baseDao.getObjectByUkey(User.class, "username", username);
 //		return user;
 		return null;

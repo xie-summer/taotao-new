@@ -8,6 +8,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+/**
+ * CAS的配置参数
+ */
 @Service("acmCasProperties")
 public class AcmCasProperties implements InitializingBean {
     @Value("${cas.server.host.url}")
