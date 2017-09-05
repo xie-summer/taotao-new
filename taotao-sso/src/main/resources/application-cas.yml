@@ -12,4 +12,4 @@ app:
  login:
     url: /login/cas #本应用登录地址
  logout:
-    url: /logout #本应用退出地址
+    url: /logout  #本应用退出地址
