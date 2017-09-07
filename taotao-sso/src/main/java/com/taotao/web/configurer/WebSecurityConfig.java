@@ -5,6 +5,7 @@ import com.taotao.web.cas.FilterStatic;
 import com.taotao.web.configurer.AcmCasConfiguration;
 import com.taotao.web.configurer.AcmCasProperties;
 import com.taotao.web.interceptor.CasFilterSecurityInterceptor;
+import com.taotao.web.support.AclService;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -21,6 +22,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
@@ -36,14 +38,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义动态权限过滤器
      */
-    @Resource
+    @Autowired
     private /**final*/
             CasFilterSecurityInterceptor myFilterSecurityInterceptor;
 
-    @Resource
+    @Autowired
     private /**final*/
             FilterStatic filterStatic;
-
+    @Autowired
+    private AclService aclService;
 
     @Autowired
     private AcmCasProperties acmCasProperties;
@@ -102,6 +105,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         String[] filter = filterStatic.getStaticFilters().toArray(new String[0]);
         web.ignoring().antMatchers(filter);
+    }
+
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(aclService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
     /**

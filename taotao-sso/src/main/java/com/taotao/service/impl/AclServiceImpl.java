@@ -6,13 +6,14 @@ import com.taotao.mapper.SysMenuMapper;
 import com.taotao.model.acl.*;
 import com.taotao.web.support.AclService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * 菜单等管理
  */
-
+@Service
 public class AclServiceImpl extends AbstractAclService implements AclService<SysMenu> {
 	@Autowired
 	protected SysMenuMapper sysMenuMapper;
