@@ -70,8 +70,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // acm cas策略
         // 对logout请求放行
-        http.logout().permitAll();
-        http.formLogin();//使用form表单登录
+        http.logout().logoutUrl("/logout").permitAll();
+        http.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/", true);//使用form表单登录
+
+        http.sessionManagement().maximumSessions(1).expiredUrl("/expired");
         // 入口
         CasAuthenticationEntryPoint entryPoint = getApplicationContext().getBean(CasAuthenticationEntryPoint.class);
         CasAuthenticationFilter casAuthenticationFilter = getApplicationContext()
@@ -102,11 +104,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 静态文静过滤
-
-        String[] filter = filterStatic.getStaticFilters().toArray(new String[0]);
-        web.ignoring().antMatchers(filter);
+        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/**/favicon.ico");
+//        String[] filter = filterStatic.getStaticFilters().toArray(new String[0]);
+//        web.ignoring().antMatchers(filter);
     }
 
+    /**身份校验配置
+     * @param auth
+     * @throws Exception
+     */
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(aclService).passwordEncoder(new BCryptPasswordEncoder());
