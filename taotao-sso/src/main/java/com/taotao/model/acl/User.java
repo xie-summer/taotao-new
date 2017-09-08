@@ -1,5 +1,7 @@
 package com.taotao.model.acl;
 
+import com.google.common.collect.Lists;
+import lombok.*;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
@@ -7,7 +9,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,36 +16,57 @@ import java.util.List;
  * @since 2007-9-28下午02:05:17
  */
 @Table(name = "user")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User extends GewaraUser {
     private static final long serialVersionUID = 3832626162173359411L;
+    @Column(name = "user_type")
+    @Getter
+    @Setter
+    private String usertype; // 用户类型：inner:内部用户，其他：外部用户
+    @Getter
+    @Setter
+    private List<GrantedAuthority> tmpAuth;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private Long id;
     @Column(name = "username")
+    @Getter
+    @Setter
     private String username; // required
     @Column(name = "password")
+    @Getter
+    @Setter
     private String password; // required
     @Column(name = "nick_name")
+    @Getter
+    @Setter
     private String nickname;
     @Column(name = "account_enabled")
+    @Getter
+    @Setter
     private String accountEnabled; // Y or N
     @Column(name = "city_code")
+    @Getter
+    @Setter
     private String citycode;
     @Column(name = "mobile")
+    @Getter
+    @Setter
     private String mobile;
     @Column(name = "role_names")
+    @Getter
+    @Setter
     private String rolenames;
-    @Column(name = "user_type")
-    private String usertype; // 用户类型：inner:内部用户，其他：外部用户
     @Column(name = "email")
+    @Getter
+    @Setter
     private String email;
-    private List<GrantedAuthority> tmpAuth;
-
-    public User() {
-    }
 
 
-//    @Override
+    //    @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
 //        List<GrantedAuthority> auths = new ArrayList<>();
 //        //获取用户对应的角色集合
@@ -55,25 +77,29 @@ public class User extends GewaraUser {
 //        }
 //        return auths;
 //    }
-
     public User(String username) {
         this.username = StringUtils.lowerCase(username);
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public String getUsertype() {
+        return usertype;
     }
 
     @Override
     public final List<GrantedAuthority> getAuthorities() {
         if (tmpAuth != null)
             return tmpAuth;
-        tmpAuth = new ArrayList<GrantedAuthority>();
+        tmpAuth = Lists.newArrayList();
         if (StringUtils.isBlank(rolenames))
             return tmpAuth;
         tmpAuth.addAll(AuthorityUtils.createAuthorityList(StringUtils.split(rolenames, ",")));
         return tmpAuth;
-    }
-
-    public void setAuthorities(List<GrantedAuthority> tmpAuth) {
-        this.tmpAuth = tmpAuth;
-
     }
 
     @Override
@@ -82,7 +108,7 @@ public class User extends GewaraUser {
     }
 
     @Override
-    public final boolean isRole(String rolename) {
+    public final boolean isRole(@NonNull String rolename) {
         String[] roles = StringUtils.split(rolenames, ",");
         return ArrayUtils.contains(roles, rolename);
     }
@@ -99,33 +125,6 @@ public class User extends GewaraUser {
     }
 
     @Override
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
     public Serializable realId() {
         return id;
     }
@@ -133,63 +132,6 @@ public class User extends GewaraUser {
     @Override
     public boolean isEnabled() {
         return "Y".equals(accountEnabled);
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getCitycode() {
-        return citycode;
-    }
-
-    public void setCitycode(String citycode) {
-        this.citycode = citycode;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getRolenames() {
-        return rolenames;
-    }
-
-    public void setRolenames(String rolenames) {
-        this.rolenames = rolenames;
-    }
-
-    @Override
-    public String getUsertype() {
-        return usertype;
-    }
-
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
-    }
-
-    public String getAccountEnabled() {
-        return accountEnabled;
-    }
-
-    public void setAccountEnabled(String accountEnabled) {
-        this.accountEnabled = accountEnabled;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 

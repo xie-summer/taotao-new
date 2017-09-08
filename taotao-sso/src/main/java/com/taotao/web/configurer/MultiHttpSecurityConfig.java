@@ -138,7 +138,7 @@ public class MultiHttpSecurityConfig {
             /***使用form表单登录    如果需要使用自定义登录页面需要
              http.formLogin().loginPage("/login")
              ***/
-            http.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/", true);
+            http.formLogin()./*loginPage("/login").*/permitAll().defaultSuccessUrl("/", true);
             http.sessionManagement().maximumSessions(1).expiredUrl("/expired");
             // 入口
             CasAuthenticationEntryPoint entryPoint = getApplicationContext().getBean(CasAuthenticationEntryPoint.class);

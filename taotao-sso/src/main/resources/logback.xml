@@ -38,16 +38,6 @@
             </Pattern>
         </layout>
     </appender>
-
-    <!-- hibernate日志输入 -->
-    <!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder"
-        level="TRACE" />
-    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
-        level="TRACE" />
-    <logger name="org.hibernate.SQL" level="INFO" />
-    <logger name="org.hibernate.engine.QueryParameters" level="INFO" />
-    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="INFO" /> -->
-
     <root level="INFO">
         <appender-ref ref="INFO_FILE"/>
         <appender-ref ref="ERROR_FILE"/>

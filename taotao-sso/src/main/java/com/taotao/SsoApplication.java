@@ -9,7 +9,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.taotao"})
+//@ComponentScan(basePackages = {"com.taotao"})
 public class SsoApplication extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
     public static void main(String[] args) {
         SpringApplication.run(SsoApplication.class);

@@ -15,14 +15,14 @@ import java.util.Iterator;
 /**
  * 授权管理器
  */
-@Component
+@Component("casAccessDecisionManager")
 public class CasAccessDecisionManager implements AccessDecisionManager {
 
     /**
      * @param authentication   当前用户权限信息
      * @param o                请求信息
      * @param configAttributes 当前访问的url对应的角色
-     * 匹配验证正常的用户拥有的对应权限，进行对应的授权
+     *                         匹配验证正常的用户拥有的对应权限，进行对应的授权
      */
     @Override
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
@@ -36,7 +36,8 @@ public class CasAccessDecisionManager implements AccessDecisionManager {
         for (Iterator<ConfigAttribute> iter = configAttributes.iterator(); iter.hasNext(); ) {
             c = iter.next();
             needRole = c.getAttribute();
-            for (GrantedAuthority ga : authentication.getAuthorities()) {//authentication 为在注释1 中循环添加到 GrantedAuthority 对象中的权限信息集合
+            for (GrantedAuthority ga : authentication.getAuthorities()) {
+                /**authentication 为在注释1 中循环添加到 GrantedAuthority 对象中的权限信息集合*/
                 if ((SercurityConstants.prefix + needRole.trim()).equals(ga.getAuthority())) {
                     return;
                 }

@@ -66,9 +66,13 @@ public class CasInvocationSecurityMetadataSourceService implements FilterInvocat
             return array;
         }
         return null;
-
     }
 
+    /** 查询访问object 所需要的对应的权限
+     * @param object
+     * @return
+     * @throws IllegalArgumentException
+     */
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         //object 中包含用户请求的request 信息
@@ -89,6 +93,9 @@ public class CasInvocationSecurityMetadataSourceService implements FilterInvocat
     }
 
 
+    /** 获取访问所有对象请求的权限，即不需要访问权限
+     * @return
+     */
     @Override
     public Collection<ConfigAttribute> getAllConfigAttributes() {
         return null;
