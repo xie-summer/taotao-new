@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * 授权管理器
+ */
 @Component
 public class CasAccessDecisionManager implements AccessDecisionManager {
 
@@ -19,6 +22,7 @@ public class CasAccessDecisionManager implements AccessDecisionManager {
      * @param authentication   当前用户权限信息
      * @param o                请求信息
      * @param configAttributes 当前访问的url对应的角色
+     * 匹配验证正常的用户拥有的对应权限，进行对应的授权
      */
     @Override
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
