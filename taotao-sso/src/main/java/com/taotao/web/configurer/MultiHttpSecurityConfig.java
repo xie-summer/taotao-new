@@ -1,9 +1,10 @@
 package com.taotao.web.configurer;
 
 import com.taotao.configurer.MybatisConfigurer;
+import com.taotao.web.cas.CasProperties;
 import com.taotao.web.cas.FilterStatic;
 import com.taotao.web.interceptor.CasFilterSecurityInterceptor;
-import com.taotao.web.support.AclService;
+import com.taotao.service.AclService;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -30,7 +31,7 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
 @EnableWebSecurity //启用web权限
 public class MultiHttpSecurityConfig {
     @Autowired
-    public static AcmCasProperties acmCasProperties;
+    public static CasProperties casProperties;
     @Autowired
     private AclService aclService;
     @Autowired
@@ -73,14 +74,14 @@ public class MultiHttpSecurityConfig {
     @Configuration
     @EnableGlobalMethodSecurity(prePostEnabled = true) //启用方法验证
     //如果依赖数据库读取角色等，则需要配置
-    @AutoConfigureAfter(value = {MybatisConfigurer.class, AcmCasConfiguration.class})
+    @AutoConfigureAfter(value = {MybatisConfigurer.class, CasConfiguration.class})
     @Order(1)
     public /*static*/ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Bean
         public CasAuthenticationFilter casAuthenticationFilter(ServiceProperties properties) throws Exception {
             CasAuthenticationFilter casAuthenticationFilter = new CasAuthenticationFilter();
             casAuthenticationFilter.setServiceProperties(properties);
-            casAuthenticationFilter.setFilterProcessesUrl(acmCasProperties.getAppServiceLoginUrl());
+            casAuthenticationFilter.setFilterProcessesUrl(casProperties.getAppServiceLoginUrl());
             casAuthenticationFilter.setAuthenticationManager(authenticationManager());
             casAuthenticationFilter
                     .setAuthenticationSuccessHandler(new SimpleUrlAuthenticationSuccessHandler("/index.html"));

@@ -1,6 +1,7 @@
 package com.taotao.service.impl;
 
 import com.taotao.model.acl.GewaraUser;
+import com.taotao.model.acl.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,6 +29,7 @@ public abstract class AbstractAclService implements UserDetailsService {
 		GewaraUser user = null ;
 		if (principal instanceof UserDetails) {
 			 username = ((UserDetails)principal).getUsername();
+			String password = ((UserDetails) principal).getPassword();
 		} else {
 //			String username = principal.toString();
 		}

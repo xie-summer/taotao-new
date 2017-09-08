@@ -1,4 +1,4 @@
-package com.taotao.web.configurer;
+package com.taotao.web.cas;
 
 import com.taotao.mapper.GewaraUserMapper;
 import com.taotao.model.acl.GewaraUser;
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class AcmCasUserDetailService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
+public class CasUserDetailService implements AuthenticationUserDetailsService<CasAssertionAuthenticationToken> {
 
-    private static final TLogger USER_SERVICE_LOGGER = LoggerUtils.getLogger(AcmCasUserDetailService.class);
+    private static final TLogger USER_SERVICE_LOGGER = LoggerUtils.getLogger(CasUserDetailService.class);
 
     @Resource
     private GewaraUserMapper gewaraUserMapper;

@@ -125,3 +125,4 @@ proguard/
 .idea/
 *.iml
 *.svn
+/target/

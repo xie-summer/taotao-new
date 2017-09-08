@@ -1,9 +1,9 @@
 package com.taotao.web.configurer;
 
+import com.taotao.web.cas.CasProperties;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.jasig.cas.client.validation.Cas20ServiceTicketValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.cas.ServiceProperties;
@@ -11,16 +11,15 @@ import org.springframework.security.cas.authentication.CasAssertionAuthenticatio
 import org.springframework.security.cas.authentication.CasAuthenticationProvider;
 import org.springframework.security.cas.web.CasAuthenticationEntryPoint;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 
 
 @Configuration
-public class AcmCasConfiguration {
+public class CasConfiguration {
 
     @Autowired
-    private AcmCasProperties acmCasProperties;
+    private CasProperties casProperties;
 
     /**
      * 设置客户端service的属性
@@ -35,7 +34,7 @@ public class AcmCasConfiguration {
     public ServiceProperties serviceProperties() {
         ServiceProperties serviceProperties = new ServiceProperties();
         // 设置回调的service路径，此为主页路径
-        serviceProperties.setService(acmCasProperties.getAppServicePrefix() + "/index.html");
+        serviceProperties.setService(casProperties.getAppServicePrefix() + "/index.html");
         // 对所有的未拥有ticket的访问均需要验证
         serviceProperties.setAuthenticateAllArtifacts(true);
 
@@ -50,20 +49,20 @@ public class AcmCasConfiguration {
     @Bean
     public Cas20ServiceTicketValidator cas20ServiceTicketValidator() {
         // 配置上服务端的校验ticket地址
-        return new Cas20ServiceTicketValidator(acmCasProperties.getCasServerPrefix());
+        return new Cas20ServiceTicketValidator(casProperties.getCasServerPrefix());
     }
 
     /**
      * 单点注销，接受cas服务端发出的注销session请求
      *
      * @return
-     * @see SingleLogout(SLO) Front or Back Channel
+     * @see Front or Back Channel
      */
     @Bean
     public SingleSignOutFilter singleSignOutFilter() {
         SingleSignOutFilter outFilter = new SingleSignOutFilter();
         // 设置cas服务端路径前缀，应用于front channel的注销请求
-        outFilter.setCasServerUrlPrefix(acmCasProperties.getCasServerPrefix());
+        outFilter.setCasServerUrlPrefix(casProperties.getCasServerPrefix());
         outFilter.setIgnoreInitConfiguration(true);
 
         return outFilter;
@@ -78,13 +77,13 @@ public class AcmCasConfiguration {
     public LogoutFilter logoutFilter() {
         // 设置回调地址，以免注销后页面不再跳转
         StringBuilder logoutRedirectPath = new StringBuilder();
-        logoutRedirectPath.append(acmCasProperties.getCasServerPrefix())
-                .append(acmCasProperties.getCasServerLogoutUrl()).append("?service=")
-                .append(acmCasProperties.getAppServicePrefix());
+        logoutRedirectPath.append(casProperties.getCasServerPrefix())
+                .append(casProperties.getCasServerLogoutUrl()).append("?service=")
+                .append(casProperties.getAppServicePrefix());
 
         LogoutFilter logoutFilter = new LogoutFilter(logoutRedirectPath.toString(), new SecurityContextLogoutHandler());
 
-        logoutFilter.setFilterProcessesUrl(acmCasProperties.getAppServiceLogoutUrl());
+        logoutFilter.setFilterProcessesUrl(casProperties.getAppServiceLogoutUrl());
         return logoutFilter;
     }
 
@@ -126,7 +125,7 @@ public class AcmCasConfiguration {
     public CasAuthenticationEntryPoint casAuthenticationEntryPoint() {
         CasAuthenticationEntryPoint entryPoint = new CasAuthenticationEntryPoint();
         entryPoint.setServiceProperties(serviceProperties());
-        entryPoint.setLoginUrl(acmCasProperties.getCasServerPrefix() + acmCasProperties.getCasServerLoginUrl());
+        entryPoint.setLoginUrl(casProperties.getCasServerPrefix() + casProperties.getCasServerLoginUrl());
 
         return entryPoint;
     }

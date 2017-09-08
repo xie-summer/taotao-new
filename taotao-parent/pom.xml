@@ -47,16 +47,6 @@
         <log4j.version>1.2.16</log4j.version><!-- 1.2.17 -->
     </properties>
 
-    <modules>
-        <module>../taotao-common</module>
-        <module>../taotao-sso</module>
-        <module>../taotao-manage</module>
-        <module>../taotao-search</module>
-        <!--<module>../taotao-web</module>-->
-        <!--<module>../taotao-web-common</module>-->
-    </modules>
-
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -515,14 +505,21 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
         </dependency>
     </dependencies>
+
+    <modules>
+        <module>../taotao-common</module>
+        <module>../taotao-sso</module>
+        <!--  <module>../taotao-manage</module> -->
+        <!--<module>../taotao-search</module>-->
+        <!--<module>../taotao-web</module>-->
+        <!--<module>../taotao-web-common</module>-->
+    </modules>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
@@ -537,7 +534,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.6.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

@@ -1,15 +1,13 @@
 package com.taotao.web.configurer;
 
 import com.taotao.configurer.MybatisConfigurer;
+import com.taotao.web.cas.CasProperties;
 import com.taotao.web.cas.FilterStatic;
-import com.taotao.web.configurer.AcmCasConfiguration;
-import com.taotao.web.configurer.AcmCasProperties;
 import com.taotao.web.interceptor.CasFilterSecurityInterceptor;
-import com.taotao.web.support.AclService;
+import com.taotao.service.AclService;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -27,13 +25,11 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
 
-import javax.annotation.Resource;
-
 @Configuration
 @EnableWebSecurity //启用web权限
 @EnableGlobalMethodSecurity(prePostEnabled = true) //启用方法验证
 //如果依赖数据库读取角色等，则需要配置
-@AutoConfigureAfter(value = {MybatisConfigurer.class, AcmCasConfiguration.class})
+@AutoConfigureAfter(value = {MybatisConfigurer.class, CasConfiguration.class})
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义动态权限过滤器
@@ -50,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AclService aclService;
 
     @Autowired
-    private AcmCasProperties acmCasProperties;
+    private CasProperties casProperties;
 
     /**
      * 自定义过滤规则及其安全配置
@@ -130,7 +126,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public CasAuthenticationFilter casAuthenticationFilter(ServiceProperties properties) throws Exception {
         CasAuthenticationFilter casAuthenticationFilter = new CasAuthenticationFilter();
         casAuthenticationFilter.setServiceProperties(properties);
-        casAuthenticationFilter.setFilterProcessesUrl(acmCasProperties.getAppServiceLoginUrl());
+        casAuthenticationFilter.setFilterProcessesUrl(casProperties.getAppServiceLoginUrl());
         casAuthenticationFilter.setAuthenticationManager(authenticationManager());
         casAuthenticationFilter
                 .setAuthenticationSuccessHandler(new SimpleUrlAuthenticationSuccessHandler("/index.html"));

@@ -1,7 +1,8 @@
-package com.taotao.web.support;
+package com.taotao.service;
 
 import com.taotao.model.acl.GewaraUser;
 import com.taotao.model.acl.SysMenu;
+import com.taotao.web.support.SecurityModule;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
