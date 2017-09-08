@@ -3,6 +3,7 @@ package com.taotao.web.configurer;
 import com.taotao.configurer.MybatisConfigurer;
 import com.taotao.web.cas.FilterStatic;
 import com.taotao.web.interceptor.CasFilterSecurityInterceptor;
+import com.taotao.web.support.AclService;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -20,6 +21,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
@@ -29,6 +31,8 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
 public class MultiHttpSecurityConfig {
     @Autowired
     public static AcmCasProperties acmCasProperties;
+    @Autowired
+    private AclService aclService;
     @Autowired
     public /** final*/
             FilterStatic filterStatic;
@@ -84,6 +88,17 @@ public class MultiHttpSecurityConfig {
         }
 
         /**
+         * 身份校验配置
+         *
+         * @param auth
+         * @throws Exception
+         */
+        @Override
+        public void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(aclService).passwordEncoder(new BCryptPasswordEncoder());
+        }
+
+        /**
          * 静态文静过滤
          */
         @Override
@@ -118,11 +133,12 @@ public class MultiHttpSecurityConfig {
              2、清空已配置的RememberMe验证
              3、清空 SecurityContextHolder
              4、重定向到 /login?success*/
-            http.logout().deleteCookies().logoutSuccessUrl("/login?success").permitAll();
+            http.logout().deleteCookies().logoutUrl("/logout").logoutSuccessUrl("/login?success").permitAll();
             /***使用form表单登录    如果需要使用自定义登录页面需要
              http.formLogin().loginPage("/login")
              ***/
-            http.formLogin().permitAll();
+            http.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/", true);
+            http.sessionManagement().maximumSessions(1).expiredUrl("/expired");
             // 入口
             CasAuthenticationEntryPoint entryPoint = getApplicationContext().getBean(CasAuthenticationEntryPoint.class);
             CasAuthenticationFilter casAuthenticationFilter = getApplicationContext()
