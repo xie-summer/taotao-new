@@ -1,7 +1,7 @@
 package com.taotao.service.impl;
 
-import com.taotao.model.acl.GewaraUser;
-import com.taotao.model.acl.User;
+import com.taotao.acl.GewaraUser;
+import com.taotao.acl.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

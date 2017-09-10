@@ -118,6 +118,7 @@
             <artifactId>taotao-sso-rpc-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+       
         <!-- 模块依赖 end -->
     </dependencies>
 

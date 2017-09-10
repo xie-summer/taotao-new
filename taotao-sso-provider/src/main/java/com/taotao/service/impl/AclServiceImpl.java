@@ -3,7 +3,7 @@ package com.taotao.service.impl;
 
 import com.taotao.mapper.GewaraUserMapper;
 import com.taotao.mapper.SysMenuMapper;
-import com.taotao.model.acl.*;
+import com.taotao.acl.*;
 import com.taotao.service.AclService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

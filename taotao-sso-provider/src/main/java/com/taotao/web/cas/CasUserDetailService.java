@@ -1,7 +1,7 @@
 package com.taotao.web.cas;
 
 import com.taotao.mapper.GewaraUserMapper;
-import com.taotao.model.acl.GewaraUser;
+import com.taotao.acl.GewaraUser;
 import com.taotao.util.LoggerUtils;
 import com.taotao.util.TLogger;
 import org.springframework.security.cas.authentication.CasAssertionAuthenticationToken;

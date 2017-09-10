@@ -1,4 +1,4 @@
-package com.taotao.model.acl;
+package com.taotao.acl;
 
 import com.google.common.collect.Lists;
 import lombok.*;
