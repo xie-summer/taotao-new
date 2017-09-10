@@ -12,6 +12,8 @@
 		<dependency.common>provided</dependency.common>
 
 		<java.version>1.8</java.version>
+		<encoding.version>UTF-8</encoding.version>
+
 		<spring.boot.version>1.5.4.RELEASE</spring.boot.version>
 
 		<jackson2.version>2.6.5</jackson2.version>
@@ -22,7 +24,7 @@
 		<!-- commons start -->
 		<commons-jsonp-version>1.9.2</commons-jsonp-version>
 		<commons-fileupload.version>1.3.1</commons-fileupload.version>
-		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-betwixt.version>0.8</commons-betwixt.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
@@ -55,6 +57,18 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- swagger2 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.4.0</version>
+			</dependency>
+			<!--  AliBaBa  -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
@@ -494,7 +508,18 @@
 				<scope>${dependency.common}</scope>
 			</dependency>
 			<!-- commons依赖 end -->
-
+			<!-- javaEE 依赖支持 start-->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+			</dependency>
+			<!-- javaEE 依赖支持 end-->
 
 			<!-- 模块依赖 start -->
 			<dependency>
@@ -531,10 +556,13 @@
 	<modules>
 		<module>../taotao-common</module>
 		<module>../taotao-sso</module>
-		<!-- <module>../taotao-manage</module> -->
+        <module>../taotao-discovery-eureka</module>
+        <module>../taotao-api-gateway</module>
+		<module>../taotao-web-common</module>
+        <module>../taotao-sso</module>
+        <!-- <module>../taotao-manage</module> -->
 		<!--<module>../taotao-search</module> -->
 		<!--<module>../taotao-web</module> -->
-		<!--<module>../taotao-web-common</module> -->
 	</modules>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -575,7 +603,7 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-					<encoding>UTF-8</encoding>
+					<encoding>${encoding.version}</encoding>
 					<compilerArgument>-proc:none</compilerArgument>
 				</configuration>
 			</plugin>

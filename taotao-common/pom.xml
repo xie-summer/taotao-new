@@ -21,7 +21,16 @@
             <groupId>net.spy</groupId>
             <artifactId>spymemcached</artifactId>
         </dependency>
-
+        <!-- javaEE 依赖支持 start-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        <!-- javaEE 依赖支持 end-->
         <!--   基础依赖  start-->
         <dependency>
             <groupId>dom4j</groupId>

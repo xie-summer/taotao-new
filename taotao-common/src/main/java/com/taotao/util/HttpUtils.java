@@ -61,9 +61,7 @@ import java.util.regex.Pattern;
 
 /**
  * Convenience class for setting and retrieving cookies.
- * 
- * @author <a href="mailto:acerge@163.com">gebiao(acerge)</a>
- * @since 2007-9-28����02:05:17
+ *
  */
 public class HttpUtils {
 

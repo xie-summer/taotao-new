@@ -13,5 +13,16 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-
+<dependencies>
+    <!-- javaEE 依赖支持 start-->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+    </dependency>
+    <!-- javaEE 依赖支持 end-->
+</dependencies>
 </project>

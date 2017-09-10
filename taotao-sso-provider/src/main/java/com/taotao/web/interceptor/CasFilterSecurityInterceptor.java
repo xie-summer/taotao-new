@@ -18,8 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Collection;
 
+import static org.springframework.security.web.access.intercept.FilterSecurityInterceptor.FILTER_APPLIED;
+
 @Component
 public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
+    private static final String FILTER_APPLIED = "__spring_security_filterSecurityInterceptor_filterApplied";
+
+    private boolean observeOncePerRequest = true;
     @Autowired
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
     @Autowired
@@ -44,6 +49,15 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
         //fi里面有一个被拦截的url
         //里面调用CasInvocationSecurityMetadataSource的getAttributes(Object object)这个方法获取fi对应的所有权限
         //再调用CasAccessDecisionManager的decide方法来校验用户的权限是否足够
+        //对同一个请求的多次访问则放行
+        if ((fi.getRequest() != null)
+                && (fi.getRequest().getAttribute(FILTER_APPLIED) != null)
+                && observeOncePerRequest) {
+            fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+        }else{
+            if (fi.getRequest() != null) {
+                fi.getRequest().setAttribute(FILTER_APPLIED, Boolean.TRUE);
+            }
         /**查询访问URL对应需要的所有权限*/
         Collection<ConfigAttribute> configAttributes = securityMetadataSource.getAttributes(fi);
 
@@ -57,7 +71,7 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
         } finally {
             super.afterInvocation(token, null);
         }
-    }
+    }}
 
     @Override
     public void destroy() {
@@ -72,5 +86,12 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
     @Override
     public SecurityMetadataSource obtainSecurityMetadataSource() {
         return this.securityMetadataSource;
+    }
+    public boolean isObserveOncePerRequest() {
+        return observeOncePerRequest;
+    }
+
+    public void setObserveOncePerRequest(boolean observeOncePerRequest) {
+        this.observeOncePerRequest = observeOncePerRequest;
     }
 }
