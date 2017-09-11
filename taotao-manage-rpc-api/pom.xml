@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.taotao</groupId>
-    <artifactId>taotao-manage-IService</artifactId>
+    <artifactId>taotao-manage-rpc-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

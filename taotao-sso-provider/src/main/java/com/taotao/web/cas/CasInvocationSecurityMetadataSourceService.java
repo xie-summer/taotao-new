@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.taotao.model.acl.SysMenu;
 import com.taotao.util.LoggerUtils;
 import com.taotao.util.TLogger;
-import com.taotao.service.AclService;
+import com.taotao.service.acl.AclService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;

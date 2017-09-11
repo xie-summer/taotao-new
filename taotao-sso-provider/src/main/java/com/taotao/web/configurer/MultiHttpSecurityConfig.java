@@ -4,7 +4,7 @@ import com.taotao.configurer.MybatisConfigurer;
 import com.taotao.web.cas.CasProperties;
 import com.taotao.web.cas.FilterStatic;
 import com.taotao.web.interceptor.CasFilterSecurityInterceptor;
-import com.taotao.service.AclService;
+import com.taotao.service.acl.AclService;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
