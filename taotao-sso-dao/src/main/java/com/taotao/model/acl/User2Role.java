@@ -1,4 +1,4 @@
-package com.taotao.acl;
+package com.taotao.model.acl;
 
 
 import com.taotao.model.BaseObject;

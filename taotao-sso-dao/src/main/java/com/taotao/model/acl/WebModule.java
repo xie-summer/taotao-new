@@ -1,7 +1,7 @@
-package com.taotao.acl;
+package com.taotao.model.acl;
 
 import com.taotao.model.BaseObject;
-import com.taotao.web.support.SecurityModule;
+import com.taotao.support.SecurityModule;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang.StringUtils;

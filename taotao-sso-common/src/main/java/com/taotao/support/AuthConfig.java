@@ -1,4 +1,4 @@
-package com.taotao.web.support;
+package com.taotao.support;
 
 public class AuthConfig {
 	private String ssoValidateUrl;

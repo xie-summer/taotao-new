@@ -1,7 +1,7 @@
 package com.taotao.web.menu;
 
 import com.taotao.util.BeanUtil;
-import com.taotao.web.support.SecurityModule;
+import com.taotao.support.SecurityModule;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.*;

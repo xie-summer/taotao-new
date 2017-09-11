@@ -16,7 +16,18 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+        <!--模块依赖版本管理-->
+        <taotao-sso-common.version>1.0-SNAPSHOT</taotao-sso-common.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-sso-common</artifactId>
+            <version>${taotao-sso-common.version}</version>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <plugin>

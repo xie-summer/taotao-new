@@ -1,4 +1,4 @@
-package com.taotao.acl;
+package com.taotao.model.acl;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

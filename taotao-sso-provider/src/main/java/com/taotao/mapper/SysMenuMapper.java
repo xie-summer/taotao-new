@@ -1,6 +1,6 @@
 package com.taotao.mapper;
 
-import com.taotao.acl.SysMenu;
+import com.taotao.model.acl.SysMenu;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;

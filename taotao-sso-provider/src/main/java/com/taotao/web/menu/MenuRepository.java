@@ -1,6 +1,6 @@
 package com.taotao.web.menu;
 
-import com.taotao.web.support.SecurityModule;
+import com.taotao.support.SecurityModule;
 import org.springframework.beans.support.PropertyComparator;
 
 import java.io.Serializable;

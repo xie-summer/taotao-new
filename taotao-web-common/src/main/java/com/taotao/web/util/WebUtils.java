@@ -8,10 +8,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLDecoder;
-import java.util.List;
-import java.util.Map;
 
-import static org.springframework.web.util.WebUtils.getCookie;
 
 public abstract class WebUtils extends BaseWebUtils {
 

@@ -1,4 +1,4 @@
-package com.taotao.acl;
+package com.taotao.model.acl;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

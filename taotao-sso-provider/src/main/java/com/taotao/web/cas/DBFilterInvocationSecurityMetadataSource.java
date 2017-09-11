@@ -1,7 +1,7 @@
 package com.taotao.web.cas;
 
 import com.taotao.service.AclService;
-import com.taotao.web.support.SecurityModule;
+import com.taotao.support.SecurityModule;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;

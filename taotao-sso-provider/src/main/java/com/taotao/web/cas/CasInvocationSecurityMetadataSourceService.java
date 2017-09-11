@@ -1,7 +1,7 @@
 package com.taotao.web.cas;
 
 import com.google.common.collect.Lists;
-import com.taotao.acl.SysMenu;
+import com.taotao.model.acl.SysMenu;
 import com.taotao.util.LoggerUtils;
 import com.taotao.util.TLogger;
 import com.taotao.service.AclService;

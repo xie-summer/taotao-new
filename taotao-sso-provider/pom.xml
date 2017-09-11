@@ -13,6 +13,10 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+
+        <!--依赖模块版本控制-->
+        <taotao-sso-rpc-service.version>1.0-SNAPSHOT</taotao-sso-rpc-service.version>
+        <taotao-web-common.version>1.0-SNAPSHOT</taotao-web-common.version>
     </properties>
 
     <dependencies>
@@ -103,20 +107,17 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <!-- log 依赖包 end -->
+
         <!-- 模块依赖 start -->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.taotao</groupId>
             <artifactId>taotao-web-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${taotao-web-common.version}</version>
         </dependency>
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-sso-rpc-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${taotao-sso-rpc-service.version}</version>
         </dependency>
        
         <!-- 模块依赖 end -->

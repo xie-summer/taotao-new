@@ -1,6 +1,6 @@
 package com.taotao.mapper;
 
-import com.taotao.acl.GewaraUser;
+import com.taotao.model.acl.GewaraUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
