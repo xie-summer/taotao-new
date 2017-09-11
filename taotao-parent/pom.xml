@@ -15,6 +15,7 @@
 		<encoding.version>UTF-8</encoding.version>
 
 		<spring.boot.version>1.5.4.RELEASE</spring.boot.version>
+		<spring-cloud-dependencies.version>Dalston.SR2</spring-cloud-dependencies.version>
 
 		<jackson2.version>2.6.5</jackson2.version>
 		<apache.httpcomponents.client.version>4.3.6</apache.httpcomponents.client.version>
@@ -54,6 +55,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version> <!--此处不能使用SR3,会出现jar版本异常 -->
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -560,7 +568,11 @@
         <module>../taotao-api-gateway</module>
 		<module>../taotao-web-common</module>
         <module>../taotao-sso</module>
-        <!-- <module>../taotao-manage</module> -->
+        <module>../taotao-config</module>
+        <module>../taotao-pay</module>
+		<module>../taotao-oss</module>
+		<module>../taotao-wechat</module>
+		<!-- <module>../taotao-manage</module> -->
 		<!--<module>../taotao-search</module> -->
 		<!--<module>../taotao-web</module> -->
 	</modules>

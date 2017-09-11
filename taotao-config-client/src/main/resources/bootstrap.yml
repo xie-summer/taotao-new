@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: microservice-config-client    # 对应microservice-config-server所获取的配置文件的{application}
+  cloud:
+    config:
+      uri: http://config-server:8040/
+      profile: dev                      # 指定profile，对应microservice-config-server所获取的配置文件中的{profile}
+      label: master                     # 指定git仓库的分支，对应microservice-config-server所获取的配置文件的{label}
+      discovery:
+            enabled: true                                 # 默认false，设为true表示使用注册中心中的configserver配置而不自己配置configserver的uri
+            serviceId: microservice-config-server-eureka  # 指定config server在服务发现中的serviceId，默认为：configserver
+
+
+

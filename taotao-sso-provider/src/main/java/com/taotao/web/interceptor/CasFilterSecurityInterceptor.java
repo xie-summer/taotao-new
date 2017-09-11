@@ -12,13 +12,9 @@ import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Collection;
-
-import static org.springframework.security.web.access.intercept.FilterSecurityInterceptor.FILTER_APPLIED;
 
 @Component
 public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
@@ -45,6 +41,7 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
         FilterInvocation fi = new FilterInvocation(servletRequest, servletResponse, filterChain);
         invoke(fi);
     }
+
     private void invoke(FilterInvocation fi) throws IOException, ServletException {
         //fi里面有一个被拦截的url
         //里面调用CasInvocationSecurityMetadataSource的getAttributes(Object object)这个方法获取fi对应的所有权限
@@ -54,24 +51,25 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
                 && (fi.getRequest().getAttribute(FILTER_APPLIED) != null)
                 && observeOncePerRequest) {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
-        }else{
+        } else {
             if (fi.getRequest() != null) {
                 fi.getRequest().setAttribute(FILTER_APPLIED, Boolean.TRUE);
             }
-        /**查询访问URL对应需要的所有权限*/
-        Collection<ConfigAttribute> configAttributes = securityMetadataSource.getAttributes(fi);
+            /**查询访问URL对应需要的所有权限*/
+            Collection<ConfigAttribute> configAttributes = securityMetadataSource.getAttributes(fi);
 
-        InterceptorStatusToken token = super.beforeInvocation(fi);
-        Authentication authentication = token.getSecurityContext().getAuthentication();
-        /**进行验证*/
-        casAccessDecisionManager.decide(authentication,fi,configAttributes);
-        try {
-            //执行下一个拦截器
-            fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
-        } finally {
-            super.afterInvocation(token, null);
+            InterceptorStatusToken token = super.beforeInvocation(fi);
+            Authentication authentication = token.getSecurityContext().getAuthentication();
+            /**进行验证*/
+            casAccessDecisionManager.decide(authentication, fi, configAttributes);
+            try {
+                //执行下一个拦截器
+                fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+            } finally {
+                super.afterInvocation(token, null);
+            }
         }
-    }}
+    }
 
     @Override
     public void destroy() {
@@ -87,6 +85,7 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
     public SecurityMetadataSource obtainSecurityMetadataSource() {
         return this.securityMetadataSource;
     }
+
     public boolean isObserveOncePerRequest() {
         return observeOncePerRequest;
     }

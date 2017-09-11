@@ -1,0 +1,13 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sunder-xie/spring-cloud/    # 配置git仓库的地址
+          search-paths: spring-cloud-microservice-study/config-repo   # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username: sunder-xie                                          # git仓库的账号
+          password: www.5201314.qq

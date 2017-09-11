@@ -3,19 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>taotao-manage</artifactId>
+        <artifactId>taotao-config</artifactId>
         <groupId>com.taotao</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../taotao-manage/pom.xml</relativePath>
+        <relativePath>../taotao-config/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.taotao</groupId>
-    <artifactId>taotao-manage-common</artifactId>
+    <artifactId>taotao-config-server</artifactId>
+
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+    </dependencies>
 
 
     <build>
