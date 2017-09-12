@@ -46,6 +46,10 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
         <!-- 模块依赖 start -->
         <dependency>
             <groupId>com.taotao</groupId>

@@ -142,6 +142,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.0</version>
+        </dependency>
         <!--     log 依赖包  start-->
         <dependency>
             <groupId>log4j</groupId>

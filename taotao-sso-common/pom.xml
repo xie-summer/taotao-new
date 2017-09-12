@@ -16,7 +16,12 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-common</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

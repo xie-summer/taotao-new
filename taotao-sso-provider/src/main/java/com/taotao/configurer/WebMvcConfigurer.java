@@ -5,9 +5,9 @@
 //import com.alibaba.fastjson.serializer.SerializerFeature;
 //import com.alibaba.fastjson.support.config.FastJsonConfig;
 //import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
-//import com.taotao.core.Result;
-//import com.taotao.core.ResultCode;
 //import com.taotao.core.ServiceException;
+//import com.taotao.support.ERROR_CODE;
+//import com.taotao.support.ErrorCode;
 //import org.apache.commons.codec.digest.DigestUtils;
 //import org.apache.commons.lang3.StringUtils;
 //import org.slf4j.Logger;
@@ -62,15 +62,16 @@
 //    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
 //        exceptionResolvers.add(new HandlerExceptionResolver() {
 //            public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception e) {
-//                Result result = new Result();
+////                Result result = new Result();
+//                ErrorCode result = new ErrorCode();
 //                if (handler instanceof HandlerMethod) {
 //                    HandlerMethod handlerMethod = (HandlerMethod) handler;
 //
 //                    if (e instanceof ServiceException) {//业务失败的异常，如“账号或密码错误”
-//                        result.setCode(ResultCode.FAIL).setMessage(e.getMessage());
+//                        result.setErrcode(ERROR_CODE.FAIL.code).setMsg(e.getMessage());
 //                        logger.info(e.getMessage());
 //                    } else {
-//                        result.setCode(ResultCode.INTERNAL_SERVER_ERROR).setMessage("接口 [" + request.getRequestURI() + "] 内部错误，请联系管理员");
+//                        result.setErrcode(ERROR_CODE.INTERNAL_SERVER_ERROR.code).setMsg("接口 [" + request.getRequestURI() + "] 内部错误，请联系管理员");
 //                        String message = String.format("接口 [%s] 出现异常，方法：%s.%s，异常摘要：%s",
 //                                request.getRequestURI(),
 //                                handlerMethod.getBean().getClass().getName(),
@@ -80,9 +81,9 @@
 //                    }
 //                } else {
 //                    if (e instanceof NoHandlerFoundException) {
-//                        result.setCode(ResultCode.NOT_FOUND).setMessage("接口 [" + request.getRequestURI() + "] 不存在");
+//                        result.setErrcode(ERROR_CODE.NOT_FOUND.code).setMsg("接口 [" + request.getRequestURI() + "] 不存在");
 //                    } else {
-//                        result.setCode(ResultCode.INTERNAL_SERVER_ERROR).setMessage(e.getMessage());
+//                        result.setErrcode(ERROR_CODE.INTERNAL_SERVER_ERROR.code).setMsg(e.getMessage());
 //                        logger.error(e.getMessage(), e);
 //                    }
 //                }
@@ -124,8 +125,8 @@
 //                        logger.warn("签名认证失败，请求接口：{}，请求IP：{}，请求参数：{}",
 //                                request.getRequestURI(), getIpAddress(request), JSON.toJSONString(request.getParameterMap()));
 //
-//                        Result result = new Result();
-//                        result.setCode(ResultCode.UNAUTHORIZED).setMessage("签名认证失败");
+//                        ErrorCode result = new ErrorCode();
+//                        result.setErrcode(ERROR_CODE.UNAUTHORIZED.code).setMsg("签名认证失败");
 //                        responseResult(response, result);
 //                        return false;
 //                    }
@@ -134,7 +135,7 @@
 //        }
 //    }
 //
-//    private void responseResult(HttpServletResponse response, Result result) {
+//    private void responseResult(HttpServletResponse response, ErrorCode result) {
 //        response.setCharacterEncoding("UTF-8");
 //        response.setHeader("Content-type", "application/json;charset=UTF-8");
 //        response.setStatus(200);
