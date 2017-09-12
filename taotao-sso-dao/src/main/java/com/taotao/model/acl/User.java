@@ -14,7 +14,7 @@ import java.util.List;
  * @author <a href="mailto:acerge@163.com">gebiao(acerge)</a>
  * @since 2007-9-28下午02:05:17
  */
-@Table(name = "user")
+@Table(name = "user" )
 public class User extends GewaraUser {
     private static final long serialVersionUID = 3832626162173359411L;
     @Id
@@ -24,20 +24,21 @@ public class User extends GewaraUser {
     private String username; // required
     @Column(name = "password")
     private String password; // required
-    @Column(name = "nick_name")
+//    @Column(name = "nick_name")
     private String nickname;
-    @Column(name = "account_enabled")
+//    @Column(name = "account_enabled")
     private String accountEnabled; // Y or N
-    @Column(name = "city_code")
+//    @Column(name = "city_code")
     private String citycode;
-    @Column(name = "mobile")
+//    @Column(name = "mobile")
     private String mobile;
-    @Column(name = "role_names")
+//    @Column(name = "role_names")
     private String rolenames;
-    @Column(name = "user_type")
+//    @Column(name = "user_type")
     private String usertype; // 用户类型：inner:内部用户，其他：外部用户
-    @Column(name = "email")
+//    @Column(name = "email")
     private String email;
+
     private List<GrantedAuthority> tmpAuth;
 
     public User() {
