@@ -17,7 +17,7 @@
         <result column="email" jdbcType="VARCHAR" property="email"/>
     </resultMap>
     <select id="findByUserName" resultMap="userResultMap">
-        SELECT *
+        SELECT username ,password, nick_name,account_enabled,city_code,role_names,mobile,user_type,email
         FROM user u
         WHERE u.username = #{name}
     </select>
