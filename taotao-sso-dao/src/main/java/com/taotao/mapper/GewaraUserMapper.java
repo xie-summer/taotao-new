@@ -9,6 +9,6 @@ import tk.mybatis.mapper.common.Mapper;
 
 @Repository
 public interface GewaraUserMapper extends Mapper<User> {
-    @Select(" select * from user u where u.username =#{name}")
+//    @Select(" select * from user u where u.username =#{name}")
     GewaraUser findByUserName(@Param("name")String name);
 }
