@@ -24,12 +24,11 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
     @Autowired
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
     @Autowired
-    @Qualifier("casAccessDecisionManager")
     private AccessDecisionManager casAccessDecisionManager;
-//    @Autowired
-//    public void setAccessDecisionManager(AccessDecisionManager casAccessDecisionManager) {
-//        super.setAccessDecisionManager(casAccessDecisionManager);
-//    }
+    @Autowired
+    public void setAccessDecisionManager(AccessDecisionManager casAccessDecisionManager) {
+        super.setAccessDecisionManager(casAccessDecisionManager);
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

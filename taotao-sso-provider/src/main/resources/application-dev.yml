@@ -1,5 +1,8 @@
 
 #  开发环境（本机）
+server:
+  port: 8000
+  servlet-path: /
 
 data:
   spring:
@@ -31,3 +34,4 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch.youran.persistence: ERROR
+

@@ -1,4 +1,4 @@
-package com.taotao.service.acl;
+package com.taotao.rpc.api.acl;
 
 import com.taotao.model.acl.GewaraUser;
 import com.taotao.model.acl.SysMenu;

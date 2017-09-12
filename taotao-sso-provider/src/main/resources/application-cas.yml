@@ -6,10 +6,10 @@ cas:
     logout_url: /logout #注销地址
 
 app:
- server:
-  host:
-    url: http://localhost:8080/web-cas #本应用访问地址
  login:
     url: /login/cas #本应用登录地址
  logout:
     url: /logout  #本应用退出地址
+ server:
+  host:
+    url: http://localhost:8080/web-cas #本应用访问地址

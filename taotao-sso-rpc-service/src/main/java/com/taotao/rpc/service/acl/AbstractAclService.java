@@ -1,4 +1,4 @@
-package com.taotao.service.acl.impl;
+package com.taotao.rpc.service.acl;
 
 import com.taotao.model.acl.GewaraUser;
 import org.springframework.security.core.context.SecurityContextHolder;

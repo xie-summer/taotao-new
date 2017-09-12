@@ -1,6 +1,5 @@
 package com.taotao.web.configurer;
 
-import com.taotao.web.cas.CasProperties;
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.jasig.cas.client.validation.Cas20ServiceTicketValidator;
 import org.springframework.beans.factory.annotation.Autowired;

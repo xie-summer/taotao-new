@@ -1,9 +1,9 @@
-package com.taotao.service.acl.impl;
+package com.taotao.rpc.service.acl;
 
 import com.taotao.model.acl.Role;
 import com.taotao.model.acl.User;
 import com.taotao.model.acl.WebModule;
-import com.taotao.service.acl.AclManager;
+import com.taotao.rpc.api.acl.AclManager;
 
 import java.util.List;
 

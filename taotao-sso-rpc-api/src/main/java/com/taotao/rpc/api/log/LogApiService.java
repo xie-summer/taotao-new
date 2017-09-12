@@ -1,4 +1,4 @@
-package com.taotao.service.log;
+package com.taotao.rpc.api.log;
 
 import com.taotao.core.Service;
 import com.taotao.model.Log;
@@ -6,7 +6,7 @@ import com.taotao.model.Log;
 /**
  * 日志记录
  */
-public interface LogApiService extends Service {
+public interface LogApiService extends Service<Log> {
 
     /** 插入日志
      * @param log

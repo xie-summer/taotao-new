@@ -39,7 +39,7 @@ public class User extends GewaraUser {
 //    @Column(name = "email")
     private String email;
 
-    private List<GrantedAuthority> tmpAuth;
+//    private List<GrantedAuthority> tmpAuth;
 
     public User() {
     }
@@ -63,17 +63,18 @@ public class User extends GewaraUser {
 
     @Override
     public final List<GrantedAuthority> getAuthorities() {
-        if (tmpAuth != null)
-            return tmpAuth;
-        tmpAuth = new ArrayList<GrantedAuthority>();
-        if (StringUtils.isBlank(rolenames))
-            return tmpAuth;
-        tmpAuth.addAll(AuthorityUtils.createAuthorityList(StringUtils.split(rolenames, ",")));
-        return tmpAuth;
+//        if (tmpAuth != null)
+//            return tmpAuth;
+//        tmpAuth = new ArrayList<GrantedAuthority>();
+//        if (StringUtils.isBlank(rolenames))
+//            return tmpAuth;
+//        tmpAuth.addAll(AuthorityUtils.createAuthorityList(StringUtils.split(rolenames, ",")));
+//        return tmpAuth;
+    	return null;
     }
 
     public void setAuthorities(List<GrantedAuthority> tmpAuth) {
-        this.tmpAuth = tmpAuth;
+//        this.tmpAuth = tmpAuth;
 
     }
 

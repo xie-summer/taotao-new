@@ -1,4 +1,4 @@
-package com.taotao.service.acl.impl;
+package com.taotao.rpc.service.acl;
 
 
 import com.taotao.mapper.GewaraUserMapper;
@@ -6,7 +6,8 @@ import com.taotao.mapper.SysMenuMapper;
 import com.taotao.model.acl.GewaraUser;
 import com.taotao.model.acl.SysMenu;
 import com.taotao.model.acl.WebModule;
-import com.taotao.service.acl.AclService;
+import com.taotao.rpc.api.acl.AclService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
