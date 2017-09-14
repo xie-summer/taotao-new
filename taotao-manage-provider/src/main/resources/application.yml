@@ -1,0 +1,5 @@
+# 当前环境开发环境
+spring:
+  profiles:
+    active: dev
+

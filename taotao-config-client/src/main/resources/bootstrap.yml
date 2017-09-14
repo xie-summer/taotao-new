@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-config-client    # 对应microservice-config-server所获取的配置文件的{application}
+    name: taotao-config-client    # 对应microservice-config-server所获取的配置文件的{application}
   cloud:
     config:
       uri: http://config-server:8040/
