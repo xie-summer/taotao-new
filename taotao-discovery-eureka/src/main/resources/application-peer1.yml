@@ -1,0 +1,17 @@
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+#  devtools:
+#    restart:
+#      additional-paths: src/main/java,src/main/resources
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1                               # 指定当profile=peer1时，主机名
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+#      将peer1自己注册到peer2这个Eureka上面去
+#      将peer2自己注册到peer1这个Eureka上面去
+

@@ -15,7 +15,12 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
