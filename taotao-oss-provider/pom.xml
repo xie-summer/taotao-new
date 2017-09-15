@@ -16,6 +16,8 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+
+        <taotao-oss-rpc-service.version>${parent.version}</taotao-oss-rpc-service.version>
     </properties>
 
     <dependencies>
@@ -57,12 +59,7 @@
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-oss-rpc-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.taotao</groupId>
-            <artifactId>taotao-web-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${taotao-oss-rpc-service.version}</version>
         </dependency>
     </dependencies>
 

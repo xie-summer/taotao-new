@@ -15,14 +15,14 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
-        <taotao-common.version>${parent.version}</taotao-common.version>
+        <taotao-web-common.version>${parent.version}</taotao-web-common.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-common</artifactId>
-            <version>${taotao-common.version}</version>
+            <artifactId>taotao-web-common</artifactId>
+            <version>${taotao-web-common.version}</version>
         </dependency>
     </dependencies>
 

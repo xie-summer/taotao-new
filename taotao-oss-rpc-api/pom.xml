@@ -17,13 +17,15 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+
+        <taotao-oss-dao.version>${parent.version}</taotao-oss-dao.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-oss-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${taotao-oss-dao.version}</version>
         </dependency>
     </dependencies>
 
