@@ -1,17 +1,16 @@
 
 #############       aliyun oss   #########
 
-aliyun:
-  oss:
-    accessKeySecret:
-    accessKeyId:
-    bucketName: shuzheng
-    callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
-    maxSize: 10
-    policy:
-      expire: 300
-    endpoint: oss-cn-shanghai.aliyuncs.com
-      internal: oss-cn-shanghai-internal.aliyuncs.com
+oss:
+  accessKeySecret:
+  accessKeyId:
+  bucketName: shuzheng
+  callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
+  maxSize: 10
+  policy:
+    expire: 300
+  endpoint: oss-cn-shanghai.aliyuncs.com
+    internal: oss-cn-shanghai-internal.aliyuncs.com
 
 
 

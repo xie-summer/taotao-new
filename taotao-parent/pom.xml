@@ -571,14 +571,14 @@
         <module>../taotao-web-common</module>
         <module>../taotao-discovery</module>
         <module>../taotao-gateway</module>
-        <!--<module>../taotao-config</module>-->
-        <!--<module>../taotao-oss</module>-->
-        <!--<module>../taotao-pay</module>-->
-        <!--<module>../taotao-wechat</module>-->
-        <!--&lt;!&ndash;<module>../taotao-manage</module>&ndash;&gt;-->
-        <!--<module>../taotao-search</module>-->
-        <!--<module>../taotao-web</module>-->
-        <!--<module>../taotao-sso</module>-->
+        <module>../taotao-config</module>
+        <module>../taotao-oss</module>
+        <module>../taotao-pay</module>
+        <module>../taotao-wechat</module>
+        <module>../taotao-manage</module>
+        <module>../taotao-search</module>
+        <module>../taotao-web</module>
+        <module>../taotao-sso</module>
     </modules>
     <build>
         <finalName>${project.artifactId}</finalName>

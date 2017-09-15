@@ -1,4 +1,4 @@
-package com.taotao.oss.rpc.api.ali;
+package com.taotao.oss.rpc.api;
 
 import com.taotao.support.ErrorCode;
 
