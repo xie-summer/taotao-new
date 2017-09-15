@@ -1,4 +1,4 @@
-package com.taotao.support.auth;
+package com.taotao.web.support.auth;
 
 import com.taotao.util.StringUtil;
 import org.springframework.security.core.Authentication;

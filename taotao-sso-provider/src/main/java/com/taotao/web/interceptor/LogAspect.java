@@ -3,6 +3,7 @@ package com.taotao.web.interceptor;
 import com.alibaba.fastjson.JSON;
 import com.taotao.model.Log;
 import com.taotao.rpc.api.log.LogApiService;
+//import com.taotao.web.util.RequestUtil;
 import com.taotao.web.util.RequestUtil;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang.ObjectUtils;
