@@ -1,28 +1,19 @@
 #
-##############       aliyun oss   #########
-#
-#oss:
-#  accessKeySecret:
-#  accessKeyId:
-#  bucketName: shuzheng
-#  callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
-#  maxSize: 10
-#  policy:
-#    expire: 300
-#  endpoint: oss-cn-shanghai.aliyuncs.com
-#    internal: oss-cn-shanghai-internal.aliyuncs.com
-#
-#
-#
-###### aliyun oss #####
-##aliyun.oss.endpoint=oss-cn-shanghai.aliyuncs.com
-##aliyun.oss.endpoint.internal=
-##aliyun.oss.accessKeyId=
-##aliyun.oss.accessKeySecret=
-##aliyun.oss.bucketName=shuzheng
-##aliyun.oss.policy.expire=300
-##aliyun.oss.maxSize=10
-##aliyun.oss.callback=http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
-##
-##### zheng-oss #####
-##zheng.oss.aliyun.oss.policy=http://oss.zhangshuzheng.cn:7771/aliyun/oss/policy
+
+ali:
+  oss:
+    policy:
+      expire: 300
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    internal: oss-cn-shanghai-internal.aliyuncs.com  #这样的文件格式会报错。
+    maxSize: 10
+    accessKeySecret:
+    accessKeyId:
+    bucketName: shuzheng
+    callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
+
+
+
+
+
+

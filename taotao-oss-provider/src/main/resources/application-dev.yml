@@ -1,7 +1,12 @@
-# taotao-oss-provider
 server:
   port: 8000
-  servlet-path: /
+  servlet-path: /oss
+
+spring:
+  application:
+    name: taotao-oss-provider    # 项目名称尽量用小写
+
+# 配置注册中心
 eureka:
   client:
     serviceUrl:
@@ -9,17 +14,3 @@ eureka:
   instance:
     preferIpAddress: true
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
-spring:
-  application:
-    name: taotao-oss-provider    # 项目名称尽量用小写
-
-oss:
-  accessKeySecret:
-  accessKeyId:
-  bucketName: shuzheng
-  callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
-  maxSize: 10
-  policy:
-    expire: 300
-  endpoint: oss-cn-shanghai.aliyuncs.com
-    internal: oss-cn-shanghai-internal.aliyuncs.com

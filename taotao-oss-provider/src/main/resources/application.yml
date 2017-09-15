@@ -1,5 +1,5 @@
-# 当前环境开发环境
+#oss配置文件spring:
 spring:
   profiles:
     active: dev
-
+    include: oss
