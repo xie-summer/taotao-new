@@ -534,13 +534,6 @@
             </dependency>
             <!-- javaEE 依赖支持 end-->
 
-            <!-- 模块依赖 start -->
-            <dependency>
-                <groupId>com.taotao</groupId>
-                <artifactId>taotao-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <!-- 模块依赖 end -->
             <!-- 热部署 -->
             <!-- devtools可以实现页面热部署（即页面修改后会立即生效，这个可以直接在application.properties文件中配置spring.thymeleaf.cache=false来实现） -->
             <!-- 实现类文件热部署（类文件修改后不会立即生效），实现对属性文件的热部署。 -->
@@ -568,18 +561,18 @@
     </dependencies>
 
     <modules>
-        <module>../taotao-common</module>
-        <module>../taotao-web-common</module>
-        <module>../taotao-discovery</module>
-        <module>../taotao-gateway</module>
-        <module>../taotao-config</module>
-        <module>../taotao-oss</module>
-        <module>../taotao-pay</module>
-        <module>../taotao-wechat</module>
-        <module>../taotao-manage</module>
-        <module>../taotao-search</module>
-        <module>../taotao-web</module>
-        <module>../taotao-sso</module>
+        <!--<module>../taotao-common</module>-->
+        <!--<module>../taotao-web-common</module>-->
+        <!--<module>../taotao-discovery</module>-->
+        <!--<module>../taotao-gateway</module>-->
+        <!--<module>../taotao-config</module>-->
+        <!--<module>../taotao-oss</module>-->
+        <!--<module>../taotao-pay</module>-->
+        <!--<module>../taotao-wechat</module>-->
+        <!--<module>../taotao-manage</module>-->
+        <!--<module>../taotao-search</module>-->
+        <!--<module>../taotao-web</module>-->
+        <!--<module>../taotao-sso</module>-->
     </modules>
     <build>
         <finalName>${project.artifactId}</finalName>

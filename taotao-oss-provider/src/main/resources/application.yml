@@ -1,6 +1,5 @@
 # 当前环境开发环境
 spring:
   profiles:
-    include: oss
     active: dev
 

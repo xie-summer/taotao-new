@@ -14,11 +14,11 @@
     <artifactId>taotao-oss</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../taotao-oss-provider</module>
+        <module>../taotao-oss-common</module>
+        <module>../taotao-oss-dao</module>
         <module>../taotao-oss-rpc-api</module>
         <module>../taotao-oss-rpc-service</module>
-        <module>../taotao-oss-dao</module>
-        <module>../taotao-oss-common</module>
+        <module>../taotao-oss-provider</module>
     </modules>
 
 

@@ -15,12 +15,14 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+        <taotao-common.version>1.0-SNAPSHOT</taotao-common.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-common</artifactId>
+            <version>${taotao-common.version}</version>
         </dependency>
     </dependencies>
 
@@ -35,43 +37,6 @@
                     <target>${java.version}</target>
                     <encoding>${encoding.version}</encoding>
                     <compilerArgument>-proc:none</compilerArgument>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <useUniqueVersions>true</useUniqueVersions>
-                        </manifest>
-                    </archive>
                 </configuration>
             </plugin>
         </plugins>

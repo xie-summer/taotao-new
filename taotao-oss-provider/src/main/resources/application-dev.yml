@@ -13,10 +13,13 @@ spring:
   application:
     name: taotao-oss-provider    # 项目名称尽量用小写
 
-logging:
-  level:
-    root: INFO
-    org.hibernate: INFO
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.itmuch.youran.persistence: ERROR
+oss:
+  accessKeySecret:
+  accessKeyId:
+  bucketName: shuzheng
+  callback: http://shuzheng.tunnel.qydev.com/aliyun/oss/callback
+  maxSize: 10
+  policy:
+    expire: 300
+  endpoint: oss-cn-shanghai.aliyuncs.com
+    internal: oss-cn-shanghai-internal.aliyuncs.com
