@@ -16,7 +16,7 @@
         <encoding.version>UTF-8</encoding.version>
 
         <!--模块依赖版本管理-->
-        <taotao-sso-dao.version>1.0-SNAPSHOT</taotao-sso-dao.version>
+        <taotao-sso-dao.version>${parent.version}</taotao-sso-dao.version>
     </properties>
 
     <dependencies>

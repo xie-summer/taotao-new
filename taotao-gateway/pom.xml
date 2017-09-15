@@ -9,11 +9,13 @@
         <relativePath>../taotao-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-gateway</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>../taotao-api-gateway</module>
     </modules>
-    <artifactId>taotao-gateway</artifactId>
 
 
 </project>

@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.taotao</groupId>
         <artifactId>taotao-parent</artifactId>
+        <groupId>com.taotao</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../taotao-parent/pom.xml</relativePath>
     </parent>
     <groupId>com.taotao</groupId>
     <artifactId>taotao-manage</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+        <module>../taotao-manage-common</module>
         <module>../taotao-manage-dao</module>
         <module>../taotao-manage-rpc-api</module>
         <module>../taotao-manage-rpc-service</module>
         <module>../taotao-manage-provider</module>
-        <module>../taotao-manage-common</module>
 
     </modules>
 

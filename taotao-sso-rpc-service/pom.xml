@@ -15,7 +15,7 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
-        <taotao-sso-rpc-api.version>1.0-SNAPSHOT</taotao-sso-rpc-api.version>
+        <taotao-sso-rpc-api.version>${parent.version}</taotao-sso-rpc-api.version>
     </properties>
     <dependencies>
         <!--     模块依赖  start-->

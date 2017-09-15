@@ -14,11 +14,11 @@
     <artifactId>taotao-pay</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../taotao-pay-provider</module>
         <module>../taotao-pay-common</module>
+        <module>../taotao-pay-dao</module>
         <module>../taotao-pay-rpc-api</module>
         <module>../taotao-pay-rpc-service</module>
-        <module>../taotao-pay-dao</module>
+        <module>../taotao-pay-provider</module>
     </modules>
 
 

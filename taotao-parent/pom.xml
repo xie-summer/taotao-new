@@ -11,6 +11,7 @@
         <dependency.container>provided</dependency.container>
         <dependency.common>provided</dependency.common>
 
+        <mapstruct.version>1.1.0.Final</mapstruct.version>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
@@ -44,6 +45,7 @@
         <commons-spymemcached.version>2.11.7</commons-spymemcached.version>
         <commons-ehcache.version>2.6.9</commons-ehcache.version>
 
+        <lombok.version>1.16.6</lombok.version>
         <!-- Log libs -->
         <slf4j.version>1.7.9</slf4j.version><!-- 1.7.9 -->
         <log4j.version>1.2.17</log4j.version><!-- 1.2.17 -->
@@ -401,8 +403,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.16.6</version>
-                <scope>provided</scope>
+                <version>${lombok.version}</version>
             </dependency>
 
             <dependency>
@@ -561,18 +562,18 @@
     </dependencies>
 
     <modules>
-        <!--<module>../taotao-common</module>-->
-        <!--<module>../taotao-web-common</module>-->
-        <!--<module>../taotao-discovery</module>-->
-        <!--<module>../taotao-gateway</module>-->
-        <!--<module>../taotao-config</module>-->
-        <!--<module>../taotao-oss</module>-->
-        <!--<module>../taotao-pay</module>-->
-        <!--<module>../taotao-wechat</module>-->
-        <!--<module>../taotao-manage</module>-->
-        <!--<module>../taotao-search</module>-->
-        <!--<module>../taotao-web</module>-->
-        <!--<module>../taotao-sso</module>-->
+        <module>../taotao-common</module>
+        <module>../taotao-web-common</module>
+        <module>../taotao-discovery</module>
+        <module>../taotao-gateway</module>
+        <module>../taotao-config</module>
+        <module>../taotao-oss</module>
+        <module>../taotao-pay</module>
+        <module>../taotao-wechat</module>
+        <module>../taotao-manage</module>
+        <module>../taotao-search</module>
+        <module>../taotao-web</module>
+        <module>../taotao-sso</module>
     </modules>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -615,6 +616,18 @@
                     <target>${java.version}</target>
                     <encoding>${encoding.version}</encoding>
                     <compilerArgument>-proc:none</compilerArgument>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>

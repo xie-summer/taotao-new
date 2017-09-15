@@ -14,23 +14,17 @@
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+
+        <taotao-manage-rpc-service.version>${parent.version}</taotao-manage-rpc-service.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-manage-rpc-service</artifactId>
+            <version>${taotao-manage-rpc-service.version}</version>
+        </dependency>
+    </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${encoding.version}</encoding>
-                    <compilerArgument>-proc:none</compilerArgument>
-                </configuration>
-            </plugin>
 
-        </plugins>
-    </build>
 </project>

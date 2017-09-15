@@ -11,7 +11,6 @@ import com.taotao.util.LocalIpUtil;
  * CAS的配置参数
  */
 @Component
-@Data
 public class CasProperties {
 	@Value("${cas.server.host.url}")
 	private String casServerPrefix;
@@ -35,4 +34,47 @@ public class CasProperties {
 		return LocalIpUtil.replaceTrueIpIfLocalhost(casServerPrefix);
 	}
 
+	public void setCasServerPrefix(String casServerPrefix) {
+		this.casServerPrefix = casServerPrefix;
+	}
+
+	public String getCasServerLoginUrl() {
+		return casServerLoginUrl;
+	}
+
+	public void setCasServerLoginUrl(String casServerLoginUrl) {
+		this.casServerLoginUrl = casServerLoginUrl;
+	}
+
+	public String getCasServerLogoutUrl() {
+		return casServerLogoutUrl;
+	}
+
+	public void setCasServerLogoutUrl(String casServerLogoutUrl) {
+		this.casServerLogoutUrl = casServerLogoutUrl;
+	}
+
+	public String getAppServicePrefix() {
+		return appServicePrefix;
+	}
+
+	public void setAppServicePrefix(String appServicePrefix) {
+		this.appServicePrefix = appServicePrefix;
+	}
+
+	public String getAppServiceLoginUrl() {
+		return appServiceLoginUrl;
+	}
+
+	public void setAppServiceLoginUrl(String appServiceLoginUrl) {
+		this.appServiceLoginUrl = appServiceLoginUrl;
+	}
+
+	public String getAppServiceLogoutUrl() {
+		return appServiceLogoutUrl;
+	}
+
+	public void setAppServiceLogoutUrl(String appServiceLogoutUrl) {
+		this.appServiceLogoutUrl = appServiceLogoutUrl;
+	}
 }

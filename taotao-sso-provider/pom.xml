@@ -13,8 +13,8 @@
         <encoding.version>UTF-8</encoding.version>
 
         <!--依赖模块版本控制-->
-        <taotao-sso-rpc-service.version>1.0-SNAPSHOT</taotao-sso-rpc-service.version>
-        <taotao-web-common.version>1.0-SNAPSHOT</taotao-web-common.version>
+        <taotao-sso-rpc-service.version>${parent.version}</taotao-sso-rpc-service.version>
+        <taotao-web-common.version>${parent.version}</taotao-web-common.version>
     </properties>
 
 
@@ -129,20 +129,5 @@
     </dependencies>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${encoding.version}</encoding>
-                    <compilerArgument>-proc:none</compilerArgument>
-                </configuration>
-            </plugin>
 
-        </plugins>
-    </build>
 </project>
