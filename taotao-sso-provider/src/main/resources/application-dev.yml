@@ -1,13 +1,13 @@
 
 #  开发环境（本机）
 server:
-  port: 8000
-  servlet-path: /
+  port: 1111
+  context-path: /sso
 
 data:
   spring:
     datasource:
-      url: jdbc:mysql://127.0.0.1:3306/taotao-new?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true
+      url: jdbc:mysql://dbserver:3306/taotao-new?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true
       username: root
       password: 123
       driverClassName: com.mysql.jdbc.Driver

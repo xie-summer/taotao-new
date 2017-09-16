@@ -1,7 +1,7 @@
-# taotao-oss-provider
 server:
-  port: 2222
-  context-path: /manage
+  port: 4444
+  context-path: /pay
+
 # 配置注册中心
 eureka:
   client:
@@ -12,7 +12,7 @@ eureka:
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
 spring:
   application:
-    name: taotao-manage-provider    # 项目名称尽量用小写
+    name: taotao-pay-provider    # 项目名称尽量用小写
 
 logging:
   level:

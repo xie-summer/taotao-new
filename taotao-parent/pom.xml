@@ -553,10 +553,12 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
 
     </dependencies>
@@ -574,6 +576,7 @@
         <module>../taotao-search</module>
         <module>../taotao-web</module>
         <module>../taotao-sso</module>
+        <module>../taotao-devItools</module>
     </modules>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -602,10 +605,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <!-- 如果没有该项配置，实际测试ok -->
-                    <!-- <fork>true</fork> -->
-                </configuration>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
