@@ -10,6 +10,11 @@
     </parent>
     <groupId>com.taotao</groupId>
     <artifactId>taotao-search</artifactId>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>../taotao-serach-rpc-api</module>
+        <module>../taotao-serach-rpc-service</module>
+        <module>../taotao-search-provider</module>
+    </modules>
 
 </project>
