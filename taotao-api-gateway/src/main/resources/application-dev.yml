@@ -1,0 +1,45 @@
+
+spring:
+  application:
+    name: taotao-api-gateway
+server:
+  port: 9999
+eureka:
+  instance:
+    hostname: api-gateway
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-eureka:8761/eureka/
+# 下面整个树都非必须，如果不配置，将默认使用 http://GATEWAY:GATEWAY_PORT/想要访问的Eureka服务id的小写/** 路由到：http://想要访问的Eureka服务id的小写:该服务端口/**
+zuul:
+  max:
+      host:
+        connections: 200
+    host:
+      socket-timeout-millis: 60000
+      connect-timeout-millis: 60000
+  hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 10000
+  routes:
+    esserver:          # 搜索服务
+      path: /serach/**
+      serviceId: taotao-serach-provider
+    oss:             # 对象存储服务        # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
+      path: /oss/**                             # 想要映射到的路径
+      service-id: taotao-oss-provider            # Eureka中的serviceId
+    sso:
+      path: /sso/** # 集成cas的单点登录
+      service-id: taotao-sso-provider
+    pay:
+      path: /pay/** # 支付服务
+      service-id: taotao-pay-provider
+
+#      访问
+#      http://GATEWAY:GATEWAY_PORT/想要访问的Eureka服务id的小写/**
+#      ，将会访问到
+#      http://想要访问的Eureka服务id的小写:该服务端口/**
