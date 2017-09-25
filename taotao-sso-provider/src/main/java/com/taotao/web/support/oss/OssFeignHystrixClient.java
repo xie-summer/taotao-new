@@ -1,6 +1,7 @@
 package com.taotao.web.support.oss;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -29,11 +30,12 @@ public interface OssFeignHystrixClient {
         /**
          * hystrix fallback方法
          *
-         * @param  callback
+         * @param callback
          * @return 默认的返回null
          */
         @Override
         public Object policy(String callback) {
+            if (StringUtils.isNotBlank(callback)) return callback;
             return null;
         }
 
