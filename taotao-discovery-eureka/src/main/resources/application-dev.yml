@@ -15,8 +15,10 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://admin@psw${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://admin:psw@${eureka.instance.hostname}:${server.port}/eureka/
 security:
+  basic:
+    enabled: true
   user:
     name: admin
     password: psw
