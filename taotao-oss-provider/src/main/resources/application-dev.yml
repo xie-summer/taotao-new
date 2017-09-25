@@ -8,9 +8,10 @@ spring:
 
 # 配置注册中心
 eureka:
+  host: discovery-eureka
   client:
     serviceUrl:
-      defaultZone: http://discovery-eureka:8761/eureka/    # 指定注册中心的地址
+      defaultZone: http://admin@psw${discovery-eureka}:8761/eureka/   # 指定注册中心的地址
   instance:
     preferIpAddress: true
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
