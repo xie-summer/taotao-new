@@ -35,7 +35,7 @@ public interface OssFeignHystrixClient {
          */
         @Override
         public Object policy(String callback) {
-
+            HystrixClientFallback.LOGGER.info("异常发生，进入fallback方法，接收的参数：callback = {}", callback);
             if (StringUtils.isNotBlank(callback)) {
                 LOGGER.info("异常了默认回调 :" + callback);
                 return callback;
