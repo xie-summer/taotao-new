@@ -35,7 +35,11 @@ public interface OssFeignHystrixClient {
          */
         @Override
         public Object policy(String callback) {
-            if (StringUtils.isNotBlank(callback)) return callback;
+
+            if (StringUtils.isNotBlank(callback)) {
+                LOGGER.info("异常了默认回调 :" + callback);
+                return callback;
+            }
             return null;
         }
 
