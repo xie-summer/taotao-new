@@ -12,8 +12,8 @@
     <artifactId>taotao-search</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../taotao-serach-rpc-api</module>
-        <module>../taotao-serach-rpc-service</module>
+        <module>../taotao-serach-api</module>
+        <module>../taotao-serach-service</module>
         <module>../taotao-search-provider</module>
     </modules>
 

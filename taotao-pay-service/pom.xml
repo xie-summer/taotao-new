@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.taotao</groupId>
-    <artifactId>taotao-pay-rpc-api</artifactId>
+    <artifactId>taotao-pay-service</artifactId>
 
 
 </project>

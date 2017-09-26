@@ -11,18 +11,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.taotao</groupId>
-    <artifactId>taotao-oss-rpc-service</artifactId>
+    <artifactId>taotao-oss-service</artifactId>
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
-        <taotao-oss-rpc-api.version>${parent.version}</taotao-oss-rpc-api.version>
+        <taotao-oss-api.version>${parent.version}</taotao-oss-api.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-oss-rpc-api</artifactId>
-            <version>${taotao-oss-rpc-api.version}</version>
+            <artifactId>taotao-oss-api</artifactId>
+            <version>${taotao-oss-api.version}</version>
         </dependency>
     </dependencies>
 

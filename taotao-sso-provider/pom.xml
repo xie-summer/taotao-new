@@ -13,7 +13,7 @@
         <encoding.version>UTF-8</encoding.version>
 
         <!--依赖模块版本控制-->
-        <taotao-sso-rpc-service.version>${parent.version}</taotao-sso-rpc-service.version>
+        <taotao-sso-service.version>${parent.version}</taotao-sso-service.version>
         <taotao-web-common.version>${parent.version}</taotao-web-common.version>
     </properties>
 
@@ -121,8 +121,8 @@
         <!-- 模块依赖 start -->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-sso-rpc-service</artifactId>
-            <version>${taotao-sso-rpc-service.version}</version>
+            <artifactId>taotao-sso-service</artifactId>
+            <version>${taotao-sso-service.version}</version>
         </dependency>
 
         <!-- 模块依赖 end -->

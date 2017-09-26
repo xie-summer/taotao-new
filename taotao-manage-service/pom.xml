@@ -2,31 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>taotao-sso</artifactId>
-        <groupId>com.taotao</groupId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../taotao-sso/pom.xml</relativePath>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.taotao</groupId>
+        <artifactId>taotao-manage</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-manage-service</artifactId>
+    <packaging>jar</packaging>
 
-    <artifactId>taotao-sso-rpc-api</artifactId>
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
-        <!--模块依赖版本管理-->
-        <taotao-sso-dao.version>${parent.version}</taotao-sso-dao.version>
+        <taotao-manage-api.version>${parent.version}</taotao-manage-api.version>
     </properties>
 
     <dependencies>
-        <!--     模块依赖  start-->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-sso-dao</artifactId>
-            <version>${taotao-sso-dao.version}</version>
+            <artifactId>taotao-manage-api</artifactId>
+            <version>${taotao-manage-api.version}</version>
         </dependency>
-        <!--     模块依赖   end-->
-
     </dependencies>
+
+
+
+
 </project>

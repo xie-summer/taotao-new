@@ -15,8 +15,8 @@
     <modules>
         <module>../taotao-manage-common</module>
         <module>../taotao-manage-dao</module>
-        <module>../taotao-manage-rpc-api</module>
-        <module>../taotao-manage-rpc-service</module>
+        <module>../taotao-manage-api</module>
+        <module>../taotao-manage-service</module>
         <module>../taotao-manage-provider</module>
 
     </modules>

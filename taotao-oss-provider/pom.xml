@@ -17,7 +17,7 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
-        <taotao-oss-rpc-service.version>${parent.version}</taotao-oss-rpc-service.version>
+        <taotao-oss-service.version>${parent.version}</taotao-oss-service.version>
     </properties>
 
     <dependencies>
@@ -74,8 +74,8 @@
         <!--模块依赖管理-->
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-oss-rpc-service</artifactId>
-            <version>${taotao-oss-rpc-service.version}</version>
+            <artifactId>taotao-oss-service</artifactId>
+            <version>${taotao-oss-service.version}</version>
         </dependency>
     </dependencies>
 

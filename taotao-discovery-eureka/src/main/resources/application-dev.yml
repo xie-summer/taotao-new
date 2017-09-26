@@ -16,12 +16,24 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://admin:psw@${eureka.instance.hostname}:${server.port}/eureka/
-security:
-  basic:
-    enabled: true
-  user:
-    name: admin
-    password: psw
+
+#spring
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+  redis:
+    host: rdserver
+    port: 6379
+    password:
+    timeout: 5000
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+
 #spring:
 # devtools:
 #    restart:

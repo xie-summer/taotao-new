@@ -78,7 +78,7 @@ package com.taotao.web.utils;//package com.sunder.whats.web.utils;
 //			}
 //			jdbcUtil.release();
 //
-//			String targetProject_sqlMap = module + "/" + module + "-rpc-service";
+//			String targetProject_sqlMap = module + "/" + module + "-service";
 //			context.put("tables", tables);
 //			context.put("generator_javaModelGenerator_targetPackage", package_name + ".dao.model");
 //			context.put("generator_sqlMapGenerator_targetPackage", package_name + ".dao.mapper");
@@ -112,8 +112,8 @@ package com.taotao.web.utils;//package com.sunder.whats.web.utils;
 //
 //		System.out.println("========== 开始生成Service ==========");
 //		String ctime = new SimpleDateFormat("yyyy/M/d").format(new Date());
-//		String servicePath = module + "/" + module + "-rpc-api" + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/rpc/api";
-//		String serviceImplPath = module + "/" + module + "-rpc-service" + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/rpc/service/impl";
+//		String servicePath = module + "/" + module + "-api" + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/rpc/api";
+//		String serviceImplPath = module + "/" + module + "-service" + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/rpc/service/impl";
 //		for (int i = 0; i < tables.size(); i++) {
 //			String model = lineToHump(ObjectUtils.toString(tables.get(i).get("table_name")));
 //			String service = servicePath + "/" + model + "Service.java";

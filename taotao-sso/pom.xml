@@ -22,8 +22,8 @@
     <modules>
         <module>../taotao-sso-common</module>
         <module>../taotao-sso-dao</module>
-        <module>../taotao-sso-rpc-api</module>
-        <module>../taotao-sso-rpc-service</module>
+        <module>../taotao-sso-api</module>
+        <module>../taotao-sso-service</module>
         <module>../taotao-sso-provider</module>
     </modules>
 </project>

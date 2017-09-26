@@ -15,14 +15,14 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
-        <taotao-manage-rpc-service.version>${parent.version}</taotao-manage-rpc-service.version>
+        <taotao-manage-service.version>${parent.version}</taotao-manage-service.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.taotao</groupId>
-            <artifactId>taotao-manage-rpc-service</artifactId>
-            <version>${taotao-manage-rpc-service.version}</version>
+            <artifactId>taotao-manage-service</artifactId>
+            <version>${taotao-manage-service.version}</version>
         </dependency>
         <!--   spring cloud eureka client 配置  start -->
         <dependency>
