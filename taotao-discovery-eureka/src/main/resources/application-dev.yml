@@ -1,5 +1,6 @@
 server:
   port: 8761          # 指定该Eureka实例的端口
+
 eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
@@ -14,7 +15,13 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://admin:psw@${eureka.instance.hostname}:${server.port}/eureka/
+security:
+  basic:
+    enabled: true
+  user:
+    name: admin
+    password: psw
 #spring:
 # devtools:
 #    restart:
