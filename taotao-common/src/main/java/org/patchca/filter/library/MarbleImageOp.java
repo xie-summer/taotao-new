@@ -41,7 +41,8 @@ public class MarbleImageOp extends AbstractTransformImageOp {
 		this.turbulence = turbulence;
 	}
 
-	protected synchronized void init() {
+	@Override
+    protected synchronized void init() {
 		this.tx = new double[256];
 		this.ty = new double[256];
 		for (int i = 0; i < 256; ++i) {
@@ -51,17 +52,19 @@ public class MarbleImageOp extends AbstractTransformImageOp {
 		}
 	}
 
-	protected void transform(int x, int y, double[] t) {
+	@Override
+    protected void transform(int x, int y, double[] t) {
 		int d = limitByte((int) (127.0D * (1.0D + PerlinNoise.noise2D(x / this.scale + this.randomX, y / this.scale + this.randomY))));
 		t[0] = (x + this.tx[d]);
 		t[1] = (y + this.ty[d]);
 	}
 
 	protected void filter2(int[] outPixels, int width, int height) {
-		for (int y = 0; y < height; ++y)
-			for (int x = 0; x < width; ++x) {
-				int pixel = limitByte((int) (127.0D * (1.0D + PerlinNoise.noise2D(x / this.scale + this.randomX, y / this.scale + this.randomY))));
-				outPixels[(x + y * width)] = (limitByte(255) << 24 | limitByte(pixel) << 16 | limitByte(pixel) << 8 | limitByte(pixel));
-			}
+		for (int y = 0; y < height; ++y) {
+            for (int x = 0; x < width; ++x) {
+                int pixel = limitByte((int) (127.0D * (1.0D + PerlinNoise.noise2D(x / this.scale + this.randomX, y / this.scale + this.randomY))));
+                outPixels[(x + y * width)] = (limitByte(255) << 24 | limitByte(pixel) << 16 | limitByte(pixel) << 8 | limitByte(pixel));
+            }
+        }
 	}
 }

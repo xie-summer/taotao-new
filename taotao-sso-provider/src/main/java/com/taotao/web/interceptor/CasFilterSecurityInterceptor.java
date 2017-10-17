@@ -25,6 +25,7 @@ public class CasFilterSecurityInterceptor extends AbstractSecurityInterceptor im
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
     @Autowired
     private AccessDecisionManager casAccessDecisionManager;
+    @Override
     @Autowired
     public void setAccessDecisionManager(AccessDecisionManager casAccessDecisionManager) {
         super.setAccessDecisionManager(casAccessDecisionManager);

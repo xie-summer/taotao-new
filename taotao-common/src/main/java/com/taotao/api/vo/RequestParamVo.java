@@ -60,30 +60,40 @@ public class RequestParamVo implements Serializable{
 
 	public Long getLong(String key){
 		String result = getString(key);
-		if(StringUtils.isBlank(result)) return null;
+		if(StringUtils.isBlank(result)) {
+            return null;
+        }
 		return Long.parseLong(result);
 	}
 
 	public Integer getInteger(String key){
 		String result = getString(key);
-		if(StringUtils.isBlank(result)) return null;
+		if(StringUtils.isBlank(result)) {
+            return null;
+        }
 		return Integer.parseInt(result);
 	}
 
 	public Timestamp getTimestamp(String key){
 		String result = getString(key);
-		if(StringUtils.isBlank(result)) return null;
+		if(StringUtils.isBlank(result)) {
+            return null;
+        }
 		return DateUtil.parseTimestamp(result);
 	}
 
 	public Date getDate(String key){
 		String result = getString(key);
-		if(StringUtils.isBlank(result)) return null;
+		if(StringUtils.isBlank(result)) {
+            return null;
+        }
 		return DateUtil.parseDate(result);
 	}
 
 	public String getString(String key){
-		if(params == null) return null;
+		if(params == null) {
+            return null;
+        }
 		String result = params.get(key);
 		return result;
 	}

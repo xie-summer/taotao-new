@@ -24,7 +24,9 @@ public class MapItemComparator implements Comparator<Map> {
 		Comparable o1 = (Comparable) one.get(elname); 
 		Comparable o2 = (Comparable) another.get(elname);
 		int result = 0;
-		if(o1 == null && o2 == null || o1==o2) return 0;
+		if(o1 == null && o2 == null || o1==o2) {
+            return 0;
+        }
 		if(o1 == null && o2 != null){
 			result = -1;
 		}else if(o1 != null && o2 == null){
@@ -47,9 +49,13 @@ public class MapItemComparator implements Comparator<Map> {
 		try{
 			Comparable p1 =  (Comparable) PropertyUtils.getProperty(o1, prop);
 			Comparable p2 =  (Comparable) PropertyUtils.getProperty(o2, prop);
-			if(p1==null && p2!=null) result = -1;
-			else if(p2==null && p1!=null) result = 1;
-			else if(p1!=null && p2!=null) result = p1.compareTo(p2);
+			if(p1==null && p2!=null) {
+                result = -1;
+            } else if(p2==null && p1!=null) {
+                result = 1;
+            } else if(p1!=null && p2!=null) {
+                result = p1.compareTo(p2);
+            }
 		}catch(Exception e){
 		}
 		return result;

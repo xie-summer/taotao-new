@@ -13,7 +13,8 @@ public class ComplexBackgroundFactory implements BackgroundFactory {
 	 */
 	private Random random = new Random();
 	private ColorFactory factory = new SingleColorFactory(new Color(25, 60, 170));
-	public void fillBackground(BufferedImage image) {
+	@Override
+    public void fillBackground(BufferedImage image) {
 		Graphics graphics = image.getGraphics();
 
 		// 验证码图片的宽高

@@ -12,7 +12,8 @@ public abstract class AbstractTransformImageOp extends AbstractImageOp {
 		setEdgeMode(2);
 	}
 
-	protected void filter(int[] inPixels, int[] outPixels, int width, int height) {
+	@Override
+    protected void filter(int[] inPixels, int[] outPixels, int width, int height) {
 		if (!(this.initialized)) {
 			init();
 			this.initialized = true;

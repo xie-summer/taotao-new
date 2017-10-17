@@ -39,8 +39,10 @@ public class Pdf2htmlEXUtil {
 		StringBuilder command = new StringBuilder();
 		command.append(exeFilePath).append(" ");
 		if (destDir != null && !"".equals(destDir.trim()))// 生成文件存放位置,需要替换文件路径中的空格
-			command.append("--dest-dir ").append(destDir.replace(" ", "\" \""))
-					.append(" ");
+        {
+            command.append("--dest-dir ").append(destDir.replace(" ", "\" \""))
+                    .append(" ");
+        }
 		command.append("--optimize-text 1 ");// 尽量减少用于文本的HTML元素的数目 (default: 0)
 		command.append("--zoom 1.4 ");
 		command.append("--process-outline 0 ");// html中显示链接：0——false，1——true
@@ -49,8 +51,9 @@ public class Pdf2htmlEXUtil {
 		command.append(pdfFile.replace(" ", "\" \"")).append(" ");// 需要替换文件路径中的空格
 		if (htmlFileName != null && !"".equals(htmlFileName.trim())) {
 			command.append(htmlFileName);
-			if (htmlFileName.indexOf(".html") == -1)
-				command.append(".html");
+			if (htmlFileName.indexOf(".html") == -1) {
+                command.append(".html");
+            }
 		}
 		try {
 			System.out.println("Command：" + command.toString());
@@ -85,8 +88,10 @@ public class Pdf2htmlEXUtil {
 		StringBuilder command = new StringBuilder();
 		command.append("pdf2htmlEX").append(" ");
 		if (destDir != null && !"".equals(destDir.trim()))// 生成文件存放位置,需要替换文件路径中的空格
-			command.append("--dest-dir ").append(destDir.replace(" ", "\" \""))
-					.append(" ");
+        {
+            command.append("--dest-dir ").append(destDir.replace(" ", "\" \""))
+                    .append(" ");
+        }
 		command.append("--optimize-text 1 ");// 尽量减少用于文本的HTML元素的数目 (default: 0)
 		command.append("--process-outline 0 ");// html中显示链接：0——false，1——true
 		command.append("--font-format woff ");// 嵌入html中的字体后缀(default ttf)
@@ -94,8 +99,9 @@ public class Pdf2htmlEXUtil {
 		command.append(pdfFile.replace(" ", "\" \"")).append(" ");// 需要替换文件路径中的空格
 		if (htmlFileName != null && !"".equals(htmlFileName.trim())) {
 			command.append(htmlFileName);
-			if (htmlFileName.indexOf(".html") == -1)
-				command.append(".html");
+			if (htmlFileName.indexOf(".html") == -1) {
+                command.append(".html");
+            }
 		}
 		try {
 			System.out.println("Command：" + command.toString());
@@ -120,11 +126,11 @@ public class Pdf2htmlEXUtil {
 	}
 
 	public static void main(String[] args) {
-		long startTime = new Date().getTime();
+		long startTime = System.currentTimeMillis();
 		boolean flag = pdf2html(
 				"E:/workspace/dubbo/pdf/pdf2htmlEX/pdf2htmlEX.exe",
 				"d:/t/9.pdf", "d:\\t", "2025.html");
-		long endTime = new Date().getTime();
+		long endTime = System.currentTimeMillis();
 		if (flag) {
 			System.out.println("ok!");
 		} else {

@@ -41,7 +41,7 @@ public class StrUtil {
 	 * @return
 	 */
 	public static Map<String, String> toMapBySubString(String value, String splitCharacter){
-		Map<String, String> result = new HashMap<String, String>();
+		Map<String, String> result = Maps.newHashMap();
 	    if (StringUtils.isNotBlank(value)) {
 	    	int k=0;
 	    	for (int i = 0; i < value.length(); i++) {

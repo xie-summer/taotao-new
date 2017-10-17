@@ -39,14 +39,16 @@ public class SystemClock {
 
 	private void scheduleClockUpdating() {
 		ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
-			public Thread newThread(Runnable runnable) {
+			@Override
+            public Thread newThread(Runnable runnable) {
 				Thread thread = new Thread(runnable, "System Clock");
 				thread.setDaemon(true);
 				return thread;
 			}
 		});
 		scheduler.scheduleAtFixedRate(new Runnable() {
-			public void run() {
+			@Override
+            public void run() {
 				now.set(System.currentTimeMillis());
 			}
 		}, period, period, TimeUnit.MILLISECONDS);

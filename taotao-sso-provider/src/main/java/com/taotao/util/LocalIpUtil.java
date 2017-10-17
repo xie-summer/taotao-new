@@ -25,13 +25,13 @@ public class LocalIpUtil {
     private static String getLocalIp() {
         String os = System.getProperty("os.name").toUpperCase();
         String address = "";
-        if (os.contains("WINDOWS"))
+        if (os.contains("WINDOWS")) {
             try {
                 address = InetAddress.getLocalHost().getHostAddress();
             } catch (UnknownHostException e) {
                 logger.error("windows获取本地IP出错", e);
             }
-        else {
+        } else {
             address = getLinuxIP();
         }
         return address;
@@ -49,8 +49,9 @@ public class LocalIpUtil {
                     while (addresses.hasMoreElements()) {
                         ip = (InetAddress) addresses.nextElement();
                         if ((!ip.isLoopbackAddress()) &&
-                                (ip != null) && ((ip instanceof Inet4Address)))
+                                (ip != null) && ((ip instanceof Inet4Address))) {
                             address = ip.getHostAddress();
+                        }
                     }
                 }
             }

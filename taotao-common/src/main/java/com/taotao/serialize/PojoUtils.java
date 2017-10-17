@@ -1,5 +1,7 @@
 package com.taotao.serialize;
 
+import com.google.common.collect.Maps;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -57,8 +59,9 @@ public class PojoUtils {
     }
 
     public static Object[] realize(Object[] objs, Class<?>[] types) {
-        if (objs.length != types.length)
+        if (objs.length != types.length) {
             throw new IllegalArgumentException("args.length != types.length");
+        }
         Object[] dests = new Object[objs.length];
         for (int i = 0; i < objs.length; i ++) {
             dests[i] = realize(objs[i], types[i]);
@@ -68,8 +71,9 @@ public class PojoUtils {
 
     public static Object[] realize(Object[] objs, Class<?>[] types, Type[] gtypes) {
         if (objs.length != types.length
-                || objs.length != gtypes.length)
+                || objs.length != gtypes.length) {
             throw new IllegalArgumentException("args.length != types.length");
+        }
         Object[] dests = new Object[objs.length];
         for (int i = 0; i < objs.length; i ++) {
             dests[i] = realize(objs[i], types[i], gtypes[i]);
@@ -144,7 +148,7 @@ public class PojoUtils {
             }
             return dest;
         }
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = Maps.newHashMap();
         history.put(pojo, map);
         map.put("class", pojo.getClass().getName());
         for (Method method : pojo.getClass().getMethods()) {
@@ -197,6 +201,7 @@ public class PojoUtils {
             this.map = map;
         }
 
+        @Override
         @SuppressWarnings("unchecked")
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             if (method.getDeclaringClass() == Object.class) {
@@ -240,21 +245,21 @@ public class PojoUtils {
         Class<? extends Map> cl = src.getClass();
         Map result = null;
         if (HashMap.class == cl) {
-            result = new HashMap();
+            result = Maps.newHashMap();
         } else if (Hashtable.class == cl) {
             result = new Hashtable();
         } else if (IdentityHashMap.class == cl) {
-            result = new IdentityHashMap();
+            result = new IdentityHashMap(10);
         } else if (LinkedHashMap.class == cl) {
-            result = new LinkedHashMap();
+            result = new LinkedHashMap(10);
         } else if (Properties.class == cl) {
             result = new Properties();
         } else if (TreeMap.class == cl) {
             result = new TreeMap();
         } else if (WeakHashMap.class == cl) {
-            return new WeakHashMap();
+            return new WeakHashMap(10);
         } else if (ConcurrentHashMap.class == cl) {
-            result = new ConcurrentHashMap();
+            result = new ConcurrentHashMap(10);
         } else if (ConcurrentSkipListMap.class == cl) {
             result = new ConcurrentSkipListMap();
         } else {
@@ -271,7 +276,7 @@ public class PojoUtils {
         }
 
         if (result == null) {
-            result = new HashMap<Object, Object>();
+            result = Maps.newHashMap();
         }
 
         return result;
@@ -424,8 +429,9 @@ public class PojoUtils {
                             Method method = getSetterMethod(dest.getClass(), name, value.getClass());
                             Field field = getField(dest.getClass(), name);
                             if (method != null) {
-                                if (! method.isAccessible())
+                                if (! method.isAccessible()) {
                                     method.setAccessible(true);
+                                }
                                 Type ptype = method.getGenericParameterTypes()[0];
                                 value = realize0(value, method.getParameterTypes()[0], ptype, history);
                                 try {
@@ -563,7 +569,7 @@ public class PojoUtils {
         if (result != null) {
             ConcurrentMap<String, Field> fields = CLASS_FIELD_CACHE.get(cls);
             if (fields == null) {
-                fields = new ConcurrentHashMap<String, Field>();
+                fields = Maps.newConcurrentMap();
                 CLASS_FIELD_CACHE.putIfAbsent(cls, fields);
             }
             fields = CLASS_FIELD_CACHE.get(cls);

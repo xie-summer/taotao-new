@@ -16,7 +16,7 @@ import java.util.Optional;
  * Created by CodeGenerator on 2017/06/30.
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class UserServiceImpl extends AbstractService<User> implements UserService {
     @Autowired
     private UserMapper userMapper;
@@ -24,8 +24,9 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Override
     public Result loginByPwd(User user) { //TODO demo 没有进行任务加密和校验
         User selectOne = userMapper.selectOne(user);
-        if (Optional.ofNullable(selectOne).isPresent())
+        if (Optional.ofNullable(selectOne).isPresent()) {
             return ResultGenerator.genSuccessResult(selectOne);
+        }
         return ResultGenerator.genFailResult();
     }
 }

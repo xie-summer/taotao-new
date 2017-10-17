@@ -71,7 +71,7 @@ package com.taotao.web.utils;//package com.sunder.whats.web.utils;
 //			List<Map> result = jdbcUtil.selectByParams(sql, null);
 //			for (Map map : result) {
 //				System.out.println(map.get("TABLE_NAME"));
-//				table = new HashMap<>();
+//				table = Maps.newHashMap();
 //				table.put("table_name", map.get("TABLE_NAME"));
 //				table.put("model_name", lineToHump(ObjectUtils.toString(map.get("TABLE_NAME"))));
 //				tables.add(table);

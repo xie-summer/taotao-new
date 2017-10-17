@@ -67,7 +67,9 @@ public class ObjectId implements Serializable {
 		for (int i = 0; i < b.length; ++i) {
 			int x = b[i] & 0xFF;
 			String s = Integer.toHexString(x);
-			if (s.length() == 1) buf.append("0");
+			if (s.length() == 1) {
+                buf.append("0");
+            }
 			buf.append(s);
 		}
 		return buf.toString();

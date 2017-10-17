@@ -13,7 +13,8 @@ public class DiffuseRippleFilterFactory extends RippleFilterFactory {
 		this.diffuse = new DiffuseImageOp();
 	}
 
-	protected List<BufferedImageOp> getPreRippleFilters() {
+	@Override
+    protected List<BufferedImageOp> getPreRippleFilters() {
 		List list = new ArrayList();
 		list.add(this.diffuse);
 		return list;

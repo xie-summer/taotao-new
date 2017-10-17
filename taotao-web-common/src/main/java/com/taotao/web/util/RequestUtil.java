@@ -24,7 +24,7 @@ public class RequestUtil {
 			if (key.equals(paramName)) {
 				continue;
 			}
-			if (queryString.equals("")) {
+			if ("".equals(queryString)) {
 				queryString = key + "=" + request.getParameter(key);
 			} else {
 				queryString += "&" + key + "=" + request.getParameter(key);
@@ -85,7 +85,7 @@ public class RequestUtil {
 	 * @return
 	 */
 	public static Map<String, String> getParameterMap(HttpServletRequest request) {
-		Map<String, String> result = new HashMap<>();
+		Map<String, String> result = Maps.newHashMap();
 		Enumeration parameterNames = request.getParameterNames();
 		while (parameterNames.hasMoreElements()) {
 			String parameterName = (String) parameterNames.nextElement();

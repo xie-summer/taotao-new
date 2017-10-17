@@ -30,10 +30,16 @@ public class DoubleStringComparator<T> implements Comparator<T>{
 				Double n1 = null, n2 = null;
 				try{n1=Double.valueOf(p1);}catch(Exception e){}
 				try{n2=Double.valueOf(p2);}catch(Exception e){}
-				if(n1==null && n2!=null) result = -1;
-				else if(n2==null && n1!=null) result = 1;
-				else if(n1!=null && n2!=null) result = n1.compareTo(n2);
-				if(result!=0) return asc? result: -result;
+				if(n1==null && n2!=null) {
+                    result = -1;
+                } else if(n2==null && n1!=null) {
+                    result = 1;
+                } else if(n1!=null && n2!=null) {
+                    result = n1.compareTo(n2);
+                }
+				if(result!=0) {
+                    return asc ? result : -result;
+                }
 			}catch(Exception e){
 			}
 		}

@@ -3,6 +3,11 @@ package com.taotao.code.util;
 import java.util.regex.Pattern;
 
 public abstract class LineFilter {
+	/**
+	 * line 过滤
+	 * @param line
+	 * @return
+	 */
 	public abstract boolean accept(String line);
 	public static LineFilter ACCEPT_ALL_FILTER = new LineFilter(){
 		@Override

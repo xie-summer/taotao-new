@@ -24,32 +24,35 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 	}
 
 	protected int getPixel(int[] pixels, int x, int y, int width, int height) {
-		if ((x >= 0) && (x < width) && (y >= 0) && (y < height))
-			return pixels[(x + y * width)];
-		if (edgeMode == 0)
-			return 0;
+		if ((x >= 0) && (x < width) && (y >= 0) && (y < height)) {
+            return pixels[(x + y * width)];
+        }
+		if (edgeMode == 0) {
+            return 0;
+        }
 		if (edgeMode == 2) {
-			if (x < 0) 
-				x = 0;
-			else if (x >= width) {
+			if (x < 0) {
+                x = 0;
+            } else if (x >= width) {
 				x = width - 1;
 			}
-			if (y < 0)
-				y = 0;
-			else if (y >= height) {
+			if (y < 0) {
+                y = 0;
+            } else if (y >= height) {
 				y = height - 1;
 			}
 			return pixels[(x + y * width)];
 		}
-		if (x < 0)
-			x = -x;
-		else if (x >= width) {
+		if (x < 0) {
+            x = -x;
+        } else if (x >= width) {
 			x = width + width - x - 1;
 		}
-		if (y < 0)
-			y = -y;
-		else if (y > height)
-			y = --height - y;
+		if (y < 0) {
+            y = -y;
+        } else if (y > height) {
+            y = --height - y;
+        }
 		try {
 			return pixels[(x + y * width)];
 		} catch (Exception e) {
@@ -86,9 +89,9 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 	}
 
 	protected int limit(int v, int min, int max) {
-		if (v < min)
-			v = min;
-		else if (v > max) {
+		if (v < min) {
+            v = min;
+        } else if (v > max) {
 			v = max;
 		}
 		return v;
@@ -100,7 +103,8 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 
 	protected abstract void filter(int[] inPixels, int[] outPixels, int width, int height);
 
-	public BufferedImage filter(BufferedImage src, BufferedImage dest) {
+	@Override
+    public BufferedImage filter(BufferedImage src, BufferedImage dest) {
 		if (dest == null) {
 			dest = createCompatibleDestImage(src, null);
 		}
@@ -114,7 +118,8 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 		return dest;
 	}
 
-	public BufferedImage createCompatibleDestImage(BufferedImage src, ColorModel destCM) {
+	@Override
+    public BufferedImage createCompatibleDestImage(BufferedImage src, ColorModel destCM) {
 		if (destCM == null) {
 			destCM = src.getColorModel();
 			if (destCM instanceof IndexColorModel) {
@@ -124,11 +129,13 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 		return new BufferedImage(destCM, destCM.createCompatibleWritableRaster(src.getWidth(), src.getHeight()), destCM.isAlphaPremultiplied(), null);
 	}
 
-	public Rectangle2D getBounds2D(BufferedImage src) {
+	@Override
+    public Rectangle2D getBounds2D(BufferedImage src) {
 		return src.getRaster().getBounds();
 	}
 
-	public Point2D getPoint2D(Point2D srcPt, Point2D dstPt) {
+	@Override
+    public Point2D getPoint2D(Point2D srcPt, Point2D dstPt) {
 		if (dstPt == null) {
 			dstPt = new Point2D.Float();
 		}
@@ -136,7 +143,8 @@ public abstract class AbstractImageOp implements BufferedImageOp {
 		return dstPt;
 	}
 
-	public RenderingHints getRenderingHints() {
+	@Override
+    public RenderingHints getRenderingHints() {
 		return this.hints;
 	}
 }

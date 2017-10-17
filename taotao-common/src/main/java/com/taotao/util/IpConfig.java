@@ -113,11 +113,11 @@ public abstract class IpConfig {
 
 	public static final boolean isLocalIp(String ip) {
 		// 本地
-		return ip.contains("192.168.") || ip.equals("127.0.0.1") || ip.endsWith(":1")/*win10 local*/;
+		return ip.contains("192.168.") || "127.0.0.1".equals(ip) || ip.endsWith(":1")/*win10 local*/;
 	}
 	public static final boolean isGewaLocalIp(String ip) {
 		// 本地
-		return ip.contains("192.168.") || ip.equals("127.0.0.1") || ip.endsWith(":1")/*win10 local*/;
+		return ip.contains("192.168.") || "127.0.0.1".equals(ip) || ip.endsWith(":1")/*win10 local*/;
 	}
 
 	/**
@@ -126,7 +126,7 @@ public abstract class IpConfig {
 	 */
 	public static final boolean isDevServer() {
 		// 本地
-		return serverIp.contains("192.168.") || serverIp.equals("127.0.0.1") || serverIp.endsWith(":1")/*win10 local*/;
+		return serverIp.contains("192.168.") || "127.0.0.1".equals(serverIp) || serverIp.endsWith(":1")/*win10 local*/;
 	}
 
 	public static void filterIp(String ip){
@@ -146,7 +146,9 @@ public abstract class IpConfig {
 	}
 	public static boolean isGewaServerIp(String ip){
 		for(String search: searchList){
-			if(StringUtils.startsWith(ip, search)) return true;
+			if(StringUtils.startsWith(ip, search)) {
+                return true;
+            }
 		}
 		return false;
 	}

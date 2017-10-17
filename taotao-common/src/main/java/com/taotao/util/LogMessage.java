@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class LogMessage implements Serializable{
 	private static final long serialVersionUID = -1449397931879372657L;
-	private Map data = new LinkedHashMap();
+	private Map data = new LinkedHashMap(10);
 	public LogMessage(String type, String server, String systemId, Map paramsdata) {
 		init(type, server, systemId);
 		data.put("message", paramsdata);

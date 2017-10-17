@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class VoCopyUtil {
 	private static final transient TLogger dbLogger = LoggerUtils.getLogger(VoCopyUtil.class);
-	public static Map<String/*srcClass+dstClass*/, List<String>> copyPropsMap = new FastHashMap();
+	public static Map<String/*srcClass+dstClass*/, List<String>> copyPropsMap = new FastHashMap(10);
 	public static <K, V> VoMap<K, V> toVoMap(Map<K, V> map){
 		VoMap result = new VoMap(map.size());
 		result.putAll(map);
@@ -39,7 +39,9 @@ public class VoCopyUtil {
 		}
 		try {
 			for (T item : itemList) {
-				if(item==null) continue;
+				if(item==null) {
+                    continue;
+                }
 				Class src = item.getClass();
 				Wrapper srcWrapper = Wrapper.getWrapper(src);
 				Wrapper destWrapper = Wrapper.getWrapper(clazz);
@@ -55,8 +57,9 @@ public class VoCopyUtil {
 	}
 
 	public static <S extends BaseVo, T> ResultCode<S> copyProperties(Class<S> clazz, T item) {
-		if (item == null)
-			return ResultCode.getFailure(ResultCode.CODE_DATA_ERROR, "数据不存在！");
+		if (item == null) {
+            return ResultCode.getFailure(ResultCode.CODE_DATA_ERROR, "数据不存在！");
+        }
 		try {
 			Wrapper srcWrapper = Wrapper.getWrapper(item.getClass());
 			Wrapper destWrapper = Wrapper.getWrapper(clazz);

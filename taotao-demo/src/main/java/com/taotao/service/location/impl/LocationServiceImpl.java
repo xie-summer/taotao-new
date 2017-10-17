@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by sunder on 2017/07/07.
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class LocationServiceImpl extends AbstractService<Location> implements LocationService {
     @Autowired
     private LocationMapper locationMapper;

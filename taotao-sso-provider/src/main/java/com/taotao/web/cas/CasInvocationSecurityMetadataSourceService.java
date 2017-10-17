@@ -87,8 +87,9 @@ public class CasInvocationSecurityMetadataSourceService implements FilterInvocat
         while (patternIterator.hasNext()){
             Pattern pattern = patternIterator.next();
             Matcher matcher=pattern.matcher(url);
-            if (matcher.find())
+            if (matcher.find()) {
                 return null;
+            }
         }
         return loadResourceDefine(url);
     }

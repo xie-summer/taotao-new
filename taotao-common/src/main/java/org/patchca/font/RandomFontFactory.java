@@ -54,7 +54,8 @@ public class RandomFontFactory implements FontFactory {
 		this.randomStyle = randomStyle;
 	}
 
-	public Font getFont(int index) {
+	@Override
+    public Font getFont(int index) {
 		Random r = new Random();
 		String family = this.families.get(r.nextInt(this.families.size()));
 		boolean bold = (r.nextBoolean()) && (this.randomStyle);

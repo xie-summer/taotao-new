@@ -14,7 +14,8 @@ public class AdaptiveRandomWordFactory extends RandomWordFactory {
 		this.wideCharacters = "mw";
 	}
 
-	public String getNextWord() {
+	@Override
+    public String getNextWord() {
 		Random rnd = new Random();
 		StringBuffer sb = new StringBuffer();
 		StringBuffer chars = new StringBuffer(this.characters);

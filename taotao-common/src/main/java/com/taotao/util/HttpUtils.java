@@ -1,5 +1,6 @@
 package com.taotao.util;
 
+import com.google.common.collect.Maps;
 import org.apache.commons.collections.map.CaseInsensitiveMap;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -351,7 +352,7 @@ public class HttpUtils {
 	public static HttpResult uploadFile(String url, Map<String, String> params, byte[] bytes, String inputName, String fileName, String encode) {
 		Map<String, byte[]> uploadMap = new HashMap<String, byte[]>();
 		uploadMap.put(inputName, bytes);
-		Map<String, String> fileNameMap = new HashMap<String, String>();
+		Map<String, String> fileNameMap = Maps.newHashMap();
 		fileNameMap.put(inputName, fileName);
 		return uploadFile(url, params, uploadMap, fileNameMap, encode);
 	}
@@ -561,14 +562,16 @@ public class HttpUtils {
 
 	public static String getFullUrl(String url, Map<String, String> params, String encode) {
 		if (params != null) {
-			if (url.indexOf('?') == -1)
-				url += "?";
-			else
-				url += "&";
+			if (url.indexOf('?') == -1) {
+                url += "?";
+            } else {
+                url += "&";
+            }
 			for (String name : params.keySet()) {
 				try {
-					if (StringUtils.isNotBlank(params.get(name)))
-						url += name + "=" + URLEncoder.encode(params.get(name), encode) + "&";
+					if (StringUtils.isNotBlank(params.get(name))) {
+                        url += name + "=" + URLEncoder.encode(params.get(name), encode) + "&";
+                    }
 				} catch (UnsupportedEncodingException e) {
 				}
 			}
@@ -723,8 +726,9 @@ public class HttpUtils {
 				dbLogger.error("", e);
 			} finally {
 				try {
-					if (os != null)
-						os.close();
+					if (os != null) {
+                        os.close();
+                    }
 				} catch (Exception e) {
 				}
 			}
@@ -750,8 +754,9 @@ public class HttpUtils {
 	 */
 	public static Map<String, String> parseQueryStr(String queryString, String encode) {
 		Map<String, String> map = new LinkedHashMap<String, String>();
-		if (StringUtils.isBlank(queryString))
-			return map;
+		if (StringUtils.isBlank(queryString)) {
+            return map;
+        }
 		Matcher matcher = QUERY_MAP_PATTERN.matcher(queryString);
 		String key = null, value;
 		int end = 0;
@@ -785,7 +790,7 @@ public class HttpUtils {
 	}
 
 	public static Map<String, Long> getStats(boolean clean){
-		Map<String, Long> result = new HashMap<>();
+		Map<String, Long> result = Maps.newHashMap();
 		for(Map.Entry<String, AtomicLong> entry: hostCountMap.entrySet()){
 			long value = entry.getValue().get();
 			if(value>0){
@@ -799,7 +804,9 @@ public class HttpUtils {
 	}
 	private static HttpEntity getEntity(HttpResponse response) {
 		HttpEntity entity = response.getEntity();
-		if(entity == null) return null;
+		if(entity == null) {
+            return null;
+        }
 		Header header = entity.getContentEncoding();
 		if (header != null) {
 			for (HeaderElement element : header.getElements()) {

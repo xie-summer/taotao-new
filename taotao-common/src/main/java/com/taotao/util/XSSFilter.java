@@ -135,8 +135,9 @@ public class XSSFilter {
 	}
 
 	protected void debug(String msg) {
-		if (vDebug)
-			System.out.println(msg);
+		if (vDebug) {
+            System.out.println(msg);
+        }
 	}
 
 	// ---------------------------------------------------------------
@@ -383,8 +384,9 @@ public class XSSFilter {
 			if (!inArray(protocol, vAllowedProtocols)) {
 				// bad protocol, turn into local anchor link instead
 				s = "#" + s.substring(protocol.length() + 1, s.length());
-				if (s.startsWith("#//"))
-					s = "#" + s.substring(3, s.length());
+				if (s.startsWith("#//")) {
+                    s = "#" + s.substring(3, s.length());
+                }
 			}
 		}
 
@@ -456,7 +458,7 @@ public class XSSFilter {
 	}
 
 	protected String checkEntity(String preamble, String term) {
-		if (!term.equals(";")) {
+		if (!";".equals(term)) {
 			return "&amp;" + preamble;
 		}
 
@@ -472,9 +474,11 @@ public class XSSFilter {
 	}
 
 	private boolean inArray(String s, String[] array) {
-		for (String item : array)
-			if (item != null && item.equals(s))
-				return true;
+		for (String item : array) {
+            if (item != null && item.equals(s)) {
+                return true;
+            }
+        }
 
 		return false;
 	}
@@ -496,7 +500,9 @@ public class XSSFilter {
 	 * @return
 	 */
 	public static <T> T filterObjAttrs(T entity , String... attrs) {
-		if(ArrayUtils.isEmpty(attrs)) return entity;
+		if(ArrayUtils.isEmpty(attrs)) {
+            return entity;
+        }
 		XSSFilter filter = new XSSFilter();
 		try {
 			Map result = PropertyUtils.describe(entity);

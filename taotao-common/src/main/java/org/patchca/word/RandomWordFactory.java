@@ -25,7 +25,8 @@ public class RandomWordFactory implements WordFactory {
 		this.maxLength = 6;
 	}
 
-	public String getNextWord() {
+	@Override
+    public String getNextWord() {
 		Random rnd = new Random();
 		StringBuffer sb = new StringBuffer();
 		int l = this.minLength + ((this.maxLength > this.minLength) ? rnd.nextInt(this.maxLength - this.minLength) : 0);

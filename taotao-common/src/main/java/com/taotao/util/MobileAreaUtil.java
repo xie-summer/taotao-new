@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MobileAreaUtil {
-	private static Map<String, String> mobileAreaMap = new HashMap<String, String>();
+	private static Map<String, String> mobileAreaMap = Maps.newHashMap();
 	private final static transient TLogger dbLogger = LoggerUtils.getLogger(MobileAreaUtil.class);
 	static{
 		init();

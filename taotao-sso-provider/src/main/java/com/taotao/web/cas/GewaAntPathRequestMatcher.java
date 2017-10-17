@@ -101,7 +101,7 @@ public final class GewaAntPathRequestMatcher implements RequestMatcher {
 		Assert.hasText(pattern, "Pattern cannot be null or empty");
 		this.caseSensitive = caseSensitive;
 
-		if (pattern.equals(MATCH_ALL) || pattern.equals("**")) {
+		if (pattern.equals(MATCH_ALL) || "**".equals(pattern)) {
 			pattern = MATCH_ALL;
 			matcher = null;
 		} else {

@@ -82,12 +82,14 @@ public abstract class WebUtils extends BaseWebUtils {
         Cookie cookie = getCookie(request, "citycode");
         if (cookie != null) {
             citycode = cookie.getValue();
-            if (!isValidCitycode(citycode))
+            if (!isValidCitycode(citycode)) {
                 return ResultCode.getFailure("城市未开通！");
+            }
             return ResultCode.getSuccess(citycode);
         }
-        if (StringUtils.isBlank(citycode))
+        if (StringUtils.isBlank(citycode)) {
             citycode = "310000";
+        }
         cookie = new Cookie("citycode", citycode);
         cookie.setPath("/");
         cookie.setMaxAge(60 * 60 * 24);// 24 hour
@@ -125,11 +127,13 @@ public abstract class WebUtils extends BaseWebUtils {
     }
 
     public static String getIpAndPort(String ip, HttpServletRequest request) {
-        if (StringUtils.isBlank(ip))
+        if (StringUtils.isBlank(ip)) {
             return null;
+        }
         String port = request.getHeader("x-client-port");
-        if (StringUtils.isBlank(port))
+        if (StringUtils.isBlank(port)) {
             return ip;
+        }
         String result = ip + ":" + port;
         return result;
     }

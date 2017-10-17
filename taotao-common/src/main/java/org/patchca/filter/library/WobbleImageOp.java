@@ -69,7 +69,8 @@ public class WobbleImageOp extends AbstractTransformImageOp {
 		this.yScale = yScale;
 	}
 
-	protected void transform(int x, int y, double[] t) {
+	@Override
+    protected void transform(int x, int y, double[] t) {
 		double tx = Math.cos((this.xScale * x + y) / this.xWavelength + this.xRandom);
 		double ty = Math.sin((this.yScale * y + x) / this.yWavelength + this.yRandom);
 		t[0] = (x + this.xAmplitude * tx);

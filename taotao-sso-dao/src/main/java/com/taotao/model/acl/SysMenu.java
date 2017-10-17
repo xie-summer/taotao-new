@@ -37,10 +37,12 @@ public class SysMenu extends WebModule{
     @Column(name = "top")
     private boolean top;
 
+    @Override
     public Integer getMatchorder() {
         return matchorder;
     }
 
+    @Override
     public void setMatchorder(Integer matchorder) {
         this.matchorder = matchorder;
     }
@@ -55,6 +57,7 @@ public class SysMenu extends WebModule{
         return moduleurl;
     }
 
+    @Override
     public void setModuleurl(String moduleurl) {
         this.moduleurl = moduleurl;
     }
@@ -64,6 +67,7 @@ public class SysMenu extends WebModule{
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -73,6 +77,7 @@ public class SysMenu extends WebModule{
         return menucode;
     }
 
+    @Override
     public void setMenucode(String menucode) {
         this.menucode = menucode;
     }
@@ -82,6 +87,7 @@ public class SysMenu extends WebModule{
         return menutitle;
     }
 
+    @Override
     public void setMenutitle(String menutitle) {
         this.menutitle = menutitle;
     }
@@ -91,6 +97,7 @@ public class SysMenu extends WebModule{
         return target;
     }
 
+    @Override
     public void setTarget(String target) {
         this.target = target;
     }
@@ -100,6 +107,7 @@ public class SysMenu extends WebModule{
         return display;
     }
 
+    @Override
     public void setDisplay(String display) {
         this.display = display;
     }
@@ -112,6 +120,7 @@ public class SysMenu extends WebModule{
         return StringUtils.length(menucode) == 2;
     }
 
+    @Override
     public void setTop(boolean top) {
         this.top = top;
     }
@@ -126,6 +135,7 @@ public class SysMenu extends WebModule{
         return tag;
     }
 
+    @Override
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -143,6 +153,7 @@ public class SysMenu extends WebModule{
         return rolenames;
     }
 
+    @Override
     public void setRolenames(String rolenames) {
         this.rolenames = rolenames;
     }

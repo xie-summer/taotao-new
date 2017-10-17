@@ -7,7 +7,8 @@ public abstract class AbstractConvolveImageOp extends AbstractImageOp {
 		this.matrix = matrix;
 	}
 
-	protected void filter(int[] inPixels, int[] outPixels, int width, int height) {
+	@Override
+    protected void filter(int[] inPixels, int[] outPixels, int width, int height) {
 		int matrixWidth = this.matrix[0].length;
 		int matrixHeight = this.matrix.length;
 		int mattrixLeft = -matrixWidth / 2;

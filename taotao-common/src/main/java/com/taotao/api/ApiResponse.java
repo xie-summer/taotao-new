@@ -24,7 +24,7 @@ public class ApiResponse {
 		apiNodeMap.put(key, new SimpleNode(key, simpleValue, ignoreEmpty));
 	}
 	public Map getJsonMap(){
-		Map result = new LinkedHashMap();
+		Map result = new LinkedHashMap(10);
 		result.put("errorCode", errorCode);
 		result.put("msg", msg);
 		for(String nodeName: apiNodeMap.keySet()){

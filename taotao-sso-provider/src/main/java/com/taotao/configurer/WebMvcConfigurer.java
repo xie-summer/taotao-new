@@ -61,6 +61,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
         exceptionResolvers.add(new HandlerExceptionResolver() {
+            @Override
             public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception e) {
 //                Result result = new Result();
                 ErrorCode result = new ErrorCode();
@@ -163,8 +164,9 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                 linkString += key + "=" + request.getParameter(key) + "&";
             }
         }
-        if (StringUtils.isEmpty(linkString))
+        if (StringUtils.isEmpty(linkString)) {
             return false;
+        }
 
         linkString = linkString.substring(0, linkString.length() - 1);
         String key = "Potato";//自己修改

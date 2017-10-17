@@ -18,8 +18,8 @@ public class IPUtil {
 	public final static IpData ipData = new IpData();
 	private static Map<String/*code*/, String/*name*/> provinceMap;
 	private static Map<String/*provinceCode*/, Map<String/*citycode*/, String/*cityname*/>> proCityMap;
-	private static Map<String/*citycode*/, String/*cityname*/> cityMap = new HashMap<>();
-	private static Map<String/*citycode*/, String/*provincecode*/> city2Pro = new HashMap<>();
+	private static Map<String/*citycode*/, String/*cityname*/> cityMap = Maps.newHashMap();
+	private static Map<String/*citycode*/, String/*provincecode*/> city2Pro = Maps.newHashMap();
 	private final static transient TLogger dbLogger = LoggerUtils.getLogger(IPUtil.class);
 	private static AtomicBoolean init = new AtomicBoolean(false);
 	static{
@@ -65,7 +65,9 @@ public class IPUtil {
 	}
 
 	private static void init() {
-		if(init.get()) return;
+		if(init.get()) {
+            return;
+        }
 		boolean first = init.compareAndSet(false, true);
 		if(!first) {
 			return;
@@ -84,7 +86,7 @@ public class IPUtil {
 				Reader	reader = new BufferedReader(new InputStreamReader(IPUtil.class.getClassLoader().getResourceAsStream("province.txt"), "utf-8"));
 		) {
 			List<String> provinceList = IOUtils.readLines(reader);
-			Map<String, String> map = new HashMap<String, String>();
+			Map<String, String> map = Maps.newHashMap();
 			for(String province: provinceList){
 				String[] pair = StringUtils.split(province, "\t");
 				if(pair.length==2){
@@ -100,14 +102,14 @@ public class IPUtil {
 				Reader	reader = new BufferedReader(new InputStreamReader(IPUtil.class.getClassLoader().getResourceAsStream("city.txt"), "utf-8"));
 		) {
 			List<String> cityList = IOUtils.readLines(reader);
-			Map<String/*provinceCode*/, Map<String/*citycode*/, String/*cityname*/>> cmap = new HashMap<>();
+			Map<String/*provinceCode*/, Map<String/*citycode*/, String/*cityname*/>> cmap = Maps.newHashMap();
 
 			for(String city: cityList){
 				String[] pair/*pcode,ccode,cname*/ = StringUtils.split(city, "\t");
 				if(pair.length==3){
 					Map<String, String> row = cmap.get(pair[0]);
 					if(row==null){
-						row = new HashMap<String, String>();
+						row = Maps.newHashMap();
 						cmap.put(pair[0], row);
 					}
 					row.put(pair[1], pair[2]);
@@ -183,12 +185,15 @@ public class IPUtil {
 		int start = 0, end = ipData.ipList.length, mid = -1;
 		while (start != end && start + 1 != end) {
 			mid = (start + end) / 2;
-			if (ipData.ipList[mid] == ipNum)
-				return mid;
-			if (ipData.ipList[mid + 1] == ipNum)
-				return mid + 1;
-			if (ipNum > ipData.ipList[mid] && ipNum < ipData.ipList[mid + 1])
-				return mid;
+			if (ipData.ipList[mid] == ipNum) {
+                return mid;
+            }
+			if (ipData.ipList[mid + 1] == ipNum) {
+                return mid + 1;
+            }
+			if (ipNum > ipData.ipList[mid] && ipNum < ipData.ipList[mid + 1]) {
+                return mid;
+            }
 			if (ipNum > ipData.ipList[mid]) {
 				start = mid;
 			} else {

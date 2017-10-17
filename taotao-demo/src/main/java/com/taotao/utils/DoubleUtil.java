@@ -63,7 +63,8 @@ public class DoubleUtil implements Serializable {
 		return totalDouble;
 	}
 	
-	public String toString(){
+	@Override
+    public String toString(){
 		return StringUtil.toString(totalDouble);
 	}
 

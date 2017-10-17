@@ -9,14 +9,18 @@ public class ValueUtil  implements Util4Script{
 		return longValue(value);
 	}
 	public Long longValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Long.parseLong(value.toString());
 	}
 	public Integer iv(Object value){
 		return intValue(value);
 	}
 	public Integer intValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Integer.parseInt(value.toString());
 	}
 	
@@ -24,7 +28,9 @@ public class ValueUtil  implements Util4Script{
 		return doubleValue(value);
 	}
 	public Double doubleValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Double.parseDouble(value.toString());
 	}
 	
@@ -32,7 +38,9 @@ public class ValueUtil  implements Util4Script{
 		return timestampValue(value);
 	}
 	public Timestamp timestampValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		if(value instanceof Timestamp){
 			return (Timestamp) value;
 		}else{
@@ -41,7 +49,9 @@ public class ValueUtil  implements Util4Script{
 	}
 	
 	public Date dateValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		if(value instanceof Date){
 			return (Date) value;	
 		}
@@ -49,7 +59,9 @@ public class ValueUtil  implements Util4Script{
 	}
 	
 	public String stringValue(Object value){
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return value.toString();
 	}
 

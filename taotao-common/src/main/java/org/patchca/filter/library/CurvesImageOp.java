@@ -41,7 +41,8 @@ public class CurvesImageOp extends AbstractImageOp {
 		return hermiteSpline(x1, a1, x2, a2, t);
 	}
 
-	public BufferedImage filter(BufferedImage src, BufferedImage dest) {
+	@Override
+    public BufferedImage filter(BufferedImage src, BufferedImage dest) {
 		if (dest == null) {
 			dest = createCompatibleDestImage(src, null);
 		}

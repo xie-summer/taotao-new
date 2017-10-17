@@ -230,8 +230,9 @@ public class UAgentInfo {
      */  
     public boolean detectIphone() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isIphone == true))  
-                        return this.isIphone;  
+                        (this.isIphone == true)) {
+                    return this.isIphone;
+                }
   
         // The iPad and iPod touch say they're an iPhone! So let's disambiguate.  
         return userAgent.indexOf(deviceIphone) != -1 &&
@@ -282,12 +283,14 @@ public class UAgentInfo {
      */  
     public boolean detectAndroid() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isAndroid == true))  
-                        return this.isAndroid;  
+                        (this.isAndroid == true)) {
+                    return this.isAndroid;
+                }
   
         if ((userAgent.indexOf(deviceAndroid) != -1) ||  
-          detectGoogleTV())   
-            return true;  
+          detectGoogleTV()) {
+            return true;
+        }
         //Special check for the HTC Flyer 7" tablet. It should report here.  
         return userAgent.indexOf(deviceHtcFlyer) != -1;
     }
@@ -301,14 +304,17 @@ public class UAgentInfo {
      */  
     public boolean detectAndroidPhone() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isAndroidPhone == true))  
-                        return this.isAndroidPhone;  
+                        (this.isAndroidPhone == true)) {
+                    return this.isAndroidPhone;
+                }
   
-        if (detectAndroid() && (userAgent.indexOf(mobile) != -1))   
-            return true;  
+        if (detectAndroid() && (userAgent.indexOf(mobile) != -1)) {
+            return true;
+        }
         //Special check for Android phones with Opera Mobile. They should report here.  
-        if (detectOperaAndroidPhone())   
-            return true;  
+        if (detectOperaAndroidPhone()) {
+            return true;
+        }
         //Special check for the HTC Flyer 7" tablet. It should report here.  
         return userAgent.indexOf(deviceHtcFlyer) != -1;
     }
@@ -320,15 +326,18 @@ public class UAgentInfo {
      */  
     public boolean detectAndroidTablet() {  
         //First, let's make sure we're on an Android device.  
-        if (!detectAndroid())  
-                        return false;  
+        if (!detectAndroid()) {
+            return false;
+        }
   
         //Special check for Opera Android Phones. They should NOT report here.  
-        if (detectOperaMobile())   
-            return false;  
+        if (detectOperaMobile()) {
+            return false;
+        }
         //Special check for the HTC Flyer 7" tablet. It should NOT report here.  
-        if (userAgent.indexOf(deviceHtcFlyer) != -1)  
-            return false;  
+        if (userAgent.indexOf(deviceHtcFlyer) != -1) {
+            return false;
+        }
       
         //Otherwise, if it's Android and does NOT have 'mobile' in it, Google says it's a tablet.  
         return userAgent.indexOf(mobile) <= -1;
@@ -357,8 +366,9 @@ public class UAgentInfo {
      */  
     public boolean detectWebkit() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isWebkit == true))  
-                        return this.isWebkit;
+                        (this.isWebkit == true)) {
+                    return this.isWebkit;
+                }
 
         return userAgent.indexOf(engineWebKit) != -1;
     }
@@ -424,8 +434,9 @@ public class UAgentInfo {
      */  
     public boolean detectBlackBerry() {  
         if (userAgent.indexOf(deviceBB) != -1 ||   
-                        httpAccept.indexOf(vndRIM) != -1)   
+                        httpAccept.indexOf(vndRIM) != -1) {
             return true;
+        }
 
         return detectBlackBerry10Phone();
 
@@ -482,8 +493,9 @@ public class UAgentInfo {
      */  
     public boolean detectBlackBerryHigh() {  
         //Disambiguate for BlackBerry OS 6 or 7 (WebKit) browser  
-        if (detectBlackBerryWebKit())   
-                        return false;  
+        if (detectBlackBerryWebKit()) {
+            return false;
+        }
         if (detectBlackBerry()) {
             return detectBlackBerryTouch()
                     || userAgent.indexOf(deviceBBBold) != -1
@@ -544,8 +556,9 @@ public class UAgentInfo {
      */  
     public boolean detectPalmOS() {  
         //Make sure it's not WebOS first  
-        if (detectPalmWebOS())  
-            return false;  
+        if (detectPalmWebOS()) {
+            return false;
+        }
   
         //Most devices nowadays report as 'Palm', but some older ones reported as Blazer or Xiino.  
         return userAgent.indexOf(devicePalm) != -1
@@ -798,40 +811,49 @@ public class UAgentInfo {
      */  
     public boolean detectMobileQuick() {  
         //Let's exclude tablets  
-        if (detectTierTablet())   
-            return false;  
+        if (detectTierTablet()) {
+            return false;
+        }
           
                 if ((initCompleted == true) ||  
-                        (isMobilePhone == true))  
-                        return isMobilePhone;  
+                        (isMobilePhone == true)) {
+                    return isMobilePhone;
+                }
   
         //Most mobile browsing is done on smartphones  
-        if (detectSmartphone())   
-            return true;  
+        if (detectSmartphone()) {
+            return true;
+        }
   
         if (detectWapWml()  
                         || detectBrewDevice()  
-                        || detectOperaMobile())   
-            return true;  
+                        || detectOperaMobile()) {
+            return true;
+        }
   
         if ((userAgent.indexOf(engineObigo) != -1)   
                         || (userAgent.indexOf(engineNetfront) != -1)   
                         || (userAgent.indexOf(engineUpBrowser) != -1)   
-                        || (userAgent.indexOf(engineOpenWeb) != -1))   
-            return true;  
+                        || (userAgent.indexOf(engineOpenWeb) != -1)) {
+            return true;
+        }
   
         if (detectDangerHiptop()  
                         || detectMidpCapable()  
                         || detectMaemoTablet()  
-                        || detectArchos())   
-            return true;  
+                        || detectArchos()) {
+            return true;
+        }
   
         if ((userAgent.indexOf(devicePda) != -1) &&  
                         (userAgent.indexOf(disUpdate) < 0)) //no index found  
-            return true;  
+        {
+            return true;
+        }
           
-        if (userAgent.indexOf(mobile) != -1)   
-            return true;  
+        if (userAgent.indexOf(mobile) != -1) {
+            return true;
+        }
   
         //We also look for Kindle devices  
         return detectKindle()
@@ -856,19 +878,25 @@ public class UAgentInfo {
         }  
   
         //detect older phones from certain manufacturers and operators.  
-        if (userAgent.indexOf(uplink) != -1)  
-            return true;  
-        if (userAgent.indexOf(manuSonyEricsson) != -1)  
-            return true;  
-        if (userAgent.indexOf(manuericsson) != -1)  
-            return true;  
-        if (userAgent.indexOf(manuSamsung1) != -1)  
-            return true;  
-  
-        if (userAgent.indexOf(svcDocomo) != -1)   
-            return true;  
-        if (userAgent.indexOf(svcKddi) != -1)  
+        if (userAgent.indexOf(uplink) != -1) {
             return true;
+        }
+        if (userAgent.indexOf(manuSonyEricsson) != -1) {
+            return true;
+        }
+        if (userAgent.indexOf(manuericsson) != -1) {
+            return true;
+        }
+        if (userAgent.indexOf(manuSamsung1) != -1) {
+            return true;
+        }
+  
+        if (userAgent.indexOf(svcDocomo) != -1) {
+            return true;
+        }
+        if (userAgent.indexOf(svcKddi) != -1) {
+            return true;
+        }
         return userAgent.indexOf(svcVodafone) != -1;
 
     }
@@ -886,8 +914,9 @@ public class UAgentInfo {
      */  
     public boolean detectTierTablet() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isTierTablet == true))  
-                        return this.isTierTablet;
+                        (this.isTierTablet == true)) {
+                    return this.isTierTablet;
+                }
 
         return detectIpad()
                 || detectAndroidTablet()
@@ -904,8 +933,9 @@ public class UAgentInfo {
      */  
     public boolean detectTierIphone() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isTierIphone == true))  
-                        return this.isTierIphone;
+                        (this.isTierIphone == true)) {
+                    return this.isTierIphone;
+                }
 
         return detectIphoneOrIpod()
                 || detectAndroidPhone()
@@ -929,8 +959,9 @@ public class UAgentInfo {
      */  
     public boolean detectTierRichCss() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isTierRichCss == true))  
-                        return this.isTierRichCss;  
+                        (this.isTierRichCss == true)) {
+                    return this.isTierRichCss;
+                }
   
                 boolean result = false;  
   
@@ -964,8 +995,9 @@ public class UAgentInfo {
      */  
     public boolean detectTierOtherPhones() {  
                 if ((this.initCompleted == true) ||  
-                        (this.isTierGenericMobile == true))  
-                        return this.isTierGenericMobile;  
+                        (this.isTierGenericMobile == true)) {
+                    return this.isTierGenericMobile;
+                }
   
         //Exclude devices in the other 2 categories  
         return detectMobileLong()

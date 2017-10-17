@@ -16,7 +16,7 @@ public class NSXmlUtils {
 		factory.setXPathNamespaceURIs(nameSpaceMap);
 	}
 	/**
-	 * Map<String, String> nameSpaceMap = new HashMap<String, String>();
+	 * Map<String, String> nameSpaceMap = Maps.newHashMap();
 	 * example: nameSpaceMap.put("gm", "http://earth.google.com/kml/2.0");
 	 * Xpath like: /gm:root/gm:sub
 	 * @param xml

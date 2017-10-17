@@ -31,13 +31,17 @@ public class ValidateUtil implements Util4Script {
 		return ydMobile.contains(mobile.substring(0, 3));
 	}
 	public static boolean isEmail(String email){
-		if(StringUtils.isBlank(email)) return false;
+		if(StringUtils.isBlank(email)) {
+            return false;
+        }
 		//return StringUtil.regMatch3(email, "^[^\\s@]*[a-z0-9]+[a-z0-9._-]+@(?:[a-z0-9_-]+\\.)+[a-z0-9_-]+[^\\s]*$", true);
 		//return StringUtil.regMatch3(email, "^([\\w]+([-\\.]*[\\w]+)*)+@[\\w-]+(\\.[\\w-]+)+$", true);
 		return StringUtil.regMatch(email, "^[A-Z0-9._-]+@[A-Z0-9_-]+(\\.[A-Z0-9_-]+)*(\\.[A-Z]{2,4})+$", true);
 	}
 	public static boolean isMobile(String mobile) {
-		if(StringUtils.isBlank(mobile)) return false;
+		if(StringUtils.isBlank(mobile)) {
+            return false;
+        }
 		return StringUtil.regMatch(mobile, "^1[34578]{1}\\d{9}$", true);
 	}
 	public static boolean isNumber(String number) {
@@ -80,7 +84,9 @@ public class ValidateUtil implements Util4Script {
 	 * @return
 	 */
 	public static boolean isVariable(String variable, int length1, int length2) {
-		if(StringUtils.isBlank(variable)) return false;
+		if(StringUtils.isBlank(variable)) {
+            return false;
+        }
 		return StringUtil.regMatch(variable, "^\\w{" + length1 + "," + length2 + "}$", true);
 	}
 	/**
@@ -91,11 +97,15 @@ public class ValidateUtil implements Util4Script {
 	 * @return
 	 */
 	public static boolean isCNVariable(String variable, int length1, int length2) {
-		if(StringUtils.isBlank(variable)) return false;
+		if(StringUtils.isBlank(variable)) {
+            return false;
+        }
 		return StringUtil.regMatch(variable, "^[\\w+$\\u4e00-\\u9fa5]{" + length1 + "," + length2 +"}$", true);
 	}
 	public static boolean isPhone(String phone){
-		if(StringUtils.isBlank(phone)) return false;
+		if(StringUtils.isBlank(phone)) {
+            return false;
+        }
 		return StringUtil.regMatch(phone, "^[0-9,-]{6,24}$", true);
 	}
 	public static boolean isPostCode(String postcode) {
@@ -109,13 +119,19 @@ public class ValidateUtil implements Util4Script {
 	 * @return
 	 */
 	public static String validateNewsContent(String spchar, String content){
-		if(StringUtils.isBlank(spchar)) spchar = spcharList;
+		if(StringUtils.isBlank(spchar)) {
+            spchar = spcharList;
+        }
 		String result = "";
-		if(StringUtils.isBlank(content)) return result;
+		if(StringUtils.isBlank(content)) {
+            return result;
+        }
 		char c = 'a';
 		for(int i=0, length=content.length();i<length; i++){
 			c = content.charAt(i);
-			if(c < 128 || c>=cncharRange[0] && c<=cncharRange[1] || spchar.indexOf(c)>=0) continue;
+			if(c < 128 || c>=cncharRange[0] && c<=cncharRange[1] || spchar.indexOf(c)>=0) {
+                continue;
+            }
 			result += "[" + i + "=" + c + "]";
 		}
 		return result;

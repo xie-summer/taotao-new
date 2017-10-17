@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class Paginator {
 
-	private long total = 0l;			// 总记录数
+	private long total = 0L;			// 总记录数
 	private int page = 1;				// 当前页数
 	private long totalPage = 1;			// 总页数
 	private int rows = 10;				// 每页记录数
@@ -129,15 +129,18 @@ public class Paginator {
 			String params = "";
 			String[] querys = query.split("&");
 			for (int i = 0; i < querys.length; i++) {
-				if (querys[i].startsWith(param))
+				if (querys[i].startsWith(param)) {
 					continue;
-				if (params.equals(""))
+				}
+				if ("".equals(params)) {
 					params = querys[i];
-				else
+				} else {
 					params += "&" + querys[i];
+				}
 			}
-			if (!params.equals(""))
+			if (!"".equals(params)) {
 				url += "?" + params;
+			}
 		}
 		// 结果html
 		String pages = "";

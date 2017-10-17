@@ -11,6 +11,7 @@ public class AliOssServiceImpl implements AliOssService {
      * 生成签名
      *
      */
+    @Override
     public ErrorCode policy() {
         return null;
     }

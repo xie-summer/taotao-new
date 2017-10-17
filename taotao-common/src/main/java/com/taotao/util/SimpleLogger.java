@@ -207,8 +207,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 		sb.append(" entry with (");
 		for (int i = 0; i < len; i++) {
 			sb.append("{}");
-			if (i != len - 1)
-				sb.append(", ");
+			if (i != len - 1) {
+                sb.append(", ");
+            }
 		}
 		sb.append(')');
 		return sb.toString();
@@ -217,8 +218,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void warn(String msg, Throwable t) {
 		LoggerUtils.incrementCount(t, null/*忽略*/);
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, t);
 		} else {
@@ -228,8 +230,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 
 	@Override
 	public void warn(String msg) {
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -239,8 +242,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 
 	@Override
 	public void error(String msg) {
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -251,8 +255,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void error(String msg, Throwable t) {
 		LoggerUtils.incrementCount(t, null/*忽略*/);
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, t);
 		} else {
@@ -263,8 +268,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void warnMap(String type, Map msgMap) {
 		String msg = "" + msgMap;
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -274,8 +280,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void warnMap(Map msgMap) {
 		String msg = "" + msgMap;
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -286,8 +293,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void errorMap(String type, Map msgMap) {
 		String msg = "" + msgMap;
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -297,8 +305,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void errorMap(Map msgMap) {
 		String msg = "" + msgMap;
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -309,8 +318,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void warnWithType(String type, String msg, Throwable t) {
 		LoggerUtils.incrementCount(t, null/*忽略*/);
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, type + msg, null, t);
 		} else {
@@ -320,8 +330,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 
 	@Override
 	public void warnWithType(String type, String msg) {
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, type + msg, null, null);
 		} else {
@@ -331,7 +342,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 
 	@Override
 	public void errorWithType(String type, String msg) {
-		if (!logger.isErrorEnabled()) return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, type + msg, null, null);
 		} else {
@@ -342,7 +355,9 @@ public class SimpleLogger extends LoggerWrapper implements Logger, TLogger {
 	@Override
 	public void errorWithType(String type, String msg, Throwable t) {
 		LoggerUtils.incrementCount(t, null/*忽略*/);
-		if (!logger.isErrorEnabled()) return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, type + msg, null, t);
 		} else {

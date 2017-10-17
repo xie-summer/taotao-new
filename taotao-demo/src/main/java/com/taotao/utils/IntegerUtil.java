@@ -46,7 +46,8 @@ public class IntegerUtil {
 		return totalInteger;
 	}
 	
-	public String toString(){
+	@Override
+    public String toString(){
 		return StringUtil.toString(totalInteger);
 	}
 

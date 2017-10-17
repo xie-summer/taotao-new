@@ -82,7 +82,7 @@ public class LogAspect {
         upmsLog.setBasePath(RequestUtil.getBasePath(request));
         upmsLog.setIp(RequestUtil.getIpAddr(request));
         upmsLog.setMethod(request.getMethod());
-        if (request.getMethod().equalsIgnoreCase("GET")) {
+        if ("GET".equalsIgnoreCase(request.getMethod())) {
             upmsLog.setParameter(request.getQueryString());
         } else {
             upmsLog.setParameter(ObjectUtils.toString(request.getParameterMap()));

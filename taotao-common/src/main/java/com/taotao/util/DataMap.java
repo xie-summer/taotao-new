@@ -13,22 +13,30 @@ public class DataMap implements Map {
 	}
 	public Long longValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Long.parseLong(value.toString());
 	}
 	public Integer intValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Integer.parseInt(value.toString());
 	}
 	public Double doubleValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return Double.parseDouble(value.toString());
 	}
 	public Timestamp timestampValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		if(value instanceof Timestamp){
 			return (Timestamp) value;
 		}else{
@@ -37,7 +45,9 @@ public class DataMap implements Map {
 	}
 	public Date dateValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		if(value instanceof Date){
 			return (Date) value;	
 		}
@@ -45,7 +55,9 @@ public class DataMap implements Map {
 	}
 	public String stringValue(String key){
 		Object value = map.get(key);
-		if(value==null) return null;
+		if(value==null) {
+            return null;
+        }
 		return value.toString();
 	}
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

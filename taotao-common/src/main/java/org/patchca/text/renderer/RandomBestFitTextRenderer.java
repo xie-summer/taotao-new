@@ -3,7 +3,8 @@ package org.patchca.text.renderer;
 import java.util.Random;
 
 public class RandomBestFitTextRenderer extends AbstractTextRenderer {
-	protected void arrangeCharacters(int width, int height, TextString ts) {
+	@Override
+    protected void arrangeCharacters(int width, int height, TextString ts) {
 		Random r = new Random();
 		this.leftMargin = r.nextInt(10);
 		this.topMargin = r.nextInt(3);

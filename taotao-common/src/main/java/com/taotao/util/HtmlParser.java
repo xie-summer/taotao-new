@@ -32,7 +32,9 @@ public class HtmlParser {
 	 * @return
 	 */
 	public static String getHtmlText(String html){
-		if(StringUtils.isBlank(html)) return html;
+		if(StringUtils.isBlank(html)) {
+            return html;
+        }
 		String html2 = html.replaceAll("&nbsp;", " ");
 		html2 = html2.replaceAll("<br/>", "\n");
 		html2 = html2.replaceAll("<br />", "\n");

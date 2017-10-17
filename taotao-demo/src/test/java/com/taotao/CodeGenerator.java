@@ -116,7 +116,7 @@ public class CodeGenerator {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
 
-            Map<String, Object> data = new HashMap<>();
+            Map<String, Object> data = Maps.newHashMap();
             data.put("date", DATE);
             data.put("author", AUTHOR);
             String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
@@ -148,7 +148,7 @@ public class CodeGenerator {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
 
-            Map<String, Object> data = new HashMap<>();
+            Map<String, Object> data = Maps.newHashMap();
             data.put("date", DATE);
             data.put("author", AUTHOR);
             data.put("baseRequestMapping", tableNameConvertMappingPath(tableName));

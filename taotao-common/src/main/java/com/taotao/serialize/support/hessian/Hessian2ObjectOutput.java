@@ -18,52 +18,62 @@ public class Hessian2ObjectOutput implements ObjectOutput
 		mH2o.setSerializerFactory(Hessian2SerializerFactory.SERIALIZER_FACTORY);
 	}
 
-	public void writeBool(boolean v) throws IOException
+	@Override
+    public void writeBool(boolean v) throws IOException
 	{
 		mH2o.writeBoolean(v);
 	}
 
-	public void writeByte(byte v) throws IOException
+	@Override
+    public void writeByte(byte v) throws IOException
 	{
 		mH2o.writeInt(v);
 	}
 
-	public void writeShort(short v) throws IOException
+	@Override
+    public void writeShort(short v) throws IOException
 	{
 		mH2o.writeInt(v);
 	}
 
-	public void writeInt(int v) throws IOException
+	@Override
+    public void writeInt(int v) throws IOException
 	{
 		mH2o.writeInt(v);
 	}
 
-	public void writeLong(long v) throws IOException
+	@Override
+    public void writeLong(long v) throws IOException
 	{
 		mH2o.writeLong(v);
 	}
 
-	public void writeFloat(float v) throws IOException
+	@Override
+    public void writeFloat(float v) throws IOException
 	{
 		mH2o.writeDouble(v);
 	}
 
-	public void writeDouble(double v) throws IOException
+	@Override
+    public void writeDouble(double v) throws IOException
 	{
 		mH2o.writeDouble(v);
 	}
 
-	public void writeBytes(byte[] b) throws IOException
+	@Override
+    public void writeBytes(byte[] b) throws IOException
 	{
 		mH2o.writeBytes(b);
 	}
 
-	public void writeBytes(byte[] b, int off, int len) throws IOException
+	@Override
+    public void writeBytes(byte[] b, int off, int len) throws IOException
 	{
 		mH2o.writeBytes(b, off, len);
 	}
 
-	public void writeUTF(String v) throws IOException
+	@Override
+    public void writeUTF(String v) throws IOException
 	{
 		/**
 		 * xxx Writes a string value to the stream using UTF-8 encoding.
@@ -71,12 +81,14 @@ public class Hessian2ObjectOutput implements ObjectOutput
 		mH2o.writeString(v);
 	}
 
-	public void writeObject(Object obj) throws IOException
+	@Override
+    public void writeObject(Object obj) throws IOException
 	{
 		mH2o.writeObject(obj);
 	}
 
-	public void flushBuffer() throws IOException
+	@Override
+    public void flushBuffer() throws IOException
 	{
 		mH2o.flushBuffer();
 	}

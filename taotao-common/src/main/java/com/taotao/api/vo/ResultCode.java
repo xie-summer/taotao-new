@@ -33,7 +33,9 @@ public class ResultCode<T> implements Serializable{
 	public static ResultCode SUCCESS = new ResultCode(CODE_SUCCESS, "操作成功！", null);
 	@Override
 	public boolean equals(Object another){
-		if(another == null || !(another instanceof ResultCode)) return false;
+		if(another == null || !(another instanceof ResultCode)) {
+            return false;
+        }
 		return this.errcode== ((ResultCode)another).errcode;
 	}
 	public boolean isSuccess(){
@@ -52,7 +54,7 @@ public class ResultCode<T> implements Serializable{
 		return new ResultCode(CODE_SUCCESS, null, retval);
 	}
 	public static ResultCode getSuccessMap(){
-		return new ResultCode(CODE_SUCCESS, null, new HashMap());
+		return new ResultCode(CODE_SUCCESS, null, Maps.newHashMap());
 	}
 	public static <T> ResultCode getFailureReturn(T retval){
 		return new ResultCode(CODE_UNKNOWN_ERROR, null, retval);

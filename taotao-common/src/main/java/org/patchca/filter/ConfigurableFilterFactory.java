@@ -6,7 +6,8 @@ import java.util.List;
 public class ConfigurableFilterFactory extends AbstractFilterFactory {
 	private List<BufferedImageOp> filters;
 
-	public List<BufferedImageOp> getFilters() {
+	@Override
+    public List<BufferedImageOp> getFilters() {
 		return this.filters;
 	}
 

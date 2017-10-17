@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * Created by sunder on 2017/08/15.
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class RoleServiceImpl extends AbstractService<Role> implements RoleService {
     @Resource
     private RoleMapper roleMapper;

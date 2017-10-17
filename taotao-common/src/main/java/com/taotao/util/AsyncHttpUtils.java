@@ -214,14 +214,16 @@ public class AsyncHttpUtils {
 
 	private static String getFullUrl(String url, Map<String, String> params, String encode) {
 		if (params != null) {
-			if (url.indexOf('?') == -1)
-				url += "?";
-			else
-				url += "&";
+			if (url.indexOf('?') == -1) {
+                url += "?";
+            } else {
+                url += "&";
+            }
 			for (String name : params.keySet()) {
 				try {
-					if (StringUtils.isNotBlank(params.get(name)))
-						url += name + "=" + URLEncoder.encode(params.get(name), encode) + "&";
+					if (StringUtils.isNotBlank(params.get(name))) {
+                        url += name + "=" + URLEncoder.encode(params.get(name), encode) + "&";
+                    }
 				} catch (UnsupportedEncodingException e) {
 				}
 			}

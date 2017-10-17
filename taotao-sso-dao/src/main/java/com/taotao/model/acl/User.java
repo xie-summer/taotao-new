@@ -95,8 +95,9 @@ public class User extends GewaraUser {
             return null;
         }
         int index = username.indexOf('@');
-        if (index > 0)
+        if (index > 0) {
             return "m-" + username.substring(0, index);
+        }
         return "m-" + username;
     }
 

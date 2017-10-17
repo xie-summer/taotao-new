@@ -63,8 +63,9 @@ public class Sign {
 	 * @return 返回null 或 32位16进制大写字符串
 	 */
 	public static String signMD5(Map<String, String> params, String secretCode){
-		if(params == null || params.isEmpty())
-			return "";
+		if(params == null || params.isEmpty()) {
+            return "";
+        }
 		if(params instanceof TreeMap){
 			return signMD5Inner((TreeMap<String, String>) params, secretCode);
 		}else{

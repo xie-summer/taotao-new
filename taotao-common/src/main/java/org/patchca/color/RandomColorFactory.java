@@ -21,7 +21,8 @@ public class RandomColorFactory implements ColorFactory {
 		this.max = max;
 	}
 
-	public Color getColor(int index) {
+	@Override
+    public Color getColor(int index) {
 		if (this.color == null) {
 			Random r = new Random();
 			this.color = new Color(this.min.getRed() + r.nextInt(this.max.getRed() - this.min.getRed()), this.min.getGreen() + r.nextInt(this.max.getGreen() - this.min.getGreen()), this.min.getBlue()

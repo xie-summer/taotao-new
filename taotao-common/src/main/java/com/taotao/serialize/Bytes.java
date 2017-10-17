@@ -36,12 +36,15 @@ public class Bytes {
 	 * @return hex string.
 	 */
 	public static String bytes2hex(byte[] bs, int off, int len) {
-		if (off < 0)
-			throw new IndexOutOfBoundsException("bytes2hex: offset < 0, offset is " + off);
-		if (len < 0)
-			throw new IndexOutOfBoundsException("bytes2hex: length < 0, length is " + len);
-		if (off + len > bs.length)
-			throw new IndexOutOfBoundsException("bytes2hex: offset + length > array length.");
+		if (off < 0) {
+            throw new IndexOutOfBoundsException("bytes2hex: offset < 0, offset is " + off);
+        }
+		if (len < 0) {
+            throw new IndexOutOfBoundsException("bytes2hex: length < 0, length is " + len);
+        }
+		if (off + len > bs.length) {
+            throw new IndexOutOfBoundsException("bytes2hex: offset + length > array length.");
+        }
 
 		byte b;
 		int r = off, w = 0;

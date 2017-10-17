@@ -65,8 +65,9 @@ class HtmlCharacterEntityDecoder {
 					originalMessage.indexOf('&', nextPotentialReferencePosition);
 
 			if (nextSemicolonPosition != -1 &&
-					nextSemicolonPosition < nextPotentialReferencePosition)
-				nextSemicolonPosition = originalMessage.indexOf(';', nextPotentialReferencePosition + 1);
+					nextSemicolonPosition < nextPotentialReferencePosition) {
+                nextSemicolonPosition = originalMessage.indexOf(';', nextPotentialReferencePosition + 1);
+            }
 
 			boolean isPotentialReference =
 					nextPotentialReferencePosition != -1
@@ -99,8 +100,9 @@ class HtmlCharacterEntityDecoder {
 				currentPosition = skipUntilIndex;
 			}
 			else {
-				while (currentPosition < skipUntilIndex)
-					decodedMessage.append(originalMessage.charAt(currentPosition++));
+				while (currentPosition < skipUntilIndex) {
+                    decodedMessage.append(originalMessage.charAt(currentPosition++));
+                }
 			}
 		}
 	}

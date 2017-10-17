@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by sunder on 2017/08/15.
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = RuntimeException.class)
 public class TCartServiceImpl extends AbstractService<Cart> implements CartService {
     @Autowired
     private CartMapper tCartMapper;

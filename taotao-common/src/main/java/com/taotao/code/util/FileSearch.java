@@ -26,10 +26,15 @@ public class FileSearch {
 		List<File> dirList = new ArrayList<File>();
 		System.out.println("search " + dir.getCanonicalPath() + " ...");
 		for(File f:result){
-			if(f.isDirectory()) dirList.add(f);
-			else writer.append(f.getCanonicalPath() + "\t" + f.lastModified() + "\t" + f.length() + "\n");
+			if(f.isDirectory()) {
+                dirList.add(f);
+            } else {
+                writer.append(f.getCanonicalPath() + "\t" + f.lastModified() + "\t" + f.length() + "\n");
+            }
 		}
-		for(File f:dirList) searchFile(f, writer, filter);
+		for(File f:dirList) {
+            searchFile(f, writer, filter);
+        }
 	}
 	public static void searchFile(File dir, Writer writer, Date from) throws IOException{
 		searchFile(dir, writer, new DateFileFilter(from));
@@ -42,7 +47,9 @@ public class FileSearch {
 		@Override
 		public boolean accept(File dir, String name) {
 			File f = new File(dir, name);
-			if(f.isDirectory()) return true;
+			if(f.isDirectory()) {
+                return true;
+            }
 			return f.lastModified() > from; 
 		}
 	}
@@ -56,18 +63,26 @@ public class FileSearch {
 		@Override
 		public boolean accept(File dir, String name) {
 			File f = new File(dir, name);
-			if(f.isDirectory()) return true;
-			if(f.lastModified() < from) return false; 
+			if(f.isDirectory()) {
+                return true;
+            }
+			if(f.lastModified() < from) {
+                return false;
+            }
 			boolean result = StringUtils.startsWith(name, "w") || 
 			StringUtils.startsWith(name, "sw") || StringUtils.startsWith(name, "rw");
-			if(onlyGen) return result;
+			if(onlyGen) {
+                return result;
+            }
 			return !result;
 		}
 	}
 	
 	public static List<String> findInFile(String file, List<String> searchKeyList) throws IOException{
 		String encoding = "GBK";
-		if(file.endsWith(".vm")) encoding = "UTF-8";
+		if(file.endsWith(".vm")) {
+            encoding = "UTF-8";
+        }
 		InputStream is = new BufferedInputStream(new FileInputStream(file));
 		List<String> fileLines = IOUtils.readLines(is, encoding);
 		is.close();
@@ -102,9 +117,14 @@ public class FileSearch {
 		List<File> dirList = new ArrayList<File>();
 		System.out.println("search " + dir.getCanonicalPath() + " ...");
 		for(File f:result){
-			if(f.isDirectory()) dirList.add(f);
-			else fileList.add(f.getCanonicalPath());
+			if(f.isDirectory()) {
+                dirList.add(f);
+            } else {
+                fileList.add(f.getCanonicalPath());
+            }
 		}
-		for(File f:dirList) searchFile(f, fileList, filter);
+		for(File f:dirList) {
+            searchFile(f, fileList, filter);
+        }
 	}
 }

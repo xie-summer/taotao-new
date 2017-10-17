@@ -72,17 +72,19 @@ public class JsonUtils {
 
 	public static Map readJsonToMap(String json) {
 		if (StringUtils.isBlank(json)){
-			return new HashMap();
+			return Maps.newHashMap();
 		}
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(TJsonModule.TAOTAO_MODULE);
 		try {
 			Map result = mapper.readValue(json, Map.class);
-			if (result == null) result = new HashMap();
+			if (result == null) {
+                result = Maps.newHashMap();
+            }
 			return result;
 		} catch (Exception e) {
 			dbLogger.error("json:" + StringUtils.substring(json, 0, 500) + "\n" + LoggerUtils.getExceptionTrace(e, 15));
-			return new HashMap();
+			return Maps.newHashMap();
 		}
 
 	}
@@ -146,7 +148,7 @@ public class JsonUtils {
 
 	public static Map readJsonToMap(String json, PropertyNamingStrategy pns) {
 		if (StringUtils.isBlank(json)){
-			return new HashMap();
+			return Maps.newHashMap();
 		}
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(TJsonModule.TAOTAO_MODULE);
@@ -155,11 +157,13 @@ public class JsonUtils {
 		}
 		try {
 			Map result = mapper.readValue(json, Map.class);
-			if (result == null) result = new HashMap();
+			if (result == null) {
+                result = Maps.newHashMap();
+            }
 			return result;
 		} catch (Exception e) {
 			dbLogger.error("json:" + StringUtils.substring(json, 0, 500) + "\n" + LoggerUtils.getExceptionTrace(e, 15));
-			return new HashMap();
+			return Maps.newHashMap();
 		}
 	}
 	
@@ -176,7 +180,9 @@ public class JsonUtils {
 		return writeObject(object, null, null, excludeNull);
 	}
 	private static String writeObject(Object object, OutputStream os, Writer writer, boolean excludeNull) {
-		if (object == null)	return null;
+		if (object == null) {
+            return null;
+        }
 		if(object instanceof Map){
 			try{((Map) object).remove(null);}catch(Exception e){}
 		}
@@ -205,7 +211,9 @@ public class JsonUtils {
 	}
 	
 	public static String writeMapToJson(Map<String, String> dataMap){
-		if(dataMap==null) return null;
+		if(dataMap==null) {
+            return null;
+        }
 		if(dataMap instanceof HashMap){
 			try{dataMap.remove(null);}catch(Exception e){}
 		}

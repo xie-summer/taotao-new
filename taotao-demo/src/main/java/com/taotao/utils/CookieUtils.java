@@ -157,8 +157,9 @@ public class CookieUtils {
 				cookieValue = URLEncoder.encode(cookieValue, "utf-8");
 			}
 			Cookie cookie = new Cookie(cookieName, cookieValue);
-			if (cookieMaxage > 0)
-				cookie.setMaxAge(cookieMaxage);
+			if (cookieMaxage > 0) {
+                cookie.setMaxAge(cookieMaxage);
+            }
 			if (null != request) {// 设置域名的cookie
 				String domainName = getDomainName(request);
 				if (!"localhost".equals(domainName)) {
@@ -188,8 +189,9 @@ public class CookieUtils {
 				cookieValue = URLEncoder.encode(cookieValue, encodeString);
 			}
 			Cookie cookie = new Cookie(cookieName, cookieValue);
-			if (cookieMaxage > 0)
-				cookie.setMaxAge(cookieMaxage);
+			if (cookieMaxage > 0) {
+                cookie.setMaxAge(cookieMaxage);
+            }
 			if (null != request) {// 设置域名的cookie
 				String domainName = getDomainName(request);
 				System.out.println(domainName);
@@ -211,7 +213,7 @@ public class CookieUtils {
 		String domainName = null;
 
 		String serverName = request.getRequestURL().toString();
-		if (serverName == null || serverName.equals("")) {
+		if (serverName == null || "".equals(serverName)) {
 			domainName = "";
 		} else {
 			serverName = serverName.toLowerCase();

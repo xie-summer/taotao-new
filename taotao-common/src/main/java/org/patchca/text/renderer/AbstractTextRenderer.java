@@ -21,23 +21,28 @@ public abstract class AbstractTextRenderer implements TextRenderer {
 		this.topMargin = (this.bottomMargin = 0);//old 5
 	}
 
-	public void setLeftMargin(int leftMargin) {
+	@Override
+    public void setLeftMargin(int leftMargin) {
 		this.leftMargin = leftMargin;
 	}
 
-	public void setRightMargin(int rightMargin) {
+	@Override
+    public void setRightMargin(int rightMargin) {
 		this.rightMargin = rightMargin;
 	}
 
-	public void setTopMargin(int topMargin) {
+	@Override
+    public void setTopMargin(int topMargin) {
 		this.topMargin = topMargin;
 	}
 
-	public void setBottomMargin(int bottomMargin) {
+	@Override
+    public void setBottomMargin(int bottomMargin) {
 		this.bottomMargin = bottomMargin;
 	}
 
-	public void draw(String text, BufferedImage canvas, FontFactory fontFactory, ColorFactory colorFactory) {
+	@Override
+    public void draw(String text, BufferedImage canvas, FontFactory fontFactory, ColorFactory colorFactory) {
 		Graphics2D g = (Graphics2D) canvas.getGraphics();
 		TextString ts = convertToCharacters(text, g, fontFactory, colorFactory);
 		arrangeCharacters(canvas.getWidth(), canvas.getHeight(), ts);

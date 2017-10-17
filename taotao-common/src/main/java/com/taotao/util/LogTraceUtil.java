@@ -35,6 +35,10 @@ public class LogTraceUtil {
     }
 
     public static interface LogTrace {
+        /**
+         * 获取堆栈信息
+         * @return
+         */
         String getTrace();
     }
 }

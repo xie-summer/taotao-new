@@ -22,10 +22,23 @@ public interface CacheService extends CacheTools {
      */
     <T extends BaseObject> void cleanUkey(Class<T> claszz, String key, Long mpid);
 
+    /**
+     * 清理缓存
+     *
+     * @param claszz
+     * @param key
+     * @param ukey
+     * @param <T>
+     */
     <T extends BaseObject> void cleanUkey(Class<T> claszz, String key, String ukey);
 
     /**
      * @function 多个key
+     */
+    /**
+     * @param regionName
+     * @param keys
+     * @return
      */
     Map<String, Object> getBulk(String regionName, Collection<String> keys);
 
@@ -44,8 +57,17 @@ public interface CacheService extends CacheTools {
      */
     void updateValue(String regionName, String key, String newvalue);
 
+    /**
+     * 刷新版本
+     */
     void refreshVersion();
 
+    /**
+     * 获取时间
+     *
+     * @param region
+     * @return
+     */
     Integer getCacheTime(String region);
 
     /**
@@ -69,6 +91,11 @@ public interface CacheService extends CacheTools {
      */
     int incrementAndGet(String regionName, String key, int by, int def);
 
+    /**
+     * @param regionName
+     * @param key
+     * @return
+     */
     CachePair getCachePair(String regionName, String key);
 
     /**
@@ -81,6 +108,12 @@ public interface CacheService extends CacheTools {
      */
     boolean setCachePair(String regionName, String key, long version, Object value, int expSeconds);
 
+    /**
+     * @param regionName
+     * @param key
+     * @param value
+     * @param expSeconds
+     */
     void add(String regionName, String key, Object value, int expSeconds);
 
     /**
@@ -106,5 +139,8 @@ public interface CacheService extends CacheTools {
      */
     int incrementAndGet(String regionName, String key, int by, int def, int exp);
 
+    /**
+     * @param regionVersion
+     */
     void refreshVersion(Map<String, String> regionVersion);
 }

@@ -49,7 +49,9 @@ public class VoMap<K, V> implements Map<K, V>, Serializable{
 	 * @return
 	 */
 	private boolean checkValue(Object value, int deep){
-		if(value==null) return true;
+		if(value==null) {
+            return true;
+        }
 		if(deep >= 7){//最多6层嵌套
 			return false;
 		}

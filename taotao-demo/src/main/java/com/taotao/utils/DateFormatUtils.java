@@ -460,8 +460,9 @@ public class DateFormatUtils {
 	}
 	
 	public static String toLongStr(Calendar c) {
-		if (c==null) 
-			return "";
+		if (c==null) {
+            return "";
+        }
 		
 		String s = toShortStr(c);
 		
@@ -480,8 +481,9 @@ public class DateFormatUtils {
 	}
 	
 	public static String toShortStr(Calendar c) {
-		if (c==null)
-			return "";
+		if (c==null) {
+            return "";
+        }
 		
 		StringBuffer sb = new StringBuffer();
 		
@@ -499,8 +501,9 @@ public class DateFormatUtils {
 	}
 	
 	private static String paddingZero(int num) {
-		if (num<10)
-			return "0" + num;
+		if (num<10) {
+            return "0" + num;
+        }
 		
 		return "" + num;
 	}

@@ -13,7 +13,8 @@ public class SingleColorFactory implements ColorFactory {
 		this.color = color;
 	}
 
-	public Color getColor(int index) {
+	@Override
+    public Color getColor(int index) {
 		return this.color;
 	}
 

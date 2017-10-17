@@ -49,7 +49,8 @@ public class RippleImageOp extends AbstractTransformImageOp {
 		this.yAmplitude = yAmplitude;
 	}
 
-	protected void transform(int x, int y, double[] t) {
+	@Override
+    protected void transform(int x, int y, double[] t) {
 		double tx = Math.sin(y / this.yWavelength + this.yRandom);
 		double ty = Math.cos(x / this.xWavelength + this.xRandom);
 		t[0] = (x + this.xAmplitude * tx);

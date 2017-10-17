@@ -232,14 +232,17 @@ public final class StringUtil {
                 if (count > length) {
                     result[arrayCount] = sb.toString();
                     arrayCount++;
-                    if (arrayCount > max - 1) break;
+                    if (arrayCount > max - 1) {
+                        break;
+                    }
                     sb = new StringBuilder();
                     count = chLength;
                 }
                 sb.append(ch);
             }
-            if (arrayCount < max)
+            if (arrayCount < max) {
                 result[arrayCount] = sb.toString();
+            }
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UnsupportedEncoding!", e);
         }
@@ -315,7 +318,7 @@ public final class StringUtil {
      * @return
      */
     public static Map<String, String> toMap(String value, String splitCharacter) {
-        Map<String, String> result = new HashMap<String, String>();
+        Map<String, String> result = Maps.newHashMap();
         if (StringUtil.isNotBlank(value)) {
             String[] splitArray = value.split("\\" + splitCharacter); // property1=length
             for (String s : splitArray) {
@@ -334,9 +337,9 @@ public final class StringUtil {
      */
     public static String toString(Object o) {
         String symbol = "####################################.#######################################";
-        if (o == null)
+        if (o == null) {
             return "";
-        else if (o instanceof Date) {
+        } else if (o instanceof Date) {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
                     Locale.CHINA);
             return df.format(o);
@@ -372,8 +375,9 @@ public final class StringUtil {
             return getDateFromString(o);
         } else if ("Boolean".equalsIgnoreCase(type)) {
             return Boolean.valueOf(o);
-        } else
+        } else {
             return o;
+        }
     }
 
     private static Date getDateFromString(String o) {

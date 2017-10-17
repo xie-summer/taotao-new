@@ -43,7 +43,7 @@ public class ResourceUtils {
 	 * @return 资源Map
 	 */
 	public Map<String, String> getMap() {
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = Maps.newHashMap();
 		for(String key: resourceBundle.keySet()) {
 			map.put(key, resourceBundle.getString(key));
 		}

@@ -217,8 +217,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 		sb.append(" entry with (");
 		for (int i = 0; i < len; i++) {
 			sb.append("{}");
-			if (i != len - 1)
-				sb.append(", ");
+			if (i != len - 1) {
+                sb.append(", ");
+            }
 		}
 		sb.append(')');
 		return sb.toString();
@@ -228,8 +229,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warn(String msg, Throwable t) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msg, t);
 		msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -241,8 +243,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warn(String msg) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msg);
 		msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -254,8 +257,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void error(String msg) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msg);
 		msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -267,8 +271,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void error(String msg, Throwable t) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msg, t);
 		msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -280,8 +285,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warnMap(String type, Map msgMap) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msgMap);
 		String msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -292,8 +298,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warnMap(Map msgMap) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msgMap);
 		String msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -305,8 +312,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void errorMap(String type, Map msgMap) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msgMap);
 		String msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -317,8 +325,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void errorMap(Map msgMap) {
 		LogMessage logMsg = new LogMessage(null, server, systemId, msgMap);
 		String msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -330,8 +339,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warnWithType(String type, String msg, Throwable t) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msg, t);
 		msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -343,8 +353,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void warnWithType(String type, String msg) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msg);
 		msg = logMsg.getDataStr();
-		if (!logger.isWarnEnabled())
-			return;
+		if (!logger.isWarnEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.WARN_INT, msg, null, null);
 		} else {
@@ -356,8 +367,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void errorWithType(String type, String msg) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msg);
 		msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {
@@ -369,8 +381,9 @@ public class JsonLogger extends LoggerWrapper implements Logger, TLogger {
 	public void errorWithType(String type, String msg, Throwable t) {
 		LogMessage logMsg = new LogMessage(type, server, systemId, msg, t);
 		msg = logMsg.getDataStr();
-		if (!logger.isErrorEnabled())
-			return;
+		if (!logger.isErrorEnabled()) {
+            return;
+        }
 		if (instanceofLAL) {
 			((LocationAwareLogger) logger).log(null, FQCN, LocationAwareLogger.ERROR_INT, msg, null, null);
 		} else {

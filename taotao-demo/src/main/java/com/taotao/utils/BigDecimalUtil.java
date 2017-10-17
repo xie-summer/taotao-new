@@ -71,7 +71,8 @@ public class BigDecimalUtil {
 		return this;
 	}
 	
-	public String toString(){
+	@Override
+    public String toString(){
 		return StringUtil.toString(totalBigDecimal);
 	}
 	

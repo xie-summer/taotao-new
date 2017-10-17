@@ -18,10 +18,12 @@ public abstract class BaseObject implements LocalCachable, Serializable {
 
     @Override
     public final boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         BaseObject other = (BaseObject) obj;
         return !(this.realId() != null ? !(this.realId().equals(other.realId())) : (other.realId() != null));
     }

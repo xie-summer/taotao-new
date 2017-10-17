@@ -73,7 +73,7 @@ public class LoggerUtils {
 	}
 	public static Map<String, Integer> resetExceptionCount(){
 		Map<String, AtomicInteger> cur = exceptionCount;
-		exceptionCount = new ConcurrentHashMap<String, AtomicInteger>();
+		exceptionCount = new ConcurrentHashMap<String, AtomicInteger>(10);
 		criticalCount.set(0);
 		exceptionTimefrom = System.currentTimeMillis();
 		singleMax = 0;
@@ -81,7 +81,7 @@ public class LoggerUtils {
 		return getCountMap(cur);
 	}
 	private static Map<String, Integer> getCountMap(Map<String, AtomicInteger> countMap){
-		Map<String, Integer> result = new HashMap<String, Integer>();
+		Map<String, Integer> result = new HashMap<String, Integer>(10);
 		for(Map.Entry<String, AtomicInteger> entry: countMap.entrySet()){
 			result.put(entry.getKey(), entry.getValue().get());
 		}
@@ -89,18 +89,24 @@ public class LoggerUtils {
 	}
 	public static TLogger getLogger(Class clazz){
 		Logger logger = LoggerFactory.getLogger(clazz);
-		if(notUseJson) return new SimpleLogger(logger);
+		if(notUseJson) {
+            return new SimpleLogger(logger);
+        }
 		return new JsonLogger(logger, IpConfig.getServerip(), null);
 	}
 	public static TLogger getLogger(Class clazz, String serverIp, String systemId) {
 		Logger logger = LoggerFactory.getLogger(clazz);
-		if(notUseJson) return new SimpleLogger(logger);
+		if(notUseJson) {
+            return new SimpleLogger(logger);
+        }
 		return new JsonLogger(logger, serverIp, systemId);
 	}
 
 	public static TLogger getLogger(String name, String serverIp, String systemId){
 		Logger logger = LoggerFactory.getLogger(name);
-		if(notUseJson) return new SimpleLogger(logger);
+		if(notUseJson) {
+            return new SimpleLogger(logger);
+        }
 		return new JsonLogger(logger, serverIp, systemId);
 	}
 

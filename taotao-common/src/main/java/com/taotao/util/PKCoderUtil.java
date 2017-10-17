@@ -108,7 +108,7 @@ public final class PKCoderUtil {
 	}
 
 	// 字节码转换成16进制字符串
-	private static final String byte2hex(byte bytes[]) {
+	private static final String byte2hex(byte[] bytes) {
 		StringBuilder retString = new StringBuilder();
 		for (int i = 0; i < bytes.length; ++i) {
 			retString.append(Integer.toHexString(0x0100 + (bytes[i] & 0x00FF)).substring(1).toUpperCase());
@@ -136,7 +136,9 @@ public final class PKCoderUtil {
 		return null;
 	}
 	public static final String decryptString(String encryptStr, String key){
-		if(StringUtils.isBlank(encryptStr)||encryptStr.length()%2==1) return "";
+		if(StringUtils.isBlank(encryptStr)||encryptStr.length()%2==1) {
+            return "";
+        }
 		try{
 			String tmpKey = StringUtils.rightPad(key, 8, "经");
 			byte[] keys = Arrays.copyOf(tmpKey.getBytes("utf-8"), 8);

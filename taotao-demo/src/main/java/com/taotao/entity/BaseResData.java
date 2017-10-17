@@ -1,5 +1,7 @@
 package com.taotao.entity;
 
+import com.google.common.collect.Maps;
+
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Date;
@@ -71,7 +73,7 @@ public class BaseResData<T> implements Serializable{
 	 * @throws Exception
 	 */
 	public Map<String,String> toMap() throws Exception{
-		Map<String,String> fields = new HashMap<String,String>();
+		Map<String,String> fields = Maps.newHashMap();
 		Field[] origFields = this.getClass().getDeclaredFields();
 		String fieldName = null;
 		Object fieldValue = null;

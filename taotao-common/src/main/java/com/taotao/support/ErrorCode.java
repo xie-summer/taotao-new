@@ -1,5 +1,6 @@
 package com.taotao.support;
 
+import com.google.common.collect.Maps;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
@@ -35,7 +36,9 @@ public class ErrorCode<T> implements Serializable {
 
     @Override
     public boolean equals(Object another) {
-        if (another == null || !(another instanceof ErrorCode)) return false;
+        if (another == null || !(another instanceof ErrorCode)) {
+            return false;
+        }
         return this.errcode == ((ErrorCode) another).errcode;
     }
 
@@ -64,7 +67,7 @@ public class ErrorCode<T> implements Serializable {
     }
 
     public static ErrorCode getSuccessMap() {
-        return new ErrorCode(CODE_SUCCESS, null, new HashMap());
+        return new ErrorCode(CODE_SUCCESS, null, Maps.newHashMap());
     }
 
     public static <T> ErrorCode getFailureReturn(T retval) {
