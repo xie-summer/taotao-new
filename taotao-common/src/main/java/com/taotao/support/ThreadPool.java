@@ -36,7 +36,9 @@ public class ThreadPool extends ThreadGroup {
      */
     private synchronized Runnable getTask(int threadid) throws InterruptedException {
         while (workQueue.size() == 0) {
-            if (isClosed) return null;
+            if (isClosed) {
+                return null;
+            }
             System.out.println("工作线程" + threadid + "等待任务...");
             wait();             //如果工作队列中没有任务,就等待任务
         }
@@ -99,7 +101,9 @@ public class ThreadPool extends ThreadGroup {
                     ex.printStackTrace();
                 }
                 //如果getTask()返回null或者线程执行getTask()时被中断，则结束此线程
-                if (task == null) return;
+                if (task == null) {
+                    return;
+                }
 
                 try {
                     task.run();  //运行任务
